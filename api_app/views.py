@@ -2,20 +2,35 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-from .models import ExampleModel
-
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-@api_view(['GET'])
+@api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
-def example_endpoint(request):
-    data = {"message": "This is a protected endpoint"}
-    return Response(data)
+def answer(request):
+    # Check if the request method is POST
+    if request.method == 'POST':
+        # Get the data from the request body
+        data = request.data
+        
+        # Perform your processing based on the received data
+        # For example, you can access the data and perform some calculations
+        # Here, we'll just echo back the received data
+        processed_data = {
+            'received_data': data,
+            'message': 'Processing complete. This is the output.'
+        }
+        
+        # Return the processed data as a JSON response
+        return Response(processed_data, status=status.HTTP_200_OK)
+    
+    # If the request method is not POST, return a 405 Method Not Allowed response
+    return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
 
 class ObtainAuthToken(APIView):
     """
