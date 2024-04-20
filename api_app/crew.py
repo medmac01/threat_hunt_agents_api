@@ -8,15 +8,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-OLLAMA_HOST="https://983e-197-230-122-195.ngrok-free.app"
+# OLLAMA_HOST="https://983e-197-230-122-195.ngrok-free.app"
 
 sys_prompt_wrn = '''You are a cybersecurity expert. You have been asked to explain a complex cybersecurity concept in technical terms. You need to provide a detailed and technical explanation of the concept in a way that is easy to understand for a non-technical audience. You should include relevant details and examples to help illustrate the concept. You should also provide any necessary background information to help the audience understand the context of the concept. Your explanation should be clear, concise, and engaging. Your goal is to provide a clear and informative explanation that helps the audience understand the concept and its importance in the field of cybersecurity.
 And most importantly, you should not provide any disclaimers or additional information. You should focus on providing a clear and concise explanation of the concept in simple terms. And don't write code nor execute it, just provide the information. Also, don't use any tools from your end, just use the information provided to you.
 AGAIN DON'T USE TOOLS NO MATTER WHAT, JUST USE THE INFORMATION PROVIDED TO YOU.
 '''
 
-llm = Ollama(model="openhermes", base_url=OLLAMA_HOST, temperature=0.1, num_predict=-1)
-wrn = Ollama(model="wrn", base_url=OLLAMA_HOST)
+llm = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.1, num_predict=-1)
+wrn = Ollama(model="wrn", base_url=os.getenv('OLLAMA_HOST'))
 
 
 ioc_search_tool = EventSearchTool().search
