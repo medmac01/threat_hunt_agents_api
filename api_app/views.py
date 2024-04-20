@@ -8,6 +8,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+from .crew import HunterCrew
+
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -20,9 +22,12 @@ def answer(request):
         # Perform your processing based on the received data
         # For example, you can access the data and perform some calculations
         # Here, we'll just echo back the received data
+
+        results = HunterCrew(data).run()
+
         processed_data = {
-            'received_data': data,
-            'message': 'Processing complete. This is the output.'
+            'input': data,
+            'output': results
         }
         
         # Return the processed data as a JSON response
