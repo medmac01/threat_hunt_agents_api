@@ -129,7 +129,8 @@ Final Answer:
       tasks=[combined_search_task, explain_task],
       verbose=2, # You can set it to 1 or 2 to different logging levels
       manager_llm=llm,
-      process=Process.hierarchical
+
+      # process=Process.hierarchical
     )
 
     return HunterCrew.kickoff()
