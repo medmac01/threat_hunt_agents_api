@@ -1,0 +1,14 @@
+crewai==0.28.8
+Django==5.0.4
+djangorestframework==3.15.1
+docstring-parser==0.15
+elastic-transport==8.13.0
+elasticsearch==8.13.0
+huggingface-hub==0.22.2
+langchain==0.1.16
+langchain-community==0.0.34
+langchain-core==0.1.45
+langchain-openai==0.0.5
+langchain-text-splitters==0.0.1
+pymisp==2.4.190
+python-dotenv==1.0.0
