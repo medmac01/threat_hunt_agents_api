@@ -19,9 +19,10 @@ class EventSearchTool():
       Returns:
       - A list of events that match the keyword
       """
+
       
-      if not es.ping():
-        raise "ElasticNotReachable"
+      # if not es.ping():
+      #   raise "ElasticNotReachable"
       
       query = {
           "match": {"value": {

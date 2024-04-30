@@ -12,12 +12,18 @@ def format_cve(cve_response):
     Returns:
     - A list of strings, each a formatted prompt for LLM based on the CVE entries in the response.
     """
-    formatted_prompts = ""
+    formatted_prompts = "Use these CVE Search Results to answer user question:\n\n"
+    
+    if len(cve_response['vulnerabilities']) == 0:
+
+        formatted_prompts = "No CVEs found matching the search criteria."
+        return formatted_prompts
+    
     
     for vulnerability in cve_response['vulnerabilities']:
         cve = vulnerability.get('cve', {})
-        prompt = f"Explain {cve.get('id', 'N/A')} in simple terms:\n\n"
-        prompt += f"- CVE ID: {cve.get('id', 'N/A')}\n"
+        # prompt = f"Explain {cve.get('id', 'N/A')} in simple terms:\n\n"
+        prompt = f"- CVE ID: {cve.get('id', 'N/A')}\n"
         prompt += f"- Status: {cve.get('vulnStatus', 'Unknown')}\n"
         
         descriptions = cve.get('descriptions', [])
@@ -54,16 +60,19 @@ def format_cve(cve_response):
 
 class CVESearchTool():
   @tool("CVE search Tool")
-  def cvesearch(keyword: str):
+  def cvesearch(keyword: str, date: str = None):
     """
     Searches for CVEs based on a keyword or phrase and returns the results in JSON format.
     
     Parameters:
     - keyword (str): A word or phrase to search for in the CVE descriptions.
+    - date (str): An optional date to include in the search query.
     
     Returns:
     - JSON: A list of CVEs matching the keyword search.
     """
+    if date:
+        keyword = f"{keyword} {date}"
     # Encode the spaces in the keyword(s) as "%20" for the URL
     keyword_encoded = keyword.replace(" ", "%20")
     # keyword_encoded = keyword_encoded.join(" 2023")
