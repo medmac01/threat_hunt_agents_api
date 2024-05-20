@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from .crew import HunterCrew
-from . import investigator
+from . import router
 
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
@@ -50,11 +50,12 @@ def answer_v2(request):
         # For example, you can access the data and perform some calculations
         # Here, we'll just echo back the received data
 
-        results = investigator.invoke(data["query"])
+        results = router.invoke(data["query"])
 
         processed_data = {
             'input': data,
-            'output': results
+            'title': "New Chat" if results['title'] is None else results['title'],
+            'output': results['output']
         }
         
         # Return the processed data as a JSON response
