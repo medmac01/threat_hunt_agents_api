@@ -77,7 +77,7 @@ conversational_agent = initialize_agent(
 
 template = conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template
 
-conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cyber security analyst, you role is to respond to the human queries in a technical way while providing detailed explanations when providing final answer.""" + template
+conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cyber security analyst agent, you role is to respond to the human queries in a technical way while providing detailed explanations when providing final answer."""
 
 def invoke(input_text):
     results = conversational_agent({"input":input_text})
