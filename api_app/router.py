@@ -63,8 +63,8 @@ investigate_tool = Tool(name="Investigate Tool",
                         description="This tool will help you execute a query to find information about a security event.(Can be a MISP event, CVE, MITRE attack or technique, malware...) Just provide the request and get the response.", 
                         func=investigator_invoke)
 
-shell_tool = ShellTool()
-tools = [investigate_tool, shell_tool]
+# shell_tool = ShellTool() Disabled for stability
+tools = [investigate_tool]
 
 
 memory = ConversationBufferWindowMemory(
