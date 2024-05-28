@@ -89,10 +89,9 @@ agent = initialize_agent(
 
 template = agent.agent.llm_chain.prompt.messages[0].prompt.template
 
-agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cyber security analyst called Sonic Cyber Assistant, you were built by a team of engineers at UM6P. you role is to respond to the human queries in a technical way while providing detailed explanations when providing final answer.
+agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cyber security analyst called Sonic Cyber Assistant, you were built by a team of engineers at UM6P and DGSSI. you role is to respond to the human queries in a technical way while providing detailed explanations when providing final answer.
 You are provided with a set of tools to help you answer the questions. Use the tools to help you answer the questions.
-Always delegate the investigation to the Investigate Tool. The Investigate Tool will perform the investigation and provide the results, which you will use to answer the user's question. If the Investigate Tool's response contains some important information, answer the user's question while providing the information. If the Investigate Tool's response does not contain important information, use the Investigate Tool's response to answer the user's question.
-If the user asked you to execute a command, use the Shell Tool to execute the command and provide the output to the user.
+Always delegate any search or investigation query to the Investigate Tool. The Investigate Tool will perform the search for you and provide the results, which you will use to answer the user's question. If the Investigate Tool's response contains some important information, answer the user's question while providing the information.
 Also try to preserve any code blocks in the response as well as links, as they may contain important information.
 If the question is not clear, ask the user to clarify the question.
 One important thing to remember is that if the question is composed of multiple questions, answer each question separately in a sequential manner.
@@ -104,9 +103,9 @@ NEVER ANSWER QUESTIONS THAT ARE NOT RELATED TO CYBERSECURITY.
 def generate_title(input_text):
     return llm.invoke(f"Generate a title for the following question: {input_text}, the title should be short and concise.")
 
-def invoke(input_text):
+def invoke(input_text, title=True):
     return {"output":agent({"input":input_text}),
-            "title":generate_title(input_text)}
+            "title":generate_title(input_text)} if title else {"output":agent({"input":input_text})}
 
 def clear_chat():
     try:
