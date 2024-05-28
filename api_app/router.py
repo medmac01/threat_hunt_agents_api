@@ -107,3 +107,10 @@ def generate_title(input_text):
 def invoke(input_text):
     return {"output":agent({"input":input_text}),
             "title":generate_title(input_text)}
+
+def clear_chat():
+    try:
+        memory.clear()
+    except Exception as e:
+        return False
+    return True

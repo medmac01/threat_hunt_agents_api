@@ -64,6 +64,27 @@ def answer_v2(request):
     # If the request method is not POST, return a 405 Method Not Allowed response
     return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
+@api_view(['POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def clear_chat(request):
+    # Check if the request method is POST
+    if request.method == 'POST':
+        
+        
+        op = router.clear_chat()
+
+        result = {
+            "operation": "clear_chat",
+            "status": "success" if op else "failed"
+        }
+        
+        # Return the processed data as a JSON response
+        return Response(result, status=status.HTTP_200_OK)
+    
+    # If the request method is not POST, return a 405 Method Not Allowed response
+    return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
 
 class ObtainAuthToken(APIView):
     """
