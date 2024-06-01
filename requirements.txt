@@ -1,3 +1,4 @@
+#agentops==0.1.6
 crewai==0.28.8
 # Django==5.0.4
 Django==4.0.6
@@ -11,5 +12,14 @@ langchain-community==0.0.34
 langchain-core==0.1.45
 langchain-openai==0.0.5
 langchain-text-splitters==0.0.1
+langchainhub==0.1.15
 pymisp==2.4.190
 python-dotenv==1.0.0
+mitreattack-python==3.0.6
+stix==1.2.0.11
+stix2==3.0.1
+stix2-elevator==4.1.7
+stix2-patterns==2.0.0
+stix2-validator==3.2.0
+taxii2-client==2.3.0
+

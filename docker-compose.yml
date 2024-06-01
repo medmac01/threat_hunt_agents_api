@@ -1,0 +1,18 @@
+services:
+  sonic_ai:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - DJANGO_SETTINGS_MODULE=api.settings
+      - OLLAMA_HOST=https://1276-197-230-122-195.ngrok-free.app
+      - MISP_URL=https://e98a-197-230-122-195.ngrok-free.app
+      - MISP_KEY=DDL2X1VilJzgLvDSo58OMhVHYlnRRg9ShHaiadpA
+      - AGENTOPS_API_KEY=874b2348-5d0b-4189-9c9f-0c4910f056a4
+      - ENV=dev
+
