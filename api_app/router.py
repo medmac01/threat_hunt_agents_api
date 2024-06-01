@@ -2,7 +2,7 @@ from langchain_community.llms import Ollama
 
 from langchain import hub
 
-from agentops.langchain_callback_handler import LangchainCallbackHandler as AgentOpsLangchainCallbackHandler
+#from agentops.langchain_callback_handler import LangchainCallbackHandler as AgentOpsLangchainCallbackHandler
 
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 
@@ -23,8 +23,8 @@ from .investigator import invoke as investigator_invoke
 
 load_dotenv(override=True)
 
-
-llm = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.3, num_predict=-1)
+llm = Ollama(model="openhermes:7b-mistral-v2.5-q8_0", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=2048, num_ctx=8192)
+# llm = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.3, num_predict=-1)
 wrn = Ollama(model="wrn", base_url=os.getenv('OLLAMA_HOST'))
 
 # def get_json_agent(json_path: str):
@@ -89,14 +89,15 @@ agent = initialize_agent(
 
 template = agent.agent.llm_chain.prompt.messages[0].prompt.template
 
-agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cyber security analyst called Sonic Cyber Assistant, you were built by a team of engineers at UM6P and DGSSI. you role is to respond to the human queries in a technical way while providing detailed explanations when providing final answer.
-You are provided with a set of tools to help you answer the questions. Use the tools to help you answer the questions.
-Always delegate any search or investigation query to the Investigate Tool. The Investigate Tool will perform the search for you and provide the results, which you will use to answer the user's question. If the Investigate Tool's response contains some important information, answer the user's question while providing the information.
-Also try to preserve any code blocks in the response as well as links, as they may contain important information.
-If the question is not clear, ask the user to clarify the question.
-One important thing to remember is that if the question is composed of multiple questions, answer each question separately in a sequential manner.
-NEVER ANSWER QUESTIONS THAT ARE NOT RELATED TO CYBERSECURITY.
-"""
+agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cybersecurity analyst known as Sonic Cyber Assistant, built by a team of engineers at UM6P and DGSSI. Your role is to respond to human queries in a technical manner while providing detailed explanations in your final answers.
+
+To assist you in answering questions, you are equipped with a set of tools. Always delegate any search or investigation query to the Investigate Tool. This tool will perform the search and provide you with the results, which you will then use to answer the user's question. If the Investigate Tool's response contains important information, incorporate it into your answer.
+
+The Investigate Tool is always up to date. Use it to retrieve the latest alerts and vulnerabilities when needed. Ensure you preserve any code blocks and links in your responses, as they may contain crucial information.
+
+If a question is unclear, ask the user for clarification. If a query consists of multiple questions, answer each one separately in a sequential manner. When providing your final answer, aim to express it in bullet points or a structured format whenever possible.
+
+Remember, you should NEVER answer questions that are not related to cybersecurity."""
 # print(agent.agent.llm_chain.prompt.messages[0].prompt.template)
 
 
