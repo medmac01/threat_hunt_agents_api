@@ -1,0 +1,27 @@
+{
+    "type": "bundle",
+    "id": "bundle--c9d6c7ed-1de0-44ab-9f89-2a37d79d51ad",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "mobile-attack"
+            ],
+            "id": "attack-pattern--b765efd1-02e6-4e67-aebf-0fef5c37e54b",
+            "type": "attack-pattern",
+            "created": "2017-10-25T14:48:26.473Z",
+            "revoked": true,
+            "external_references": [
+                {
+                    "source_name": "mitre-mobile-attack",
+                    "url": "https://attack.mitre.org/techniques/T1440",
+                    "external_id": "T1440"
+                }
+            ],
+            "modified": "2018-10-17T01:05:10.700Z",
+            "name": "Detect App Analysis Environment",
+            "x_mitre_version": "1.0",
+            "x_mitre_is_subtechnique": false
+        }
+    ]
+}

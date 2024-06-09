@@ -1,0 +1,46 @@
+{
+    "type": "bundle",
+    "id": "bundle--1e017680-e721-4d27-a215-ac9c09b0e250",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-09-22T20:54:08.611Z",
+            "name": "Night Dragon",
+            "description": "[Night Dragon](https://attack.mitre.org/groups/G0014) is a campaign name for activity involving a threat group that has conducted activity originating primarily in China. (Citation: McAfee Night Dragon)",
+            "aliases": [
+                "Night Dragon"
+            ],
+            "x_mitre_deprecated": true,
+            "x_mitre_version": "1.4",
+            "type": "intrusion-set",
+            "id": "intrusion-set--23b6a0f5-fa95-46f9-a6f3-4549c5e45ec8",
+            "created": "2017-05-31T21:31:51.643Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/groups/G0014",
+                    "external_id": "G0014"
+                },
+                {
+                    "source_name": "Night Dragon",
+                    "description": "(Citation: McAfee Night Dragon)"
+                },
+                {
+                    "source_name": "McAfee Night Dragon",
+                    "description": "McAfee\u00ae Foundstone\u00ae Professional Services and McAfee Labs\u2122. (2011, February 10). Global Energy Cyberattacks: \u201cNight Dragon\u201d. Retrieved February 19, 2018.",
+                    "url": "https://scadahacker.com/library/Documents/Cyber_Events/McAfee%20-%20Night%20Dragon%20-%20Global%20Energy%20Cyberattacks.pdf"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

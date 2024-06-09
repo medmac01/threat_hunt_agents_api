@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--8de1d86a-313c-44ea-99bb-29c2023faa51",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "relationship",
+            "id": "relationship--975d47f9-976e-438a-bd18-2e7e0125aa44",
+            "created": "2022-02-18T16:31:32.243Z",
+            "x_mitre_version": "1.0",
+            "external_references": [
+                {
+                    "source_name": "Microsoft Actinium February 2022",
+                    "url": "https://www.microsoft.com/security/blog/2022/02/04/actinium-targets-ukrainian-organizations/",
+                    "description": "Microsoft Threat Intelligence Center. (2022, February 4). ACTINIUM targets Ukrainian organizations. Retrieved February 18, 2022."
+                }
+            ],
+            "x_mitre_deprecated": false,
+            "revoked": false,
+            "description": "[Pteranodon](https://attack.mitre.org/software/S0147) can use a dynamic Windows hashing algorithm to map API components.(Citation: Microsoft Actinium February 2022)",
+            "modified": "2022-08-23T15:25:01.811Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "relationship_type": "uses",
+            "source_ref": "malware--5f9f7648-04ba-4a9f-bb4c-2a13e74572bd",
+            "target_ref": "attack-pattern--ea4c2f9c-9df1-477c-8c42-6da1118f2ac4",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

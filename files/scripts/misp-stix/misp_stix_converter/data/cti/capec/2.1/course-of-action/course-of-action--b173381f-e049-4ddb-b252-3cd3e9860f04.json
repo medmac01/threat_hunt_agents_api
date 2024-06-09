@@ -1,0 +1,20 @@
+{
+    "id": "bundle--d1a73f3c-4110-46f3-b2a7-b191589543d4",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Minimize error/response output to only what is necessary for functional use or corrective language.",
+            "id": "course-of-action--b173381f-e049-4ddb-b252-3cd3e9860f04",
+            "modified": "2022-09-29T00:00:00.000Z",
+            "name": "coa-116-0",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

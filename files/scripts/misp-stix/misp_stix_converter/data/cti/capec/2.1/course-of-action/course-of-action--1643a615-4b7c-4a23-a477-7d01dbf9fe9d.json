@@ -1,0 +1,20 @@
+{
+    "id": "bundle--6c874b47-7514-4870-b8fc-a8b3bc983a0f",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Configuration: Make sure your DNS servers have been updated to the latest versions",
+            "id": "course-of-action--1643a615-4b7c-4a23-a477-7d01dbf9fe9d",
+            "modified": "2022-09-29T00:00:00.000Z",
+            "name": "coa-142-0",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

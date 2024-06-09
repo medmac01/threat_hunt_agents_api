@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--0d2877cb-fce0-4e84-ba37-efff3983b036",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--c3a1969b-1edb-4a78-80ab-b122cc2822e4",
+            "type": "relationship",
+            "created": "2017-05-31T21:33:27.078Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "Citizen Lab Group5",
+                    "description": "Scott-Railton, J., et al. (2016, August 2). Group5: Syria and the Iranian Connection. Retrieved September 26, 2016.",
+                    "url": "https://citizenlab.ca/2016/08/group5-syria/"
+                }
+            ],
+            "modified": "2019-07-25T17:52:06.574Z",
+            "description": "[Group5](https://attack.mitre.org/groups/G0043) disguised its malicious binaries with several layers of obfuscation, including encrypting the files.(Citation: Citizen Lab Group5)",
+            "relationship_type": "uses",
+            "source_ref": "intrusion-set--7331c66a-5601-4d3f-acf6-ad9e3035eb40",
+            "target_ref": "attack-pattern--b3d682b6-98f2-4fb0-aa3b-b4df007ca70a",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

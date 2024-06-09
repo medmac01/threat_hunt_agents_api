@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--543f6b85-9160-4816-8612-684026acb586",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--48d9c71c-fdb8-4c5f-8d74-542b6bf61e56",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.847Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.847Z",
+            "description": "Monitor executed commands and arguments that may steal data by exfiltrating it over a symmetrically encrypted network protocol other than that of the existing command and control channel.",
+            "source_ref": "x-mitre-data-component--685f917a-e95e-4ba0-ade1-c7d354dae6e0",
+            "target_ref": "attack-pattern--79a4052e-1a89-4b09-aea6-51f1d11fe19c",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

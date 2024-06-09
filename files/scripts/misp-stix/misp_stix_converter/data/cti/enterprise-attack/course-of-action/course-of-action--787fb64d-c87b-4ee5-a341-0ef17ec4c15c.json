@@ -1,0 +1,31 @@
+{
+    "type": "bundle",
+    "id": "bundle--63f2e2e9-61a3-4240-abc8-d14b0477b061",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "course-of-action--787fb64d-c87b-4ee5-a341-0ef17ec4c15c",
+            "type": "course-of-action",
+            "created": "2019-07-19T14:58:42.715Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "M1055",
+                    "url": "https://attack.mitre.org/mitigations/M1055"
+                }
+            ],
+            "modified": "2019-07-23T14:44:24.727Z",
+            "name": "Do Not Mitigate",
+            "description": "This category is to associate techniques that mitigation might increase risk of compromise and therefore mitigation is not recommended.",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

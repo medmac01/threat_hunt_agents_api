@@ -1,0 +1,12 @@
+*.swp
+*.py[co]
+build/
+dist/
+*.egg-info
+.settings/
+.project
+.idea
+.pydevproject
+.tox
+
+docs/_build

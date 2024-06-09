@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--3f628044-ad7a-417d-a837-51ce2a67a68d",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--c5fef08a-e2ca-4bd1-880e-80fd90dc3d6a",
+            "type": "relationship",
+            "created": "2020-12-04T15:01:55.429Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "Accenture HyperStack October 2020",
+                    "url": "https://www.accenture.com/us-en/blogs/cyber-defense/turla-belugasturgeon-compromises-government-entity",
+                    "description": "Accenture. (2020, October). Turla uses HyperStack, Carbon, and Kazuar to compromise government entity. Retrieved December 2, 2020."
+                }
+            ],
+            "modified": "2020-12-04T15:01:55.429Z",
+            "description": "[HyperStack](https://attack.mitre.org/software/S0537) can enumerate all account names on a remote share.(Citation: Accenture HyperStack October 2020)",
+            "relationship_type": "uses",
+            "source_ref": "malware--2cf7dec3-66fc-423f-b2c7-58f1de243b4e",
+            "target_ref": "attack-pattern--25659dd6-ea12-45c4-97e6-381e3e4b593e",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

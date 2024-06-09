@@ -1,0 +1,66 @@
+{
+    "type": "bundle",
+    "id": "bundle--c75d25c5-c1d3-4999-943e-e3eeea2fcd49",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-19T21:18:29.349Z",
+            "name": "Server Software Component",
+            "description": "Adversaries may abuse legitimate extensible development features of servers to establish persistent access to systems. Enterprise server applications may include features that allow developers to write and install software or scripts to extend the functionality of the main application. Adversaries may install malicious components to extend and abuse server applications.(Citation: volexity_0day_sophos_FW)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "persistence"
+                }
+            ],
+            "x_mitre_detection": "Consider monitoring application logs for abnormal behavior that may indicate suspicious installation of application software components. Consider monitoring file locations associated with the installation of new application software components such as paths from which applications typically load such extensible components.\n\nProcess monitoring may be used to detect servers components that perform suspicious actions such as running cmd.exe or accessing files. Log authentication attempts to the server and any unusual traffic patterns to or from the server and internal network. (Citation: US-CERT Alert TA15-314A Web Shells) ",
+            "x_mitre_platforms": [
+                "Windows",
+                "Linux",
+                "macOS",
+                "Network"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_deprecated": false,
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_version": "1.4",
+            "x_mitre_data_sources": [
+                "Process: Process Creation",
+                "Application Log: Application Log Content",
+                "Network Traffic: Network Traffic Content",
+                "File: File Modification",
+                "Network Traffic: Network Traffic Flow",
+                "File: File Creation"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--d456de47-a16f-4e46-8980-e67478a12dcb",
+            "created": "2019-06-28T17:52:07.296Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1505",
+                    "external_id": "T1505"
+                },
+                {
+                    "source_name": "volexity_0day_sophos_FW",
+                    "description": "Adair, S., Lancaster, T., Volexity Threat Research. (2022, June 15). DriftingCloud: Zero-Day Sophos Firewall Exploitation and an Insidious Breach. Retrieved July 1, 2022.",
+                    "url": "https://www.volexity.com/blog/2022/06/15/driftingcloud-zero-day-sophos-firewall-exploitation-and-an-insidious-breach/"
+                },
+                {
+                    "source_name": "US-CERT Alert TA15-314A Web Shells",
+                    "description": "US-CERT. (2015, November 13). Compromised Web Servers and Web Shells - Threat Awareness and Guidance. Retrieved June 8, 2016.",
+                    "url": "https://www.us-cert.gov/ncas/alerts/TA15-314A"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

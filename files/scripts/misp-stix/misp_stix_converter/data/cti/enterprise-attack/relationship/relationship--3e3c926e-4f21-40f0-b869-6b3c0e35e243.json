@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--f95f7d19-6a60-47aa-a0a6-2846370cf4bb",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--3e3c926e-4f21-40f0-b869-6b3c0e35e243",
+            "type": "relationship",
+            "created": "2020-03-09T15:42:45.500Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-17T17:53:50.891Z",
+            "description": "Disable legacy network protocols that may be used   to intercept network traffic if applicable, especially those that are not needed within an environment.",
+            "relationship_type": "mitigates",
+            "source_ref": "course-of-action--eb88d97c-32f1-40be-80f0-d61a4b0b4b31",
+            "target_ref": "attack-pattern--035bb001-ab69-4a0b-9f6c-2de8b09e1b9d",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

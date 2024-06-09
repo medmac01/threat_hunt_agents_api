@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--5c645d71-0d7b-42ed-86ff-f987122dfaa8",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--48f4cf50-8010-455e-bfe4-f749fcb9a3ac",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.848Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.848Z",
+            "description": "Monitor for newly executed processes when removable media is mounted ",
+            "source_ref": "x-mitre-data-component--3d20385b-24ef-40e1-9f56-f39750379077",
+            "target_ref": "attack-pattern--a3e1e6c5-9c74-4fc0-a16c-a9d228c17829",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

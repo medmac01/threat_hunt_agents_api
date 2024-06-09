@@ -1,0 +1,26 @@
+{
+    "type": "bundle",
+    "id": "bundle--fbb29690-92b9-4027-8ba9-3f2f994afc1a",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "relationship",
+            "id": "relationship--8e6b0e34-a33c-4a04-bbe8-bb1b73894167",
+            "created": "2022-03-30T14:26:51.872Z",
+            "x_mitre_version": "0.1",
+            "x_mitre_deprecated": false,
+            "revoked": false,
+            "description": "Monitor for newly executed processes that may be indicative of credential dumping. On Windows 8.1 and Windows Server 2012 R2, monitor Windows Logs for LSASS.exe creation to verify that LSASS started as a protected process.",
+            "modified": "2022-04-18T18:57:35.766Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "relationship_type": "detects",
+            "source_ref": "x-mitre-data-component--3d20385b-24ef-40e1-9f56-f39750379077",
+            "target_ref": "attack-pattern--03d7999c-1f4c-42cc-8373-e7690d318104",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

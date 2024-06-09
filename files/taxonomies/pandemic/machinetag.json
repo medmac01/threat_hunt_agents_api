@@ -1,0 +1,38 @@
+{
+  "namespace": "pandemic",
+  "description": "Pandemic",
+  "version": 4,
+  "predicates": [
+    {
+      "value": "covid-19",
+      "expanded": "COVID-19"
+    }
+  ],
+  "values": [
+    {
+      "predicate": "covid-19",
+      "entry": [
+        {
+          "value": "health",
+          "expanded": "Health",
+          "description": "Information tagged about COVID-19 and related to health"
+        },
+        {
+          "value": "cyber",
+          "expanded": "Cyber",
+          "description": "Information tagged about COVID-19 and related to cybersecurity"
+        },
+        {
+          "value": "disinformation",
+          "expanded": "Disinformation",
+          "description": "Information tagged about COVID-19 and related to disinformation"
+        },
+        {
+          "value": "geostrategy",
+          "expanded": "Geostrategy",
+          "description": "Information tagged about COVID-19 and related to geostrategy or geopolitics"
+        }
+      ]
+    }
+  ]
+}

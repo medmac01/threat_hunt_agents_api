@@ -1,0 +1,32 @@
+{
+    "type": "bundle",
+    "id": "bundle--5b351fd4-8615-4d0a-ad2f-43aea06e6a52",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-24T15:09:07.609Z",
+            "name": "Network Intrusion Prevention",
+            "description": "Use intrusion detection signatures to block traffic at network boundaries.  In industrial control environments, network intrusion prevention should be configured so it will not disrupt protocols and communications responsible for real-time functions related to control or safety.",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "type": "course-of-action",
+            "id": "course-of-action--3172222b-4983-43f7-8983-753ded4f13bc",
+            "created": "2019-06-10T20:46:02.263Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/mitigations/M0931",
+                    "external_id": "M0931"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ]
+        }
+    ]
+}

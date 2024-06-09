@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--7edf9a95-59fd-4380-8fee-a252153286e3",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--39b38754-4a37-4665-acb7-6645a08e9ad2",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.839Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.839Z",
+            "description": "Monitor for newly constructed containers",
+            "source_ref": "x-mitre-data-component--a5ae90ca-0c4b-481c-959f-0eb18a7ff953",
+            "target_ref": "attack-pattern--1126cab1-c700-412f-a510-61f4937bb096",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

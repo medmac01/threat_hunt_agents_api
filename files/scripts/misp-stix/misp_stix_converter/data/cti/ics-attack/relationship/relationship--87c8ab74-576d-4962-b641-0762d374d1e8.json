@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--1ae15e51-ed5a-4120-a5e1-3f294b3ba1c0",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "relationship",
+            "id": "relationship--87c8ab74-576d-4962-b641-0762d374d1e8",
+            "created": "2018-10-17T00:14:20.652Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "Anton Cherepanov, ESET June 2017",
+                    "description": "Anton Cherepanov, ESET 2017, June 12 Win32/Industroyer: A new threat for industrial control systems Retrieved. 2017/09/15 ",
+                    "url": "https://www.welivesecurity.com/wp-content/uploads/2017/06/Win32_Industroyer.pdf"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2022-09-23T18:49:35.368Z",
+            "description": "The [Industroyer](https://attack.mitre.org/software/S0604) SIPROTEC DoS module exploits the CVE-2015-5374 vulnerability in order to render a Siemens SIPROTEC device unresponsive. While the vulnerability does not directly cause the restart or shutdown of the device, the device must be restarted manually before it can resume operations. (Citation: Anton Cherepanov, ESET June 2017)",
+            "relationship_type": "uses",
+            "source_ref": "malware--e401d4fe-f0c9-44f0-98e6-f93487678808",
+            "target_ref": "attack-pattern--25dfc8ad-bd73-4dfd-84a9-3c3d383f76e9",
+            "x_mitre_deprecated": false,
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

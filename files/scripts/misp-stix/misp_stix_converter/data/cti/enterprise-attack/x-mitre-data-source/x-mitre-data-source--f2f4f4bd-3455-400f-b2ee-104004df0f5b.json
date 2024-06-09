@@ -1,0 +1,54 @@
+{
+    "type": "bundle",
+    "id": "bundle--8bc91c9c-a4de-4cab-b4e5-6ee06e8f9302",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_platforms": [
+                "Azure AD",
+                "Google Workspace",
+                "IaaS",
+                "Linux",
+                "Office 365",
+                "SaaS",
+                "Windows",
+                "macOS"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_contributors": [
+                "Center for Threat-Informed Defense (CTID)"
+            ],
+            "x_mitre_collection_layers": [
+                "Cloud Control Plane",
+                "Host"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "x-mitre-data-source--f2f4f4bd-3455-400f-b2ee-104004df0f5b",
+            "type": "x-mitre-data-source",
+            "created": "2021-10-20T15:05:19.273Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/datasources/DS0018",
+                    "external_id": "DS0018"
+                },
+                {
+                    "source_name": "AWS Sec Groups VPC",
+                    "description": "Amazon. (n.d.). Security groups for your VPC. Retrieved October 13, 2021.",
+                    "url": "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html"
+                }
+            ],
+            "modified": "2022-03-30T14:26:51.805Z",
+            "name": "Firewall",
+            "description": "A network security system, running locally on an endpoint or remotely as a service (ex: cloud environment), that monitors and controls incoming/outgoing network traffic based on predefined rules(Citation: AWS Sec Groups VPC)",
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

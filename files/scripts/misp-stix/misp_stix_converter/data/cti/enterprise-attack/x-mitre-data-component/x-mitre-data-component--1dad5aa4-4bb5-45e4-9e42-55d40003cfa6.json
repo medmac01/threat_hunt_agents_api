@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--f83fe7d5-6a78-40eb-a21f-dbc6cb848803",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "x-mitre-data-component--1dad5aa4-4bb5-45e4-9e42-55d40003cfa6",
+            "type": "x-mitre-data-component",
+            "created": "2021-10-20T15:05:19.275Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2021-10-20T15:05:19.275Z",
+            "name": "Certificate Registration",
+            "description": "Queried or logged information highlighting current and expired digital certificates (ex: Certificate transparency)",
+            "x_mitre_data_source_ref": "x-mitre-data-source--29aa4e0e-4a26-4f79-a9bc-1ae66df1c923",
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

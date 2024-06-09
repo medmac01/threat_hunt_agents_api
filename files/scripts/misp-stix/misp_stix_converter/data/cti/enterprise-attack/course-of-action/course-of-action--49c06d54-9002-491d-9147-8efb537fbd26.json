@@ -1,0 +1,34 @@
+{
+    "type": "bundle",
+    "id": "bundle--e7574ce2-052d-4162-99d2-51ea1c1530bb",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-21T15:51:57.176Z",
+            "name": "Credential Access Protection",
+            "description": "Use capabilities to prevent successful credential access by adversaries; including blocking forms of credential dumping.",
+            "x_mitre_deprecated": false,
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_version": "1.1",
+            "type": "course-of-action",
+            "id": "course-of-action--49c06d54-9002-491d-9147-8efb537fbd26",
+            "created": "2019-06-11T16:47:12.859Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/mitigations/M1043",
+                    "external_id": "M1043"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

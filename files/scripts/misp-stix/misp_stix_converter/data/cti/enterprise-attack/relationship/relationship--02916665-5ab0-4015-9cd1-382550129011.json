@@ -1,0 +1,26 @@
+{
+    "type": "bundle",
+    "id": "bundle--04d6ecf1-6f01-4258-8877-8fbd5a9378cc",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "relationship",
+            "id": "relationship--02916665-5ab0-4015-9cd1-382550129011",
+            "created": "2022-03-30T14:26:51.873Z",
+            "x_mitre_version": "0.1",
+            "x_mitre_deprecated": false,
+            "revoked": false,
+            "description": "Monitor for anomalous file transfer activity between accounts and/or to untrusted/unexpected VPCs.",
+            "modified": "2022-04-14T15:42:50.776Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "relationship_type": "detects",
+            "source_ref": "x-mitre-data-component--45977f14-1bcc-4ec4-ac14-a30fd3a11f44",
+            "target_ref": "attack-pattern--d4bdbdea-eaec-4071-b4f9-5105e12ea4b6",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

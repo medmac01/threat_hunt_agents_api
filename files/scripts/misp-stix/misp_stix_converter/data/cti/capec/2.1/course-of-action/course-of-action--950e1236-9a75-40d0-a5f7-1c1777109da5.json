@@ -1,0 +1,20 @@
+{
+    "id": "bundle--658a7660-217e-4de8-b205-55789455e1b4",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Use a language or compiler that performs automatic bounds checking",
+            "id": "course-of-action--950e1236-9a75-40d0-a5f7-1c1777109da5",
+            "modified": "2022-09-29T00:00:00.000Z",
+            "name": "coa-10-2",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

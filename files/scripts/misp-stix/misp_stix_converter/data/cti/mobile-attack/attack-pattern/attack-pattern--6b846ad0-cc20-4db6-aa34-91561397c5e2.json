@@ -1,0 +1,27 @@
+{
+    "type": "bundle",
+    "id": "bundle--fec21542-fbec-4d64-9ea0-0e3c619cd6d0",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "mobile-attack"
+            ],
+            "id": "attack-pattern--6b846ad0-cc20-4db6-aa34-91561397c5e2",
+            "type": "attack-pattern",
+            "created": "2017-10-25T14:48:11.861Z",
+            "revoked": true,
+            "external_references": [
+                {
+                    "source_name": "mitre-mobile-attack",
+                    "url": "https://attack.mitre.org/techniques/T1431",
+                    "external_id": "T1431"
+                }
+            ],
+            "modified": "2018-10-17T01:05:10.699Z",
+            "name": "App Delivered via Web Download",
+            "x_mitre_version": "1.0",
+            "x_mitre_is_subtechnique": false
+        }
+    ]
+}

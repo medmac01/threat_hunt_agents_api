@@ -1,0 +1,32 @@
+{
+    "type": "bundle",
+    "id": "bundle--bf534059-78ae-4344-88e8-2295db81f6a8",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-24T15:09:07.609Z",
+            "name": "Operating System Configuration",
+            "description": "Make configuration changes related to the operating system or a common feature of the operating system that result in system hardening against techniques.",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "type": "course-of-action",
+            "id": "course-of-action--9a945a29-5233-4422-a9e3-3e957b0e8bce",
+            "created": "2019-06-06T21:16:18.709Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/mitigations/M0928",
+                    "external_id": "M0928"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ]
+        }
+    ]
+}

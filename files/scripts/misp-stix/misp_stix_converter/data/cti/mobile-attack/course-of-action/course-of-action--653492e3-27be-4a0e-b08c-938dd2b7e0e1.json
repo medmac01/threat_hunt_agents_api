@@ -1,0 +1,31 @@
+{
+    "type": "bundle",
+    "id": "bundle--786152e0-0c15-40db-b3a4-f2dd5b9b9b52",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "mobile-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "course-of-action--653492e3-27be-4a0e-b08c-938dd2b7e0e1",
+            "type": "course-of-action",
+            "created": "2019-10-18T12:53:03.508Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "M1011",
+                    "url": "https://attack.mitre.org/mitigations/M1011"
+                }
+            ],
+            "modified": "2019-10-18T15:51:48.318Z",
+            "name": "User Guidance",
+            "description": "Describes any guidance or training given to users to set particular configuration settings or avoid specific potentially risky behaviors.",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

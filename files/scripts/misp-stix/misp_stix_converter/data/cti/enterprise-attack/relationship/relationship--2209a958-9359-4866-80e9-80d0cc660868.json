@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--75c12600-088a-4756-905b-cbc48d42480b",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--2209a958-9359-4866-80e9-80d0cc660868",
+            "type": "relationship",
+            "created": "2019-04-17T18:43:36.389Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "description": "Check Point Research. (2019, February 4). SpeakUp: A New Undetected Backdoor Linux Trojan. Retrieved April 17, 2019.",
+                    "url": "https://research.checkpoint.com/speakup-a-new-undetected-backdoor-linux-trojan/",
+                    "source_name": "CheckPoint SpeakUp Feb 2019"
+                }
+            ],
+            "modified": "2020-03-19T17:09:03.651Z",
+            "description": "[SpeakUp](https://attack.mitre.org/software/S0374) uses Python scripts.(Citation: CheckPoint SpeakUp Feb 2019)",
+            "relationship_type": "uses",
+            "source_ref": "malware--a5575606-9b85-4e3d-9cd2-40ef30e3672d",
+            "target_ref": "attack-pattern--cc3502b5-30cc-4473-ad48-42d51a6ef6d1",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

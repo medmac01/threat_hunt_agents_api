@@ -1,0 +1,6 @@
+hashes.json
+*.pyc
+.DS_Store
+.idea
+.vscode
+venv

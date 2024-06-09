@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--a16d30bd-48cc-4827-bb7f-df0eefc1e777",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "relationship",
+            "id": "relationship--e323dee4-a896-4a82-85f5-d51d311b0437",
+            "created": "2021-04-12T18:49:06.044Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "Max Heinemeyer February 2020",
+                    "description": "Max Heinemeyer 2020, February 21 Post-mortem of a targeted Sodinokibi ransomware attack Retrieved. 2021/04/12 ",
+                    "url": "https://www.darktrace.com/en/blog/post-mortem-of-a-targeted-sodinokibi-ransomware-attack/"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2022-10-12T18:06:56.076Z",
+            "description": "[REvil](https://attack.mitre.org/software/S0496) uses the SMB protocol to encrypt files located on remotely connected file shares. (Citation: Max Heinemeyer February 2020)",
+            "relationship_type": "uses",
+            "source_ref": "malware--ac61f1f9-7bb1-465e-9b8a-c2ce8e88baf5",
+            "target_ref": "attack-pattern--e1f9cdd2-9511-4fca-90d7-f3e92cfdd0bf",
+            "x_mitre_deprecated": false,
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

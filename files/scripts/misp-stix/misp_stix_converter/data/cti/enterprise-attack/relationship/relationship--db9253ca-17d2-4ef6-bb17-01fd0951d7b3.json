@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--26043a1f-4fe0-46b4-a227-8e6e1c36f125",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--db9253ca-17d2-4ef6-bb17-01fd0951d7b3",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.843Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.843Z",
+            "description": "Monitor for deletion of Windows Registry keys and/or values related to services and startup programs that correspond to security tools such as HKLM:\\SOFTWARE\\Microsoft\\AMSI\\Providers.",
+            "source_ref": "x-mitre-data-component--1177a4c5-31c8-400c-8544-9071166afa0e",
+            "target_ref": "attack-pattern--ac08589e-ee59-4935-8667-d845e38fe579",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

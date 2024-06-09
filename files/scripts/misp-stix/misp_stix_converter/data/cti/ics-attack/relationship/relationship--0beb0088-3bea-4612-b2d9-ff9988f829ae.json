@@ -1,0 +1,38 @@
+{
+    "type": "bundle",
+    "id": "bundle--d62011ad-4d5d-438a-a5c3-d39764df8b00",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "relationship",
+            "id": "relationship--0beb0088-3bea-4612-b2d9-ff9988f829ae",
+            "created": "2018-04-18T17:59:24.739Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "Jacqueline O'Leary et al. September 2017",
+                    "description": "Jacqueline O'Leary et al. 2017, September 20 Insights into Iranian Cyber Espionage: APT33 Targets Aerospace and Energy Sectors and has Ties to Destructive Malware Retrieved. 2019/12/02 ",
+                    "url": "https://www.fireeye.com/blog/threat-research/2017/09/apt33-insights-into-iranian-cyber-espionage.html"
+                },
+                {
+                    "source_name": "Junnosuke Yagi March 2017",
+                    "description": "Junnosuke Yagi 2017, March 07 Trojan.Stonedrill Retrieved. 2019/12/05 ",
+                    "url": "https://www.symantec.com/security-center/writeup/2017-030708-4403-99"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2022-10-12T15:41:15.111Z",
+            "description": "[APT33](https://attack.mitre.org/groups/G0064) utilize backdoors capable of capturing screenshots once installed on a system. (Citation: Jacqueline O'Leary et al. September 2017)(Citation: Junnosuke Yagi March 2017)",
+            "relationship_type": "uses",
+            "source_ref": "intrusion-set--fbd29c89-18ba-4c2d-b792-51c0adee049f",
+            "target_ref": "attack-pattern--c5e3cdbc-0387-4be9-8f83-ff5c0865f377",
+            "x_mitre_deprecated": false,
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "id": "bundle--a8577432-b020-443b-9489-f1848a4dd86c",
+    "objects": [
+        {
+            "created": "2021-06-24T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Configuration: Set Security Level to SL3 for Thunderbolt 2 system port",
+            "id": "course-of-action--b322aa23-69d1-474e-82a2-1f71903f29a4",
+            "modified": "2022-09-29T00:00:00.000Z",
+            "name": "coa-665-4",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

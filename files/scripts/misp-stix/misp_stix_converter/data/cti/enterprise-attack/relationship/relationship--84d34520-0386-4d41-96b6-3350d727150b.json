@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--bf05ab71-37c7-4013-afcb-421f8a10dd24",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--84d34520-0386-4d41-96b6-3350d727150b",
+            "type": "relationship",
+            "created": "2021-06-04T14:49:06.933Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "FireEye FiveHands April 2021",
+                    "url": "https://www.fireeye.com/blog/threat-research/2021/04/unc2447-sombrat-and-fivehands-ransomware-sophisticated-financial-threat.html",
+                    "description": "McLellan, T.  and Moore, J. et al. (2021, April 29). UNC2447 SOMBRAT and FIVEHANDS Ransomware: A Sophisticated Financial Threat. Retrieved June 2, 2021."
+                }
+            ],
+            "modified": "2021-06-04T14:49:06.933Z",
+            "description": "[HELLOKITTY](https://attack.mitre.org/software/S0617) can delete volume shadow copies on compromised hosts.(Citation: FireEye FiveHands April 2021)",
+            "relationship_type": "uses",
+            "source_ref": "malware--5d11d418-95dd-4377-b782-23160dfa17b4",
+            "target_ref": "attack-pattern--f5d8eed6-48a9-4cdf-a3d7-d1ffa99c3d2a",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

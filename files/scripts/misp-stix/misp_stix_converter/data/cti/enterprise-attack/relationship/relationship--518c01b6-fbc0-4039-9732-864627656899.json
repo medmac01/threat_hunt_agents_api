@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--6f960ea9-9aa9-4da1-9625-cb7ed33c073e",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--518c01b6-fbc0-4039-9732-864627656899",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.854Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.854Z",
+            "description": "Monitor for suspicious account behavior across systems that share accounts, either user, admin, or service accounts. Examples: one account logged into multiple systems simultaneously; multiple accounts logged into the same machine simultaneously; accounts logged in at odd times or outside of business hours. Activity may be from interactive login sessions or process ownership from accounts being used to execute binaries on a remote system as a particular account. ",
+            "source_ref": "x-mitre-data-component--9ce98c86-8d30-4043-ba54-0784d478d0b5",
+            "target_ref": "attack-pattern--fdc47f44-dd32-4b99-af5f-209f556f63c2",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

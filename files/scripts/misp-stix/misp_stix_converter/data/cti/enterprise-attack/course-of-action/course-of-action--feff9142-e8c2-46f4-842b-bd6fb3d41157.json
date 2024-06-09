@@ -1,0 +1,31 @@
+{
+    "type": "bundle",
+    "id": "bundle--45fa0ebd-01bc-4511-a5e6-18303780d07b",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "course-of-action--feff9142-e8c2-46f4-842b-bd6fb3d41157",
+            "type": "course-of-action",
+            "created": "2019-06-11T16:43:44.834Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "M1041",
+                    "url": "https://attack.mitre.org/mitigations/M1041"
+                }
+            ],
+            "modified": "2019-06-11T16:43:44.834Z",
+            "name": "Encrypt Sensitive Information",
+            "description": "Protect sensitive information with strong encryption.",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

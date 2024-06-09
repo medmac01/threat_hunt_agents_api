@@ -1,0 +1,35 @@
+{
+    "type": "bundle",
+    "id": "bundle--c51c1941-bc80-4eb3-ad97-78aff38933e8",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--ea80c942-680d-43b4-9cbf-21f2078977ad",
+            "type": "relationship",
+            "created": "2020-06-10T21:56:40.113Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "ESET Telebots Dec 2016",
+                    "url": "https://www.welivesecurity.com/2016/12/13/rise-telebots-analyzing-disruptive-killdisk-attacks/",
+                    "description": "Cherepanov, A.. (2016, December 13). The rise of TeleBots: Analyzing disruptive KillDisk attacks. Retrieved June 10, 2020."
+                },
+                {
+                    "source_name": "US District Court Indictment GRU Unit 74455 October 2020",
+                    "url": "https://www.justice.gov/opa/press-release/file/1328521/download",
+                    "description": "Scott W. Brady. (2020, October 15). United States vs. Yuriy Sergeyevich Andrienko et al.. Retrieved November 25, 2020."
+                }
+            ],
+            "modified": "2020-11-25T21:00:57.219Z",
+            "description": "[Sandworm Team](https://attack.mitre.org/groups/G0034) has pushed additional malicious tools onto an infected system to steal user credentials, move laterally, and destroy data.(Citation: ESET Telebots Dec 2016)(Citation: US District Court Indictment GRU Unit 74455 October 2020)",
+            "relationship_type": "uses",
+            "source_ref": "intrusion-set--381fcf73-60f6-4ab2-9991-6af3cbc35192",
+            "target_ref": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

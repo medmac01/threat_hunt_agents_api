@@ -1,0 +1,32 @@
+{
+    "type": "bundle",
+    "id": "bundle--7e0567f0-b0e1-4c46-92de-6ea60e74ad2b",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-24T15:09:07.609Z",
+            "name": "Restrict File and Directory Permissions",
+            "description": "Restrict access by setting directory and file permissions that are not specific to users or privileged accounts.",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "type": "course-of-action",
+            "id": "course-of-action--f9fcb3ec-6de0-4559-8cd9-ef1c0c7d1971",
+            "created": "2019-06-06T20:54:49.964Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/mitigations/M0922",
+                    "external_id": "M0922"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ]
+        }
+    ]
+}

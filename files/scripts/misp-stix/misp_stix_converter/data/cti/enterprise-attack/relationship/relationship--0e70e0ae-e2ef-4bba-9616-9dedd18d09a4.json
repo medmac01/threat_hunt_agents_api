@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--4eb6128e-6072-4fd7-9bbf-48d63132b31b",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--0e70e0ae-e2ef-4bba-9616-9dedd18d09a4",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.869Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.869Z",
+            "description": "Monitor processes and command-line arguments to see if critical processes are terminated or stop running.",
+            "source_ref": "x-mitre-data-component--61f1d40e-f3d0-4cc6-aa2d-937b6204194f",
+            "target_ref": "attack-pattern--20fb2507-d71c-455d-9b6d-6104461cf26b",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

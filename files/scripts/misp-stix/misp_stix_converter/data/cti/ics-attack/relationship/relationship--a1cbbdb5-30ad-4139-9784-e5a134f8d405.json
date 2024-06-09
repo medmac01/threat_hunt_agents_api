@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--8983ece2-ca1e-40cc-bc25-b08a50c1fdaa",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "relationship",
+            "id": "relationship--a1cbbdb5-30ad-4139-9784-e5a134f8d405",
+            "created": "2018-10-17T00:14:20.652Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "Dragos Inc. June 2017",
+                    "description": "Dragos Inc. 2017, June 13 Industroyer - Dragos - 201706: Analysis of the Threat to Electic Grid Operations Retrieved. 2017/09/18 ",
+                    "url": "https://dragos.com/blog/crashoverride/CrashOverride-01.pdf"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2022-09-23T18:55:26.032Z",
+            "description": "[Industroyer](https://attack.mitre.org/software/S0604) has a destructive wiper that overwrites all ICS configuration files across the hard drives and all mapped network drives specifically targeting ABB PCM600 configuration files. (Citation: Dragos Inc. June 2017)",
+            "relationship_type": "uses",
+            "source_ref": "malware--e401d4fe-f0c9-44f0-98e6-f93487678808",
+            "target_ref": "attack-pattern--493832d9-cea6-4b63-abe7-9a65a6473675",
+            "x_mitre_deprecated": false,
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

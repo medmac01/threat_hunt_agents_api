@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--6e908d49-5fcb-4f8d-a955-7504cc2f8f04",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--213ba52c-8404-4069-9c8b-3b017078d601",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.839Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.839Z",
+            "description": "It may be possible to detect adversary use of credentials they have obtained such as in\u00a0[Valid Accounts](https://attack.mitre.org/techniques/T1078).",
+            "source_ref": "x-mitre-data-component--a953ca55-921a-44f7-9b8d-3d40141aa17e",
+            "target_ref": "attack-pattern--f8ef3a62-3f44-40a4-abca-761ab235c436",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

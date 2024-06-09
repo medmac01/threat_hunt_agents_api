@@ -1,0 +1,20 @@
+{
+    "id": "bundle--3050c0e5-12f0-4ed0-9cbd-1d9fbe667420",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Design: Use an abstraction library to abstract away risky APIs. Not a complete solution.",
+            "id": "course-of-action--a8d851ab-8c11-49fb-8bb1-ae0f95175539",
+            "modified": "2022-09-29T00:00:00.000Z",
+            "name": "coa-24-4",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

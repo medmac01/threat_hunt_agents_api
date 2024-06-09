@@ -1,0 +1,24 @@
+{
+    "type": "bundle",
+    "id": "bundle--0b052419-fc69-4bc6-be79-37f050c5bf67",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "relationship",
+            "id": "relationship--243ad7b2-546c-4bf2-a3c0-1438b13e197d",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "created": "2020-09-21T17:59:24.739Z",
+            "modified": "2022-05-06T17:47:24.169Z",
+            "relationship_type": "mitigates",
+            "description": "Systems and devices should restrict access to any data with potential confidentiality concerns, including point and tag information.\n",
+            "source_ref": "course-of-action--e0d38502-decb-481d-ad8b-b8f0a0c330bd",
+            "target_ref": "attack-pattern--25852363-5968-4673-b81d-341d5ed90bd1",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_version": "1.0"
+        }
+    ]
+}

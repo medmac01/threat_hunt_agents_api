@@ -1,0 +1,20 @@
+{
+    "id": "bundle--c2bbc6d4-af23-4bed-b1c8-5402476c799d",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Utilize strict type, character, and encoding enforcement",
+            "id": "course-of-action--a99fa1c3-7798-453a-8c18-1387446a4827",
+            "modified": "2020-12-17T00:00:00.000Z",
+            "name": "coa-242-0",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

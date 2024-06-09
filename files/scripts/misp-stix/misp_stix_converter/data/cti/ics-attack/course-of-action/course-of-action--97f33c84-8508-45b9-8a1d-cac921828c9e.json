@@ -1,0 +1,32 @@
+{
+    "type": "bundle",
+    "id": "bundle--87b14486-c859-48a7-843f-4f702e32d697",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-24T15:09:07.609Z",
+            "name": "Update Software",
+            "description": "Perform regular software updates to mitigate exploitation risk. Software updates may need to be scheduled around operational down times.",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "type": "course-of-action",
+            "id": "course-of-action--97f33c84-8508-45b9-8a1d-cac921828c9e",
+            "created": "2019-06-11T17:12:55.207Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/mitigations/M0951",
+                    "external_id": "M0951"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ]
+        }
+    ]
+}

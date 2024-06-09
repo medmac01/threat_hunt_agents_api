@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--e2e31c01-7cd1-47ed-b94c-11addca0b7c1",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--a9e97a14-ea3c-47b1-a865-0a1edea9c81c",
+            "type": "relationship",
+            "created": "2021-02-17T20:43:52.410Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "Lookout FrozenCell",
+                    "url": "https://blog.lookout.com/frozencell-mobile-threat",
+                    "description": "Michael Flossman. (2017, October 5). FrozenCell: Multi-platform surveillance campaign against Palestinians. Retrieved November 11, 2020."
+                }
+            ],
+            "modified": "2021-02-17T20:43:52.410Z",
+            "description": "[FrozenCell](https://attack.mitre.org/software/S0577) has searched for pdf, doc, docx, ppt, pptx, xls, and xlsx file types for exfiltration.(Citation: Lookout FrozenCell)",
+            "relationship_type": "uses",
+            "source_ref": "malware--96ea1e13-d50f-45f1-b0cf-4ac9bc5a2d62",
+            "target_ref": "attack-pattern--cf28ca46-1fd3-46b4-b1f6-ec0b72361848",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

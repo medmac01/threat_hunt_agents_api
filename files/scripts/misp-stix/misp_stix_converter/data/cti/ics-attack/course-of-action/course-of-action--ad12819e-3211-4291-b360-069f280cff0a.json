@@ -1,0 +1,37 @@
+{
+    "type": "bundle",
+    "id": "bundle--86c65616-2bb0-489b-bba3-fae2d3ddd756",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "course-of-action",
+            "id": "course-of-action--ad12819e-3211-4291-b360-069f280cff0a",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "created": "2019-07-19T14:33:33.543Z",
+            "modified": "2022-05-06T17:47:24.040Z",
+            "name": "Data Backup",
+            "description": "Take and store data backups from end user systems and critical servers. Ensure backup and storage systems are hardened and kept separate from the corporate network to prevent compromise.   Maintain and exercise incident response plans  (Citation: Department of Homeland Security October 2009), including the management of  'gold-copy' back-up images and configurations for key systems to enable quick recovery and response from adversarial activities that impact control, view, or availability.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/mitigations/M0953",
+                    "external_id": "M0953"
+                },
+                {
+                    "source_name": "Department of Homeland Security October 2009",
+                    "description": "Department of Homeland Security 2009, October Developing an Industrial Control Systems Cybersecurity Incident Response Capability Retrieved. 2020/09/17 ",
+                    "url": "https://us-cert.cisa.gov/sites/default/files/recommended_practices/final-RP_ics_cybersecurity_incident_response_100609.pdf"
+                }
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

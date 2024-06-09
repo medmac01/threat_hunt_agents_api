@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--738c25a8-a8e6-458b-bea5-1c5839aeed72",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--75367678-910c-4715-9fc8-ee503f8e41e5",
+            "type": "relationship",
+            "created": "2020-12-02T21:18:15.510Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "Accenture HyperStack October 2020",
+                    "url": "https://www.accenture.com/us-en/blogs/cyber-defense/turla-belugasturgeon-compromises-government-entity",
+                    "description": "Accenture. (2020, October). Turla uses HyperStack, Carbon, and Kazuar to compromise government entity. Retrieved December 2, 2020."
+                }
+            ],
+            "modified": "2020-12-02T21:18:15.510Z",
+            "description": "[Kazuar](https://attack.mitre.org/software/S0265) has used internal nodes on the compromised network for C2 communications.(Citation: Accenture HyperStack October 2020)",
+            "relationship_type": "uses",
+            "source_ref": "malware--536be338-e2ef-4a6b-afb6-8d5568b91eb2",
+            "target_ref": "attack-pattern--f6dacc85-b37d-458e-b58d-74fc4bbf5755",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

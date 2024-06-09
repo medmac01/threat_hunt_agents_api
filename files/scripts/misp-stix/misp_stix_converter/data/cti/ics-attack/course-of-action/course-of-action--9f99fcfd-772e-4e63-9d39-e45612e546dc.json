@@ -1,0 +1,32 @@
+{
+    "type": "bundle",
+    "id": "bundle--1653b0a9-e15c-4ecb-9f3a-e6b36efb7fb9",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-24T15:09:07.609Z",
+            "name": "Encrypt Sensitive Information",
+            "description": "Protect sensitive data-at-rest with strong encryption.",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "type": "course-of-action",
+            "id": "course-of-action--9f99fcfd-772e-4e63-9d39-e45612e546dc",
+            "created": "2019-06-11T16:43:44.834Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/mitigations/M0941",
+                    "external_id": "M0941"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ]
+        }
+    ]
+}

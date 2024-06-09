@@ -1,0 +1,133 @@
+{
+  "namespace": "eu-nis-sector-and-subsectors",
+  "description": "Sectors, subsectors, and digital services as identified by the NIS Directive",
+  "version": 1,
+  "predicates": [
+    {
+      "value": "eu-nis-oes",
+      "expanded": "Operators of Essential Services"
+    },
+    {
+      "value": "eu-nis-oes-energy",
+      "expanded": "Operators of Essential Services - Energy Sector"
+    },
+    {
+      "value": "eu-nis-oes-transport",
+      "expanded": "Operators of Essential Services - Transport Sector"
+    },
+    {
+      "value": "eu-nis-oes-banking",
+      "expanded": "Operators of Essential Services - Banking Sector"
+    },
+    {
+      "value": "eu-nis-oes-financial",
+      "expanded": "Operators of Essential Services - Financial Market Infrastructure Sector"
+    },
+    {
+      "value": "eu-nis-oes-health",
+      "expanded": "Operators of Essential Services - Health Sector"
+    },
+    {
+      "value": "eu-nis-oes-water",
+      "expanded": "Operators of Essential Services - Drinking Water Supply and Distribution Sector"
+    },
+    {
+      "value": "eu-nis-oes-diginfra",
+      "expanded": "Operators of Essential Services - Digital Intrastructure Sector"
+    },
+    {
+      "value": "eu-nis-dsp",
+      "expanded": "Digital Service Providers"
+    }
+  ],
+  "values": [
+    {
+      "predicate": "eu-nis-oes",
+      "entry": [
+        {
+          "value": "energy",
+          "expanded": "Energy"
+        },
+        {
+          "value": "transport",
+          "expanded": "Transport"
+        },
+        {
+          "value": "banking",
+          "expanded": "Banking"
+        },
+        {
+          "value": "financial",
+          "expanded": "Financial Market Infrastructures"
+        },
+        {
+          "value": "health",
+          "expanded": "Health"
+        },
+        {
+          "value": "water",
+          "expanded": "Drinking Water Supply and Distribution"
+        },
+        {
+          "value": "digitalinfrastructure",
+          "expanded": "Digital Infrastructure"
+        }
+      ]
+    },
+    {
+      "predicate": "eu-nis-oes-energy",
+      "entry": [
+        {
+          "value": "electricity-energy",
+          "expanded": "Electricity Subsector"
+        },
+        {
+          "value": "oil-energy",
+          "expanded": "Oil Subsector"
+        },
+        {
+          "value": "gas-energy",
+          "expanded": "Gas Subsector"
+        }
+      ]
+    },
+    {
+      "predicate": "eu-nis-oes-transport",
+      "entry": [
+        {
+          "value": "air-transport",
+          "expanded": "Air Transport Subsector"
+        },
+        {
+          "value": "rail-transport",
+          "expanded": "Rail Transport Subsector"
+        },
+        {
+          "value": "water-transport",
+          "expanded": "Water Transport Subsector"
+        },
+        {
+          "value": "road-transport",
+          "expanded": "Road Transport Subsector"
+        }
+      ]
+    },
+    {
+      "predicate": "eu-nis-dsp",
+      "entry": [
+        {
+          "value": "market-dsp",
+          "expanded": "Online Marketplace Digital Service"
+        },
+        {
+          "value": "search-dsp",
+          "expanded": "Online Search Engine Digital Service"
+        },
+        {
+          "value": "cloud-dsp",
+          "expanded": "Cloud Computing Digital Service"
+        }
+      ]
+    }
+  ]
+}

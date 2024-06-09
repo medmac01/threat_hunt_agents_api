@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--6c5ea4c0-f9dc-43b9-a2d5-fcd39371b594",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--e590c381-4589-4f02-9da4-7b9743f0da4e",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.852Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.852Z",
+            "description": "Monitor for unusual kernel driver installation activity ",
+            "source_ref": "x-mitre-data-component--3551476e-14f5-4e48-a518-e82135329e03",
+            "target_ref": "attack-pattern--bb5a00de-e086-4859-a231-fa793f6797e2",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

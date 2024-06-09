@@ -1,0 +1,24 @@
+{
+    "type": "bundle",
+    "id": "bundle--0bb7e704-7d07-49e8-aed9-845bad57abad",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "relationship",
+            "id": "relationship--520aad6a-2483-45bc-a172-2417137f6ca0",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "created": "2020-09-21T17:59:24.739Z",
+            "modified": "2022-05-06T17:47:24.143Z",
+            "relationship_type": "mitigates",
+            "description": "Utilize out-of-band communication to validate the integrity of data from the primary channel.\n",
+            "source_ref": "course-of-action--b11cad63-ef30-4eb8-af0d-6cc46eef3f3e",
+            "target_ref": "attack-pattern--1af9e3fd-2bcc-414d-adbd-fe3b95c02ca1",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_version": "1.0"
+        }
+    ]
+}

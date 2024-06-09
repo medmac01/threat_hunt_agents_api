@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--2f17664c-0dd1-47aa-a2fe-5adbb9ce43cd",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "relationship",
+            "id": "relationship--6d822f86-5793-403a-b176-5d533f6b81b3",
+            "created": "2018-04-18T17:59:24.739Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "Daavid Hentunen, Antti Tikkanen June 2014",
+                    "description": "Daavid Hentunen, Antti Tikkanen 2014, June 23 Havex Hunts For ICS/SCADA Systems Retrieved. 2019/04/01 ",
+                    "url": "https://www.f-secure.com/weblog/archives/00002718.html"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2022-10-12T17:19:43.236Z",
+            "description": "The [Backdoor.Oldrea](https://attack.mitre.org/software/S0093) RAT is distributed through trojanized installers planted on compromised vendor sites. (Citation: Daavid Hentunen, Antti Tikkanen June 2014)",
+            "relationship_type": "uses",
+            "source_ref": "malware--083bb47b-02c8-4423-81a2-f9ef58572974",
+            "target_ref": "attack-pattern--5e0f75da-e108-4688-a6de-a4f07cc2cbe3",
+            "x_mitre_deprecated": false,
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

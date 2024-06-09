@@ -1,0 +1,83 @@
+{
+  "attributes": {
+    "decryption_key": {
+      "description": "Specifies the decryption key for the encrypted binary data (either via payload_bin or url). For example, this may be useful in cases of sharing malware samples, which are often encoded in an encrypted archive.",
+      "misp-attribute": "text",
+      "ui-priority": 0
+    },
+    "encryption_algorithm": {
+      "description": "If the artifact is encrypted, specifies the type of encryption algorithm the binary data  (either via payload_bin or url) is encoded in.",
+      "misp-attribute": "text",
+      "ui-priority": 0
+    },
+    "md5": {
+      "description": "[Insecure] MD5 hash (128 bits)",
+      "misp-attribute": "md5",
+      "recommended": false,
+      "ui-priority": 1
+    },
+    "mime_type": {
+      "description": "Whenever feasible, this value SHOULD be one of the values defined in the Template column in the IANA media type registry [Media Types]. Maintaining a comprehensive universal catalog of all extant file types is obviously not possible. When specifying a MIME Type not included in the IANA registry, implementers should use their best judgement so as to facilitate interoperability.",
+      "disable_correlation": true,
+      "misp-attribute": "mime-type",
+      "ui-priority": 0
+    },
+    "payload_bin": {
+      "description": "Specifies the binary data contained in the artifact as a base64-encoded string.",
+      "misp-attribute": "text",
+      "ui-priority": 0
+    },
+    "sha1": {
+      "description": "[Insecure] Secure Hash Algorithm 1 (160 bits)",
+      "misp-attribute": "sha1",
+      "recommended": false,
+      "ui-priority": 1
+    },
+    "sha256": {
+      "description": "Secure Hash Algorithm 2 (256 bits)",
+      "misp-attribute": "sha256",
+      "ui-priority": 1
+    },
+    "sha3-256": {
+      "description": "Secure Hash Algorithm 3 (256 bits)",
+      "misp-attribute": "sha3-256",
+      "recommended": false,
+      "ui-priority": 0
+    },
+    "sha3-512": {
+      "description": "Secure Hash Algorithm 3 (512 bits)",
+      "misp-attribute": "sha3-512",
+      "recommended": false,
+      "ui-priority": 0
+    },
+    "sha512": {
+      "description": "Secure Hash Algorithm 2 (512 bits)",
+      "misp-attribute": "sha512",
+      "ui-priority": 1
+    },
+    "ssdeep": {
+      "description": "Fuzzy hash using context triggered piecewise hashes (CTPH)",
+      "misp-attribute": "ssdeep",
+      "ui-priority": 0
+    },
+    "tlsh": {
+      "description": "Fuzzy hash by Trend Micro: Locality Sensitive Hash",
+      "misp-attribute": "tlsh",
+      "ui-priority": 0
+    },
+    "url": {
+      "description": "The value of this property MUST be a valid URL that resolves to the unencoded content. When present, at least one hash value MUST be present too.",
+      "misp-attribute": "url",
+      "ui-priority": 0
+    }
+  },
+  "description": "The Artifact object permits capturing an array of bytes (8-bits), as a base64-encoded string, or linking to a file-like payload. From STIX 2.1 (6.1)",
+  "meta-category": "file",
+  "name": "artifact",
+  "requiredOneOf": [
+    "payload_bin",
+    "url"
+  ],
+  "uuid": "0a46df3a-bd9b-472c-a1e7-6aede7094483",
+  "version": 3
+}

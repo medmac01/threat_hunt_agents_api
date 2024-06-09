@@ -1,0 +1,64 @@
+{
+  "values": [
+    {
+      "entry": [
+        {
+          "expanded": "TRES SECRET",
+          "value": "TRES_SECRET",
+          "colour": "#f54a4a"
+        },
+        {
+          "expanded": "SECRET",
+          "value": "SECRET",
+          "colour": "#f54a4a"
+        }
+      ],
+      "predicate": "classifiees"
+    },
+    {
+      "entry": [
+        {
+          "expanded": "DIFFUSION RESTREINTE",
+          "value": "DIFFUSION_RESTREINTE",
+          "colour": "#f87272"
+        },
+        {
+          "expanded": "NON PROTEGE",
+          "value": "NON-PROTEGE",
+          "colour": "#f89595"
+        }
+      ],
+      "predicate": "non-classifiees"
+    },
+    {
+      "entry": [
+        {
+          "expanded": "SPECIAL FRANCE",
+          "value": "SPECIAL_FRANCE",
+          "colour": "#0434cc"
+        }
+      ],
+      "predicate": "special-france"
+    }
+  ],
+  "predicates": [
+    {
+      "expanded": "Informations classifiées",
+      "value": "classifiees",
+      "exclusive": true
+    },
+    {
+      "expanded": "Informations non classifiées",
+      "value": "non-classifiees",
+      "exclusive": true
+    },
+    {
+      "expanded": "Mention Spécial France",
+      "value": "special-france",
+      "exclusive": false
+    }
+  ],
+  "version": 6,
+  "description": "French gov information classification system",
+  "namespace": "fr-classif"
+}

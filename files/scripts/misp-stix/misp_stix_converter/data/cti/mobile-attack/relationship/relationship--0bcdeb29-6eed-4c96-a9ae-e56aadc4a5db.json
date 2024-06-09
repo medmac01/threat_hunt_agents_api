@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--30d2758c-08f5-4a32-bb38-efe404144593",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--0bcdeb29-6eed-4c96-a9ae-e56aadc4a5db",
+            "type": "relationship",
+            "created": "2019-08-09T17:59:48.988Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "url": "https://info.lookout.com/rs/051-ESQ-475/images/lookout-stealth-mango-srr-us.pdf",
+                    "description": "Lookout. (n.d.). Stealth Mango & Tangelo. Retrieved September 27, 2018.",
+                    "source_name": "Lookout-StealthMango"
+                }
+            ],
+            "modified": "2019-08-09T17:59:48.988Z",
+            "description": "[Stealth Mango](https://attack.mitre.org/software/S0328) can record and take pictures using the front and back cameras.(Citation: Lookout-StealthMango)",
+            "relationship_type": "uses",
+            "source_ref": "malware--085eb36d-697d-4d9a-bac3-96eb879fe73c",
+            "target_ref": "attack-pattern--d8940e76-f9c1-4912-bea6-e21c251370b6",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

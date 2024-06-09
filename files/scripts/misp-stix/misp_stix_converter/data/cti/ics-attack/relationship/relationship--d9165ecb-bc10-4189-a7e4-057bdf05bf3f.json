@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--8526e64c-3f83-4dcb-9989-becc1517106f",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "relationship",
+            "id": "relationship--d9165ecb-bc10-4189-a7e4-057bdf05bf3f",
+            "created": "2017-12-14T16:46:06.044Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "Booz Allen Hamilton",
+                    "description": "Booz Allen Hamilton   When The Lights Went Out Retrieved. 2019/10/22 ",
+                    "url": "https://www.boozallen.com/content/dam/boozallen/documents/2016/09/ukraine-report-when-the-lights-went-out.pdf"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2022-10-12T17:35:32.480Z",
+            "description": "[BlackEnergy](https://attack.mitre.org/software/S0089) targeted energy sector organizations in a wide reaching email spearphishing campaign. Adversaries utilized malicious Microsoft Word documents attachments. (Citation: Booz Allen Hamilton)\n",
+            "relationship_type": "uses",
+            "source_ref": "malware--54cc1d4f-5c53-4f0e-9ef5-11b4998e82e4",
+            "target_ref": "attack-pattern--648f995e-9c3a-41e4-aeee-98bb41037426",
+            "x_mitre_deprecated": false,
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

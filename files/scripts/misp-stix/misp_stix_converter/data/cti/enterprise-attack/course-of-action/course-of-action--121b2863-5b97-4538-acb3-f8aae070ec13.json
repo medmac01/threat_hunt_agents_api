@@ -1,0 +1,32 @@
+{
+    "type": "bundle",
+    "id": "bundle--2c2224ce-a1d2-4a3c-9d8e-bf024af0ed7f",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "course-of-action--121b2863-5b97-4538-acb3-f8aae070ec13",
+            "type": "course-of-action",
+            "created": "2018-10-17T00:14:20.652Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/mitigations/T1159",
+                    "external_id": "T1159"
+                }
+            ],
+            "modified": "2019-07-24T19:47:59.038Z",
+            "name": "Launch Agent Mitigation",
+            "description": "Restrict user's abilities to create Launch Agents with group policy.",
+            "x_mitre_deprecated": true,
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

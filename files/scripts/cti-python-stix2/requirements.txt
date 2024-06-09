@@ -1,0 +1,13 @@
+bumpversion
+ipython
+nbconvert
+nbsphinx==0.8.6
+pre-commit
+pygments<3,>=2.4.1
+pytest
+pytest-cov
+sphinx<6
+sphinx-prompt
+tox
+
+-e .

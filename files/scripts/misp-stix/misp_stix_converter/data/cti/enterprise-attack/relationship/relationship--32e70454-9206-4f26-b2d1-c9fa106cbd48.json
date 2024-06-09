@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--ff95ef0f-1b71-4230-a9a4-d3764a5f05ab",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--32e70454-9206-4f26-b2d1-c9fa106cbd48",
+            "type": "relationship",
+            "created": "2021-10-14T22:21:20.864Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "TrendMicro Taidoor",
+                    "description": "Trend Micro. (2012). The Taidoor Campaign. Retrieved November 12, 2014.",
+                    "url": "http://www.trendmicro.com/cloud-content/us/pdfs/security-intelligence/white-papers/wp_the_taidoor_campaign.pdf"
+                }
+            ],
+            "modified": "2021-10-14T22:21:20.864Z",
+            "description": "[Taidoor](https://attack.mitre.org/software/S0011) has used HTTP GET and POST requests for C2.(Citation: TrendMicro Taidoor)",
+            "relationship_type": "uses",
+            "source_ref": "malware--b143dfa4-e944-43ff-8429-bfffc308c517",
+            "target_ref": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

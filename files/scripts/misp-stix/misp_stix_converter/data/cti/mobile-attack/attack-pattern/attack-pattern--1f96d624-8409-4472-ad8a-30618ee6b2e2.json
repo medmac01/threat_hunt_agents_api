@@ -1,0 +1,27 @@
+{
+    "type": "bundle",
+    "id": "bundle--9509c326-27cc-4f6f-82e1-17c606c94843",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "mobile-attack"
+            ],
+            "id": "attack-pattern--1f96d624-8409-4472-ad8a-30618ee6b2e2",
+            "type": "attack-pattern",
+            "created": "2017-10-25T14:48:10.699Z",
+            "revoked": true,
+            "external_references": [
+                {
+                    "source_name": "mitre-mobile-attack",
+                    "url": "https://attack.mitre.org/techniques/T1434",
+                    "external_id": "T1434"
+                }
+            ],
+            "modified": "2018-10-17T01:05:10.699Z",
+            "name": "App Delivered via Email Attachment",
+            "x_mitre_version": "1.0",
+            "x_mitre_is_subtechnique": false
+        }
+    ]
+}

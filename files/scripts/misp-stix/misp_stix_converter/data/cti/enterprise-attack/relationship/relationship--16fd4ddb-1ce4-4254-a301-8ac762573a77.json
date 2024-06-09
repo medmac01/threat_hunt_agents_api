@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--8de122f1-7c1e-41dc-a5b4-f1493eaedc8d",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--16fd4ddb-1ce4-4254-a301-8ac762573a77",
+            "type": "relationship",
+            "created": "2019-06-24T13:56:03.569Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-02-24T15:06:46.278Z",
+            "description": "Regularly scan the internal network for available services to identify new and potentially vulnerable services.",
+            "relationship_type": "mitigates",
+            "source_ref": "course-of-action--15437c6d-b998-4a36-be41-4ace3d54d266",
+            "target_ref": "attack-pattern--9db0cf3a-a3c9-4012-8268-123b9db6fd82",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

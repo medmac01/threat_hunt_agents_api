@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--d545d76b-33a0-4327-9739-c73f37ae5c33",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "mobile-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "x-mitre-tactic--0a93fd8e-4a83-4c15-8203-db290e5f2ac6",
+            "type": "x-mitre-tactic",
+            "created": "2018-10-17T00:14:20.652Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "external_id": "TA0027",
+                    "url": "https://attack.mitre.org/tactics/TA0027",
+                    "source_name": "mitre-attack"
+                }
+            ],
+            "modified": "2020-01-27T14:02:36.744Z",
+            "name": "Initial Access",
+            "description": "The adversary is trying to get into your device.\n\nThe initial access tactic represents the vectors adversaries use to gain an initial foothold onto a mobile device.",
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_shortname": "initial-access"
+        }
+    ]
+}

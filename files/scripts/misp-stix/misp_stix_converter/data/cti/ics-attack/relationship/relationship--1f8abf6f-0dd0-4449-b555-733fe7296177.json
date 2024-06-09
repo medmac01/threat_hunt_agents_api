@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--bf1e8103-81e6-4b79-a796-f07d3b365218",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "relationship",
+            "id": "relationship--1f8abf6f-0dd0-4449-b555-733fe7296177",
+            "created": "2018-04-18T17:59:24.739Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "Jos Wetzels January 2018",
+                    "description": "Jos Wetzels 2018, January 16 Analyzing the TRITON industrial malware Retrieved. 2019/10/22 ",
+                    "url": "https://www.midnightbluelabs.com/blog/2018/1/16/analyzing-the-triton-industrial-malware"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2022-10-12T18:24:19.351Z",
+            "description": "[Triton](https://attack.mitre.org/software/S1009) leveraged the TriStation protocol to download programs onto Triconex Safety Instrumented System. (Citation: Jos Wetzels January 2018)",
+            "relationship_type": "uses",
+            "source_ref": "malware--80099a91-4c86-4bea-9ccb-dac55d61960e",
+            "target_ref": "attack-pattern--be69c571-d746-4b1f-bdd0-c0c9817e9068",
+            "x_mitre_deprecated": false,
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

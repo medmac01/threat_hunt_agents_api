@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--7557e7f5-dcdf-4e85-80a0-6bc650f45983",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--21caad94-1568-4e40-8e38-c0f7e854aede",
+            "type": "relationship",
+            "created": "2017-05-31T21:33:27.076Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "url": "https://web.archive.org/web/20180825085952/https://s3-us-west-2.amazonaws.com/cymmetria-blog/public/Unveiling_Patchwork.pdf",
+                    "description": "Cymmetria. (2016). Unveiling Patchwork - The Copy-Paste APT. Retrieved August 3, 2016.",
+                    "source_name": "Cymmetria Patchwork"
+                }
+            ],
+            "modified": "2021-11-02T21:06:31.784Z",
+            "description": "[Patchwork](https://attack.mitre.org/groups/G0040) used Base64 to encode C2 traffic.(Citation: Cymmetria Patchwork)",
+            "relationship_type": "uses",
+            "source_ref": "intrusion-set--17862c7d-9e60-48a0-b48e-da4dc4c3f6b0",
+            "target_ref": "attack-pattern--04fd5427-79c7-44ea-ae13-11b24778ff1c",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "id": "bundle--48d166df-d8b3-4d43-b46b-987aa75b7d33",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "2. Preventing with .htaccess in Apache web server: In .htaccess, write \"Options-indexes\".",
+            "id": "course-of-action--7c00c5ac-d08c-4abb-8ce7-7000072c9d15",
+            "modified": "2021-06-24T00:00:00.000Z",
+            "name": "coa-127-1",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

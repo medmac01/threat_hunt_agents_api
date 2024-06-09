@@ -1,0 +1,26 @@
+{
+    "type": "bundle",
+    "id": "bundle--5afb1fe4-99c9-4f2c-a1eb-f9bd55b64179",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "relationship",
+            "id": "relationship--17c61826-15ca-4eab-b3a7-073fc47a144d",
+            "created": "2022-03-30T14:26:51.857Z",
+            "x_mitre_version": "0.1",
+            "x_mitre_deprecated": false,
+            "revoked": false,
+            "description": "Monitor executed commands and arguments that may attempt to access or create a copy of the Active Directory domain database in order to steal credential information, as well as obtain other information about domain members such as devices, users, and access rights. Look for command-lines that invoke attempts to access or copy the NTDS.dit.",
+            "modified": "2022-04-19T17:19:51.600Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "relationship_type": "detects",
+            "source_ref": "x-mitre-data-component--685f917a-e95e-4ba0-ade1-c7d354dae6e0",
+            "target_ref": "attack-pattern--edf91964-b26e-4b4a-9600-ccacd7d7df24",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

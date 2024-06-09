@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--234a94a9-24f3-42ce-88c5-8a7f0e6acde2",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--5cf196e1-fccd-438c-b292-24a3607c1118",
+            "type": "relationship",
+            "created": "2020-10-20T15:45:24.410Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2021-10-16T17:37:34.719Z",
+            "description": "This technique cannot be easily mitigated with preventive controls since it is based on behaviors performed outside of the scope of enterprise defenses and controls.",
+            "relationship_type": "mitigates",
+            "source_ref": "course-of-action--78bb71be-92b4-46de-acd6-5f998fedf1cc",
+            "target_ref": "attack-pattern--b1ccd744-3f78-4a0e-9bb2-2002057f7928",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

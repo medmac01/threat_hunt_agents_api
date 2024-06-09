@@ -1,0 +1,42 @@
+{
+    "type": "bundle",
+    "id": "bundle--a5997bd1-1920-4e0b-add4-6fce760ad7af",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-24T15:09:07.609Z",
+            "name": "Authorization Enforcement",
+            "description": "The device or system should restrict read, manipulate, or execute privileges to only authenticated users who require access based on approved security policies.  Role-based Access Control (RBAC) schemes can help reduce the overhead of assigning permissions to the large number of devices within an ICS. For example, IEC 62351 provides examples of roles used to support common system operations within the electric power sector  (Citation: International Electrotechnical Commission July 2020), while IEEE 1686 defines standard permissions for users of IEDs. (Citation: Institute of Electrical and Electronics Engineers January 2014)",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "type": "course-of-action",
+            "id": "course-of-action--e0d38502-decb-481d-ad8b-b8f0a0c330bd",
+            "created": "2020-09-11T16:32:21.854Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/mitigations/M0800",
+                    "external_id": "M0800"
+                },
+                {
+                    "source_name": "International Electrotechnical Commission July 2020",
+                    "description": "International Electrotechnical Commission 2020, July 17 IEC 62351 - Power systems management and associated information exchange - Data and communications security Retrieved. 2020/09/17 ",
+                    "url": "https://webstore.iec.ch/publication/6912"
+                },
+                {
+                    "source_name": "Institute of Electrical and Electronics Engineers January 2014",
+                    "description": "Institute of Electrical and Electronics Engineers 2014, January 1686-2013 - IEEE Standard for Intelligent Electronic Devices Cyber Security Capabilities Retrieved. 2020/09/17 ",
+                    "url": "https://standards.ieee.org/standard/1686-2013.html"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "id": "bundle--35631880-ddec-4d11-afcb-64ef2105ffaf",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Ensure that design documentation is saved in a secure location and has proper access controls set in place to avoid unnecessary modification.",
+            "id": "course-of-action--a24db5bc-0875-48f1-b156-cd237ebeddad",
+            "modified": "2021-06-24T00:00:00.000Z",
+            "name": "coa-447-1",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

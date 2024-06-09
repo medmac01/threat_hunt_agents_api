@@ -1,0 +1,28 @@
+{
+    "type": "bundle",
+    "id": "bundle--ff08b219-32a0-46c0-9668-b50473234545",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "id": "x-mitre-tactic--d8c84771-a3fa-4f64-914e-4db3a2be2607",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "name": "Stage Capabilities",
+            "description": "This object is deprecated as its content has been merged into the enterprise domain. Please see the [PRE](http://attack.mitre.org/matrices/enterprise/pre/) matrix for its replacement. The prior content of this page has been preserved [here](https://attack.mitre.org/versions/v7/tactics/TA0026/).\n\nStaging capabilities consists of preparing operational environment required to conduct the operation.  This includes activities such as deploying software, uploading data, enabling command and control infrastructure.",
+            "external_references": [
+                {
+                    "external_id": "TA0026",
+                    "url": "https://attack.mitre.org/tactics/TA0026",
+                    "source_name": "mitre-attack"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_shortname": "stage-capabilities",
+            "type": "x-mitre-tactic",
+            "modified": "2020-10-22T15:38:57.122Z",
+            "created": "2018-10-17T00:14:20.652Z",
+            "x_mitre_deprecated": true
+        }
+    ]
+}

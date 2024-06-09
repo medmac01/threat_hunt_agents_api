@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--91329d04-f03b-4add-8649-6fb617e35b18",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--049e2b29-7554-4f2d-bba3-caaa98aa29b6",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.841Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.841Z",
+            "description": "Monitor for changed made to .manifest/.local redirection files, or file systems for moving, renaming, replacing, or modifying DLLs. Changes in the set of DLLs that are loaded by a process (compared with past behavior) that do not correlate with known software, patches, etc., are suspicious.",
+            "source_ref": "x-mitre-data-component--84572de3-9583-4c73-aabd-06ea88123dd8",
+            "target_ref": "attack-pattern--2fee9321-3e71-4cf4-af24-d4d40d355b34",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

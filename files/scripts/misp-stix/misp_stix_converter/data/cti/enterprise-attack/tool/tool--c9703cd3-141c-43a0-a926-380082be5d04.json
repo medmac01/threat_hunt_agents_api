@@ -1,0 +1,49 @@
+{
+    "type": "bundle",
+    "id": "bundle--fdb50ff2-8be5-41e3-8173-cc2c407d6df9",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "labels": [
+                "tool"
+            ],
+            "x_mitre_platforms": [
+                "Windows"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_aliases": [
+                "schtasks",
+                "schtasks.exe"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "tool",
+            "id": "tool--c9703cd3-141c-43a0-a926-380082be5d04",
+            "created": "2017-05-31T21:33:07.218Z",
+            "x_mitre_version": "1.2",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "S0111",
+                    "url": "https://attack.mitre.org/software/S0111"
+                },
+                {
+                    "source_name": "TechNet Schtasks",
+                    "url": "https://technet.microsoft.com/en-us/library/bb490996.aspx",
+                    "description": "Microsoft. (n.d.). Schtasks. Retrieved April 28, 2016."
+                }
+            ],
+            "x_mitre_deprecated": false,
+            "revoked": false,
+            "description": "[schtasks](https://attack.mitre.org/software/S0111) is used to schedule execution of programs or scripts on a Windows system to run at a specific date and time. (Citation: TechNet Schtasks)",
+            "modified": "2022-04-20T20:04:22.896Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "name": "schtasks",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

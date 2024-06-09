@@ -1,0 +1,59 @@
+{
+    "type": "bundle",
+    "id": "bundle--72bd4f44-614b-4c4e-a2fc-25d2ceaddf2a",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-09-27T15:30:18.702Z",
+            "name": "Command-Line Interface",
+            "description": "Adversaries may utilize command-line interfaces (CLIs) to interact with systems and execute commands. CLIs provide a means of interacting with computer systems and are a common feature across many types of platforms and devices within control systems environments. (Citation: Enterprise ATT&CK January 2018) Adversaries may also use CLIs to install and run new software, including malicious tools that may be installed over the course of an operation.\n\nCLIs are typically accessed locally, but can also be exposed via services, such as SSH, Telnet, and RDP.  Commands that are executed in the CLI execute with the current permissions level of the process running the terminal emulator, unless the command specifies a change in permissions context. Many controllers have CLI interfaces for management purposes.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-ics-attack",
+                    "phase_name": "execution-ics"
+                }
+            ],
+            "x_mitre_detection": "",
+            "x_mitre_platforms": [
+                "Control Server",
+                "Data Historian",
+                "Field Controller/RTU/PLC/IED",
+                "Human-Machine Interface",
+                "Input/Output Server"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_deprecated": false,
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.1",
+            "x_mitre_data_sources": [
+                "Process: Process Creation",
+                "Application Log: Application Log Content",
+                "Command: Command Execution"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--24a9253e-8948-4c98-b751-8e2aee53127c",
+            "created": "2020-05-21T17:43:26.506Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T0807",
+                    "external_id": "T0807"
+                },
+                {
+                    "source_name": "Enterprise ATT&CK January 2018",
+                    "description": "Enterprise ATT&CK 2018, January 11 Command-Line Interface Retrieved. 2018/05/17 ",
+                    "url": "https://attack.mitre.org/wiki/Technique/T1059"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

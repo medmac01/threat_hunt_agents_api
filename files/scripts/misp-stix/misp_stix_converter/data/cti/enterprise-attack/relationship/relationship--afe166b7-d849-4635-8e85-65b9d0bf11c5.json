@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--7c448491-4e71-46b0-8f3b-e614033e9eff",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--afe166b7-d849-4635-8e85-65b9d0bf11c5",
+            "type": "relationship",
+            "created": "2020-05-20T15:19:50.991Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2020-05-20T15:19:50.991Z",
+            "description": "Consider disabling Windows administrative shares.",
+            "relationship_type": "mitigates",
+            "source_ref": "course-of-action--1dcaeb21-9348-42ea-950a-f842aaf1ae1f",
+            "target_ref": "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

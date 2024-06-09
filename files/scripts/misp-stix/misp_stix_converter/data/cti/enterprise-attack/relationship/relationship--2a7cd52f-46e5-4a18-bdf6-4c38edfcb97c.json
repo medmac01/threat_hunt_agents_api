@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--9bb92fa2-ddbf-4e64-885a-4745f0f1ef3e",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--2a7cd52f-46e5-4a18-bdf6-4c38edfcb97c",
+            "type": "relationship",
+            "created": "2018-01-16T16:13:52.465Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "Palo Alto OilRig May 2016",
+                    "description": "Falcone, R. and Lee, B.. (2016, May 26). The OilRig Campaign: Attacks on Saudi Arabian Organizations Deliver Helminth Backdoor. Retrieved May 3, 2017.",
+                    "url": "http://researchcenter.paloaltonetworks.com/2016/05/the-oilrig-campaign-attacks-on-saudi-arabian-organizations-deliver-helminth-backdoor/"
+                }
+            ],
+            "modified": "2020-03-16T16:55:40.062Z",
+            "description": "[Helminth](https://attack.mitre.org/software/S0170) establishes persistence by creating a shortcut in the Start Menu folder.(Citation: Palo Alto OilRig May 2016)",
+            "relationship_type": "uses",
+            "source_ref": "malware--eff1a885-6f90-42a1-901f-eef6e7a1905e",
+            "target_ref": "attack-pattern--9efb1ea7-c37b-4595-9640-b7680cd84279",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--078a23d4-b052-49f7-8502-e2559f1fb7a3",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--bc4e848a-adb7-40a2-94a1-d5ab9854ff0f",
+            "type": "relationship",
+            "created": "2017-12-14T16:46:06.044Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "Zscaler-SpyNote",
+                    "description": "Shivang Desai. (2017, January 23). SpyNote RAT posing as Netflix app. Retrieved January 26, 2017.",
+                    "url": "https://www.zscaler.com/blogs/research/spynote-rat-posing-netflix-app"
+                }
+            ],
+            "modified": "2019-10-10T15:24:09.378Z",
+            "description": "[SpyNote RAT](https://attack.mitre.org/software/S0305) can copy files from the device to the C2 server.(Citation: Zscaler-SpyNote)",
+            "relationship_type": "uses",
+            "source_ref": "malware--20dbaf05-59b8-4dc6-8777-0b17f4553a23",
+            "target_ref": "attack-pattern--e1c912a9-e305-434b-9172-8a6ce3ec9c4a",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

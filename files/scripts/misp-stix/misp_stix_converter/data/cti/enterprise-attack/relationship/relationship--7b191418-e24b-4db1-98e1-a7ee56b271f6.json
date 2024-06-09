@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--66c88d19-c656-429c-bad3-2e949934da7b",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--7b191418-e24b-4db1-98e1-a7ee56b271f6",
+            "type": "relationship",
+            "created": "2020-02-25T18:49:52.360Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2020-03-23T23:11:24.892Z",
+            "description": "Ensure proper file permissions are set and harden system to prevent root privilege escalation opportunities.",
+            "relationship_type": "mitigates",
+            "source_ref": "course-of-action--987988f0-cf86-4680-a875-2f6456ab2448",
+            "target_ref": "attack-pattern--4d2a5b3e-340d-4600-9123-309dd63c9bf8",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

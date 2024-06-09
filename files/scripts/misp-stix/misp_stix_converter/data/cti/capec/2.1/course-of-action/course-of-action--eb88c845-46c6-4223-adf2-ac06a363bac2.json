@@ -1,0 +1,20 @@
+{
+    "id": "bundle--e3123c7b-e1a0-4368-8080-5cf7bf20dafc",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Implementation: Validate user input by only accepting known good. Ensure all content that is delivered to client is sanitized against an acceptable content specification -- using an allowlist approach.",
+            "id": "course-of-action--eb88c845-46c6-4223-adf2-ac06a363bac2",
+            "modified": "2022-09-29T00:00:00.000Z",
+            "name": "coa-126-11",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

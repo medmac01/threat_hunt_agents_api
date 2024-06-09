@@ -1,0 +1,20 @@
+{
+    "id": "bundle--ed23fe62-50c3-418b-8e30-a51eda63fde1",
+    "objects": [
+        {
+            "created": "2021-06-24T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Verify incoming Bluetooth connections; do not automatically trust.",
+            "id": "course-of-action--c0001e8c-8758-4434-ba10-32c5b2334ce1",
+            "modified": "2022-09-29T00:00:00.000Z",
+            "name": "coa-667-1",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

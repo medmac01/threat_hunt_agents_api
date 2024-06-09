@@ -1,0 +1,58 @@
+{
+    "type": "bundle",
+    "id": "bundle--23689b6b-66e9-4aec-a391-3a787821a3a4",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-24T15:09:07.609Z",
+            "name": "Loss of View",
+            "description": "Adversaries may cause a sustained or permanent loss of view where the ICS equipment will require local, hands-on operator intervention; for instance, a restart or manual operation. By causing a sustained reporting or visibility loss, the adversary can effectively hide the present state of operations. This loss of view can occur without affecting the physical processes themselves. (Citation: Corero) (Citation: Michael J. Assante and Robert M. Lee) (Citation: Tyson Macaulay)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-ics-attack",
+                    "phase_name": "impact-ics"
+                }
+            ],
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_platforms": [
+                "Human-Machine Interface",
+                "Engineering Workstation"
+            ],
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "type": "attack-pattern",
+            "id": "attack-pattern--138979ba-0430-4de6-a128-2fc0b056ba36",
+            "created": "2020-05-21T17:43:26.506Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T0829",
+                    "external_id": "T0829"
+                },
+                {
+                    "source_name": "Corero",
+                    "description": "Corero   Industrial Control System (ICS) Security Retrieved. 2019/11/04 ",
+                    "url": "https://www.corero.com/resources/files/whitepapers/cns_whitepaper_ics.pdf"
+                },
+                {
+                    "source_name": "Michael J. Assante and Robert M. Lee",
+                    "description": "Michael J. Assante and Robert M. Lee Corero   Industrial Control System (ICS) Security Retrieved. 2019/11/04  The Industrial Control System Cyber Kill Chain Retrieved. 2019/11/04 ",
+                    "url": "https://www.sans.org/reading-room/whitepapers/ICS/industrial-control-system-cyber-kill-chain-36297"
+                },
+                {
+                    "source_name": "Tyson Macaulay",
+                    "description": "Tyson Macaulay Michael J. Assante and Robert M. Lee Corero   Industrial Control System (ICS) Security Retrieved. 2019/11/04  The Industrial Control System Cyber Kill Chain Retrieved. 2019/11/04  RIoT Control: Understanding and Managing Risks and the Internet of Things Retrieved. 2019/11/04 ",
+                    "url": "https://books.google.com/books?id=oXIYBAAAQBAJ&pg=PA249&lpg=PA249&dq=loss+denial+manipulation+of+view&source=bl&ots=dV1uQ8IUff&sig=ACfU3U2NIwGjhg051D_Ytw6npyEk9xcf4w&hl=en&sa=X&ved=2ahUKEwj2wJ7y4tDlAhVmplkKHSTaDnQQ6AEwAHoECAgQAQ#v=onepage&q=loss%20denial%20manipulation%20of%20view&f=false"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_is_subtechnique": false
+        }
+    ]
+}

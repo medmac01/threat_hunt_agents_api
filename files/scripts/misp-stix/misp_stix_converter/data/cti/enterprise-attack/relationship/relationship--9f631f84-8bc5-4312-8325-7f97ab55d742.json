@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--f9bfb06c-afc9-4536-b955-3e93e6970fce",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--9f631f84-8bc5-4312-8325-7f97ab55d742",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.863Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.863Z",
+            "description": "Monitor and analyze traffic patterns and packet inspection associated to protocol(s), leveraging SSL/TLS inspection for encrypted traffic, that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring and command line to detect anomalous processes execution and command line arguments associated to traffic patterns (e.g. monitor anomalies in use of files that do not normally initiate connections for respective protocol(s)).",
+            "source_ref": "x-mitre-data-component--3772e279-27d6-477a-9fe3-c6beb363594c",
+            "target_ref": "attack-pattern--c325b232-d5bc-4dde-a3ec-71f3db9e8adc",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

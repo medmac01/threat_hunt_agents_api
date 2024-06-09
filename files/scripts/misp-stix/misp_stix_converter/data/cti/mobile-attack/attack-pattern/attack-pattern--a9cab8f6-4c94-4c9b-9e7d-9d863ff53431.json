@@ -1,0 +1,27 @@
+{
+    "type": "bundle",
+    "id": "bundle--2cb2bbcc-fe2b-474d-881c-8a73264b4a84",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "mobile-attack"
+            ],
+            "id": "attack-pattern--a9cab8f6-4c94-4c9b-9e7d-9d863ff53431",
+            "type": "attack-pattern",
+            "created": "2017-10-25T14:48:19.682Z",
+            "revoked": true,
+            "external_references": [
+                {
+                    "source_name": "mitre-mobile-attack",
+                    "url": "https://attack.mitre.org/techniques/T1457",
+                    "external_id": "T1457"
+                }
+            ],
+            "modified": "2018-10-17T01:05:10.703Z",
+            "name": "Malicious Media Content",
+            "x_mitre_version": "1.0",
+            "x_mitre_is_subtechnique": false
+        }
+    ]
+}

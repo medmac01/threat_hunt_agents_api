@@ -1,0 +1,17 @@
+language: python
+
+cache: pip
+
+python:
+    - "3.8"
+    - "3.8-dev"
+
+install:
+    - sudo apt-get update -qq
+    - sudo apt-get install -y -qq jq moreutils
+    - pip3 install jsonschema
+    - pip3 install pytaxonomies
+
+script:
+    - ./validate_all.sh
+    - pytaxonomies -l MANIFEST.json -a

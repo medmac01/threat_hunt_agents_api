@@ -1,0 +1,20 @@
+{
+    "id": "bundle--fea344cc-bcb3-4194-a87c-172aedd94527",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Usage: Users should not open other tabs in the browser when using a social networking site.",
+            "id": "course-of-action--8127e61d-3ccd-4866-bd76-59c159eeeefe",
+            "modified": "2022-02-22T00:00:00.000Z",
+            "name": "coa-467-1",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

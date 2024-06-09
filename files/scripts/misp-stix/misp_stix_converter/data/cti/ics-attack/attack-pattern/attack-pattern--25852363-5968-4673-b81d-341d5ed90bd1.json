@@ -1,0 +1,59 @@
+{
+    "type": "bundle",
+    "id": "bundle--2967b009-7e20-4151-a9b2-5b9f3c68664b",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-09-26T15:24:07.480Z",
+            "name": "Point & Tag Identification",
+            "description": "Adversaries may collect point and tag values to gain a more comprehensive understanding of the process environment. Points may be values such as inputs, memory locations, outputs or other process specific variables. (Citation: Dennis L. Sloatman September 2016) Tags are the identifiers given to points for operator convenience. \n\nCollecting such tags provides valuable context to environmental points and enables an adversary to map inputs, outputs, and other values to their control processes. Understanding the points being collected may inform an adversary on which processes and values to keep track of over the course of an operation.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-ics-attack",
+                    "phase_name": "collection-ics"
+                }
+            ],
+            "x_mitre_detection": "",
+            "x_mitre_platforms": [
+                "Data Historian",
+                "Control Server",
+                "Human-Machine Interface"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_deprecated": false,
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.1",
+            "x_mitre_contributors": [
+                "Jos Wetzels - Midnight Blue"
+            ],
+            "x_mitre_data_sources": [
+                "Network Traffic: Network Traffic Content",
+                "Application Log: Application Log Content"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--25852363-5968-4673-b81d-341d5ed90bd1",
+            "created": "2020-05-21T17:43:26.506Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T0861",
+                    "external_id": "T0861"
+                },
+                {
+                    "source_name": "Dennis L. Sloatman September 2016",
+                    "description": "Dennis L. Sloatman 2016, September 16 Understanding PLC Programming Methods and the Tag Database System Retrieved. 2017/12/19 ",
+                    "url": "https://www.radioworld.com/industry/understanding-plc-programming-methods-and-the-tag-database-system"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

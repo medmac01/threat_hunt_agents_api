@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--75896cee-7035-4c88-a65f-2af7ce58c6c5",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--c47d3636-65dd-4da1-8c90-e3e7aeb7effb",
+            "type": "relationship",
+            "created": "2020-05-06T20:40:19.102Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "ESET Attor Oct 2019",
+                    "url": "https://www.welivesecurity.com/wp-content/uploads/2019/10/ESET_Attor.pdf",
+                    "description": "Hromcova, Z. (2019, October). AT COMMANDS, TOR-BASED COMMUNICATIONS: MEET ATTOR, A FANTASY CREATURE AND ALSO A SPY PLATFORM. Retrieved May 6, 2020."
+                }
+            ],
+            "modified": "2020-07-07T12:35:12.068Z",
+            "description": "[Attor](https://attack.mitre.org/software/S0438) can set attributes of log files and directories to HIDDEN, SYSTEM, ARCHIVE, or a combination of those.(Citation: ESET Attor Oct 2019)",
+            "relationship_type": "uses",
+            "source_ref": "malware--8f423bd7-6ca7-4303-9e85-008c7ad5fdaa",
+            "target_ref": "attack-pattern--ec8fc7e2-b356-455c-8db5-2e37be158e7d",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

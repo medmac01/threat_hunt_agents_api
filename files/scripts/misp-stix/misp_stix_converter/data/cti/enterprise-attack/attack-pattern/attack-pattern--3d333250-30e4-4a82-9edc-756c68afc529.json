@@ -1,0 +1,76 @@
+{
+    "type": "bundle",
+    "id": "bundle--1191a3ea-257a-4646-a8fa-a5908855a7d7",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-19T16:32:56.502Z",
+            "name": "Impair Defenses",
+            "description": "Adversaries may maliciously modify components of a victim environment in order to hinder or disable defensive mechanisms. This not only involves impairing preventative defenses, such as firewalls and anti-virus, but also detection capabilities that defenders can use to audit activity and identify malicious behavior. This may also span both native defenses as well as supplemental capabilities installed by users and administrators.\n\nAdversaries could also target event aggregation and analysis mechanisms, or otherwise disrupt these procedures by altering other system components.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "defense-evasion"
+                }
+            ],
+            "x_mitre_detection": "Monitor processes and command-line arguments to see if security tools or logging services are killed or stop running. Monitor Registry edits for modifications to services and startup programs that correspond to security tools.  Lack of log events may be suspicious.\n\nMonitor environment variables and APIs that can be leveraged to disable security measures.",
+            "x_mitre_platforms": [
+                "Windows",
+                "Office 365",
+                "IaaS",
+                "Linux",
+                "macOS",
+                "Containers",
+                "Network"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_deprecated": false,
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_version": "1.3",
+            "x_mitre_data_sources": [
+                "Cloud Service: Cloud Service Modification",
+                "Firewall: Firewall Rule Modification",
+                "Process: Process Termination",
+                "Service: Service Metadata",
+                "Process: Process Creation",
+                "Driver: Driver Load",
+                "Firewall: Firewall Disable",
+                "Command: Command Execution",
+                "Cloud Service: Cloud Service Disable",
+                "Windows Registry: Windows Registry Key Deletion",
+                "Windows Registry: Windows Registry Key Modification",
+                "Sensor Health: Host Status",
+                "Script: Script Execution"
+            ],
+            "x_mitre_defense_bypassed": [
+                "Anti-virus",
+                "Signature-based detection",
+                "Host intrusion prevention systems",
+                "File monitoring",
+                "Digital Certificate Validation",
+                "Host forensic analysis",
+                "Log analysis",
+                "Firewall"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--3d333250-30e4-4a82-9edc-756c68afc529",
+            "created": "2020-02-21T20:22:13.470Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1562",
+                    "external_id": "T1562"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

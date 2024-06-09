@@ -1,0 +1,20 @@
+{
+    "id": "bundle--eb078630-2333-40c3-9369-45b7bebb6298",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Employ a robust network defense posture that includes an IDS/IPS system.",
+            "id": "course-of-action--45891892-3784-447c-a5f7-49b6f3b6a8b1",
+            "modified": "2022-02-22T00:00:00.000Z",
+            "name": "coa-301-0",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

@@ -1,0 +1,32 @@
+{
+    "type": "bundle",
+    "id": "bundle--0ed2a3b0-c9d9-45d6-a272-94b532e58212",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-10-24T15:09:07.609Z",
+            "name": "Redundancy of Service",
+            "description": "Redundancy could be provided for both critical ICS devices and services, such as back-up devices or hot-standbys.",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "type": "course-of-action",
+            "id": "course-of-action--f0f5c87a-a58d-440a-b3b5-ca679d98c6dd",
+            "created": "2019-06-06T21:16:18.709Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/mitigations/M0811",
+                    "external_id": "M0811"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ]
+        }
+    ]
+}

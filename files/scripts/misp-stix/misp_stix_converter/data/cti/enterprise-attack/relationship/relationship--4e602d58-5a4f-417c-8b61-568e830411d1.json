@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--4c1a45f1-923d-4a53-89b3-a11ce19df7a1",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--4e602d58-5a4f-417c-8b61-568e830411d1",
+            "type": "relationship",
+            "created": "2020-11-30T17:05:19.822Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "US District Court Indictment GRU Unit 74455 October 2020",
+                    "url": "https://www.justice.gov/opa/press-release/file/1328521/download",
+                    "description": "Scott W. Brady. (2020, October 15). United States vs. Yuriy Sergeyevich Andrienko et al.. Retrieved November 25, 2020."
+                }
+            ],
+            "modified": "2020-11-30T17:05:19.822Z",
+            "description": "[Sandworm Team](https://attack.mitre.org/groups/G0034)'s research of potential victim organizations included the identification and collection of employee information.(Citation: US District Court Indictment GRU Unit 74455 October 2020)",
+            "relationship_type": "uses",
+            "source_ref": "intrusion-set--381fcf73-60f6-4ab2-9991-6af3cbc35192",
+            "target_ref": "attack-pattern--76551c52-b111-4884-bc47-ff3e728f0156",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

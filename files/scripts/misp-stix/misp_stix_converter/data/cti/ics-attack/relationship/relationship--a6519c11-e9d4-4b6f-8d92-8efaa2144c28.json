@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--6158acaf-4592-4cbc-960a-e6df3d3dfc5d",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "relationship",
+            "id": "relationship--a6519c11-e9d4-4b6f-8d92-8efaa2144c28",
+            "created": "2021-04-13T12:28:20.652Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "Davey Winder June 2020",
+                    "description": "Davey Winder 2020, June 10 Honda Hacked: Japanese Car Giant Confirms Cyber Attack On Global Operations Retrieved. 2021/04/12 ",
+                    "url": "https://www.forbes.com/sites/daveywinder/2020/06/10/honda-hacked-japanese-car-giant-confirms-cyber-attack-on-global-operations-snake-ransomware/?sh=2725c35753ad"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2022-10-12T17:47:16.775Z",
+            "description": "[EKANS](https://attack.mitre.org/software/S0605) infection resulted in a temporary production loss within a Honda manufacturing plant. (Citation: Davey Winder June 2020)",
+            "relationship_type": "uses",
+            "source_ref": "malware--00e7d565-9883-4ee5-b642-8fd17fd6a3f5",
+            "target_ref": "attack-pattern--63b6942d-8359-4506-bfb3-cf87aa8120ee",
+            "x_mitre_deprecated": false,
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--ecd5ca7c-48c9-4583-a92c-d679d71c8fe6",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "relationship",
+            "id": "relationship--d72e7d01-56be-4fbd-8957-3384533ba83b",
+            "created": "2018-04-18T17:59:24.739Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "Jos Wetzels January 2018",
+                    "description": "Jos Wetzels 2018, January 16 Analyzing the TRITON industrial malware Retrieved. 2019/10/22 ",
+                    "url": "https://www.midnightbluelabs.com/blog/2018/1/16/analyzing-the-triton-industrial-malware"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2022-10-12T18:28:23.911Z",
+            "description": "[Triton](https://attack.mitre.org/software/S1009) leverages a reconstructed TriStation protocol within its framework to trigger APIs related to program download, program allocation, and program changes. (Citation: Jos Wetzels January 2018)",
+            "relationship_type": "uses",
+            "source_ref": "malware--80099a91-4c86-4bea-9ccb-dac55d61960e",
+            "target_ref": "attack-pattern--5a2610f6-9fff-41e1-bc27-575ca20383d4",
+            "x_mitre_deprecated": false,
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

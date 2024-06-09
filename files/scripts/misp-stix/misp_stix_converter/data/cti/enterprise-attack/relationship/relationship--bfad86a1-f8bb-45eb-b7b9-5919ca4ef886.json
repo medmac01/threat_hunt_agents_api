@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--28c3417d-0b67-41d7-b54c-31979d53184e",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--bfad86a1-f8bb-45eb-b7b9-5919ca4ef886",
+            "type": "relationship",
+            "created": "2020-05-21T17:14:56.882Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "TrendMicro Tropic Trooper May 2020",
+                    "url": "https://documents.trendmicro.com/assets/Tech-Brief-Tropic-Trooper-s-Back-USBferry-Attack-Targets-Air-gapped-Environments.pdf",
+                    "description": "Chen, J.. (2020, May 12). Tropic Trooper\u2019s Back: USBferry Attack Targets Air gapped Environments. Retrieved May 20, 2020."
+                }
+            ],
+            "modified": "2020-05-29T13:31:07.914Z",
+            "description": "[USBferry](https://attack.mitre.org/software/S0452) can use <code>tasklist</code> to gather information about the process running on the infected system.(Citation: TrendMicro Tropic Trooper May 2020)\t",
+            "relationship_type": "uses",
+            "source_ref": "malware--75bba379-4ba1-467e-8c60-ec2b269ee984",
+            "target_ref": "attack-pattern--8f4a33ec-8b1f-4b80-a2f6-642b2e479580",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

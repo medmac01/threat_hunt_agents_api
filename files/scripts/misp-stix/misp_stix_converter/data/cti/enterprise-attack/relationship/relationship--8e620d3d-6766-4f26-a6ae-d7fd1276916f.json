@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--4f2f7514-bfb8-45b2-bfc5-e5c05b08f08a",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--8e620d3d-6766-4f26-a6ae-d7fd1276916f",
+            "type": "relationship",
+            "created": "2020-02-17T13:14:31.437Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-04-01T18:25:13.909Z",
+            "description": "The password for the user's login keychain can be changed from the user's login password. This increases the complexity for an adversary because they need to know an additional password.",
+            "relationship_type": "mitigates",
+            "source_ref": "course-of-action--90c218c3-fbf8-4830-98a7-e8cfb7eaa485",
+            "target_ref": "attack-pattern--1eaebf46-e361-4437-bc23-d5d65a3b92e3",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

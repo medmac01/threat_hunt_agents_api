@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--e59a55a6-4360-4b9f-89b0-6d7a72f0a908",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--4113afe0-e84a-44ba-9180-3033de06d72e",
+            "type": "relationship",
+            "created": "2021-03-05T18:54:56.753Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "Zscaler Higaisa 2020",
+                    "url": "https://www.zscaler.com/blogs/security-research/return-higaisa-apt",
+                    "description": "Singh, S. Singh, A. (2020, June 11). The Return on the Higaisa APT. Retrieved March 2, 2021."
+                }
+            ],
+            "modified": "2021-03-05T18:54:56.753Z",
+            "description": "[Higaisa](https://attack.mitre.org/groups/G0126) used a function to gather the current time.(Citation: Zscaler Higaisa 2020)",
+            "relationship_type": "uses",
+            "source_ref": "intrusion-set--54dfec3e-6464-4f74-9d69-b7c817b7e5a3",
+            "target_ref": "attack-pattern--f3c544dc-673c-4ef3-accb-53229f1ae077",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

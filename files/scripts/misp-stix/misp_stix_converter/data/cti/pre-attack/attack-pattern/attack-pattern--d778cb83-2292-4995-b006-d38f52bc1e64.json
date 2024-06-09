@@ -1,0 +1,47 @@
+{
+    "type": "bundle",
+    "id": "bundle--a5df617a-6479-499a-b104-e4e70ace2d2b",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "id": "attack-pattern--d778cb83-2292-4995-b006-d38f52bc1e64",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "name": "Identify gap areas",
+            "description": "This object is deprecated as its content has been merged into the enterprise domain. Please see the [PRE](http://attack.mitre.org/matrices/enterprise/pre/) matrix for its replacement. The prior content of this page has been preserved [here](https://attack.mitre.org/versions/v7/techniques/T1225).\n\nLeadership identifies gap areas that generate a compelling need to generate a Key Intelligence Topic (KIT) or Key Intelligence Question (KIQ). (Citation: ODNIIntegration) (Citation: ICD115)",
+            "external_references": [
+                {
+                    "source_name": "mitre-pre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1225",
+                    "external_id": "T1225"
+                },
+                {
+                    "source_name": "ODNIIntegration",
+                    "description": "Office of the Director of National Intelligence. (n.d.). Intelligence Integration - Who Are We. Retrieved March 2, 2017."
+                },
+                {
+                    "source_name": "ICD115",
+                    "description": "Office of the Director of National Intelligence. (2012, December 21). ICD 115: Intelligence Community Capability Requirements Process. Retrieved March 2, 2017."
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_detectable_by_common_defenses": "No",
+            "x_mitre_detectable_by_common_defenses_explanation": "Normally, defender is unable to detect.  Few agencies and commercial organizations may have unique insights.",
+            "x_mitre_difficulty_for_adversary": "Yes",
+            "x_mitre_difficulty_for_adversary_explanation": "Normal aspect of adversary planning lifecycle.  May not be done by all adversaries.",
+            "x_mitre_version": "1.0",
+            "x_mitre_old_attack_id": "PRE-T1002",
+            "type": "attack-pattern",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-pre-attack",
+                    "phase_name": "priority-definition-planning"
+                }
+            ],
+            "modified": "2020-10-26T13:42:49.342Z",
+            "created": "2017-12-14T16:46:06.044Z",
+            "x_mitre_deprecated": true
+        }
+    ]
+}

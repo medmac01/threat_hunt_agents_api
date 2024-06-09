@@ -1,0 +1,20 @@
+{
+    "id": "bundle--8914df47-9090-4cdc-8c2d-43e21db48485",
+    "objects": [
+        {
+            "created": "2015-11-09T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Frequent changing of mobile number.",
+            "id": "course-of-action--272a376e-ec84-4fcd-abb5-00cba0e3c7e0",
+            "modified": "2018-07-31T00:00:00.000Z",
+            "name": "coa-618-0",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

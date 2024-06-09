@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--aa2a96e4-80b4-413b-b88b-61bd58d871b6",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--e2ef57a9-be09-4b5c-b71a-f98e57a530c9",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.840Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.840Z",
+            "description": "Monitor executed atq command and ensure IP addresses stored in the SSH_CONNECTION and SSH_CLIENT variables, machines that created the jobs, are trusted hosts. All at jobs are stored in /var/spool/cron/atjobs/.",
+            "source_ref": "x-mitre-data-component--685f917a-e95e-4ba0-ade1-c7d354dae6e0",
+            "target_ref": "attack-pattern--2acf44aa-542f-4366-b4eb-55ef5747759c",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

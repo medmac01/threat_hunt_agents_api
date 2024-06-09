@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--a88126a8-6693-46e9-9300-47cb7c1c4e06",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--c257d040-c058-42db-ad75-1abb7b06e616",
+            "type": "relationship",
+            "created": "2020-11-06T19:01:02.254Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "Cybereason Kimsuky November 2020",
+                    "url": "https://www.cybereason.com/blog/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite",
+                    "description": "Dahan, A. et al. (2020, November 2). Back to the Future: Inside the Kimsuky KGH Spyware Suite. Retrieved November 6, 2020."
+                }
+            ],
+            "modified": "2020-11-06T19:01:02.254Z",
+            "description": "(Citation: Cybereason Kimsuky November 2020)",
+            "relationship_type": "uses",
+            "source_ref": "intrusion-set--0ec2f388-bf0f-4b5c-97b1-fc736d26c25f",
+            "target_ref": "malware--8bdfe255-e658-4ddd-a11c-b854762e451d",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "type": "bundle",
+    "id": "bundle--9cd7009d-771d-48a6-997f-09a5411e6e3d",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "mobile-attack"
+            ],
+            "id": "attack-pattern--b928b94a-4966-4e2a-9e61-36505b896ebc",
+            "type": "attack-pattern",
+            "created": "2017-10-25T14:48:24.905Z",
+            "revoked": true,
+            "external_references": [
+                {
+                    "source_name": "mitre-mobile-attack",
+                    "url": "https://attack.mitre.org/techniques/T1462",
+                    "external_id": "T1462"
+                }
+            ],
+            "modified": "2018-10-17T01:05:10.704Z",
+            "name": "Malicious Software Development Tools",
+            "x_mitre_version": "1.0",
+            "x_mitre_is_subtechnique": false
+        }
+    ]
+}

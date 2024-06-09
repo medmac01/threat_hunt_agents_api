@@ -1,0 +1,20 @@
+{
+    "id": "bundle--8a44bdae-bcc5-487c-8780-a4cf20528d1d",
+    "objects": [
+        {
+            "created": "2014-06-23T00:00:00.000Z",
+            "created_by_ref": "identity--e50ab59c-5c4f-4d40-bf6a-d58418d89bcd",
+            "description": "Operation: Use \"ifconfig/ipconfig\" or other tools to detect the sniffer installed in the network.",
+            "id": "course-of-action--f3d9104c-7744-4b8d-a0ad-eda7ccd58f13",
+            "modified": "2022-09-29T00:00:00.000Z",
+            "name": "coa-65-2",
+            "object_marking_refs": [
+                "marking-definition--17d82bb2-eeeb-4898-bda5-3ddbcd2b799d"
+            ],
+            "spec_version": "2.1",
+            "type": "course-of-action",
+            "x_capec_version": "3.9"
+        }
+    ],
+    "type": "bundle"
+}

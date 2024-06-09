@@ -1,0 +1,40 @@
+{
+    "type": "bundle",
+    "id": "bundle--1208e4ae-7b8c-4bab-8e7a-077c863ad389",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_platforms": [
+                "Android"
+            ],
+            "x_mitre_domains": [
+                "mobile-attack"
+            ],
+            "id": "attack-pattern--0bcc4ec1-a897-49a9-a9ff-c00df1d1209d",
+            "type": "attack-pattern",
+            "created": "2017-10-25T14:48:08.155Z",
+            "revoked": true,
+            "external_references": [
+                {
+                    "source_name": "mitre-mobile-attack",
+                    "url": "https://attack.mitre.org/techniques/T1454",
+                    "external_id": "T1454"
+                }
+            ],
+            "modified": "2019-04-29T19:35:30.985Z",
+            "name": "Malicious SMS Message",
+            "description": "Test",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-mobile-attack",
+                    "phase_name": "collection"
+                }
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_tactic_type": [
+                "Post-Adversary Device Access"
+            ],
+            "x_mitre_is_subtechnique": false
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "type": "bundle",
+    "id": "bundle--a3f16b56-a879-4515-9e99-2b1753e75cbf",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "relationship",
+            "id": "relationship--f2a29786-05d5-4566-bece-14d5c1a212c1",
+            "created": "2021-03-11T15:29:16.495Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "Leonardo Turla Penquin May 2020",
+                    "description": "Leonardo. (2020, May 29). MALWARE TECHNICAL INSIGHT TURLA \u201cPenquin_x64\u201d. Retrieved March 11, 2021.",
+                    "url": "https://www.leonardo.com/documents/20142/10868623/Malware+Technical+Insight+_Turla+%E2%80%9CPenquin_x64%E2%80%9D.pdf"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2022-09-28T21:27:07.149Z",
+            "description": "(Citation: Leonardo Turla Penquin May 2020)",
+            "relationship_type": "uses",
+            "source_ref": "intrusion-set--7a19ecb1-3c65-4de3-a230-993516aed6a6",
+            "target_ref": "malware--d18cb958-f4ad-4fb3-bb4f-e8994d206550",
+            "x_mitre_deprecated": false,
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

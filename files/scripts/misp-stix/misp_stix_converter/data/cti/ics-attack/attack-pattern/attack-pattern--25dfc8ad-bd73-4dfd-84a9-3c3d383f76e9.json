@@ -1,0 +1,51 @@
+{
+    "type": "bundle",
+    "id": "bundle--e2f5fb32-8bca-425b-8476-d45900862ad3",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "modified": "2022-09-26T16:50:56.401Z",
+            "name": "Device Restart/Shutdown",
+            "description": "Adversaries may forcibly restart or shutdown a device in an ICS environment to disrupt and potentially negatively impact physical processes. Methods of device restart and shutdown exist in some devices as built-in, standard functionalities. These functionalities can be executed using interactive device web interfaces, CLIs, and network protocol commands.\n\nUnexpected restart or shutdown of control system devices may prevent expected response functions happening during critical states.\n\nA device restart can also be a sign of malicious device modifications, as many updates require a shutdown in order to take effect.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-ics-attack",
+                    "phase_name": "inhibit-response-function"
+                }
+            ],
+            "x_mitre_detection": "",
+            "x_mitre_platforms": [
+                "Field Controller/RTU/PLC/IED"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_deprecated": false,
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_version": "1.1",
+            "x_mitre_data_sources": [
+                "Network Traffic: Network Traffic Content",
+                "Operational Databases: Device Alarm",
+                "Application Log: Application Log Content",
+                "Network Traffic: Network Traffic Flow"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--25dfc8ad-bd73-4dfd-84a9-3c3d383f76e9",
+            "created": "2020-05-21T17:43:26.506Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T0816",
+                    "external_id": "T0816"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

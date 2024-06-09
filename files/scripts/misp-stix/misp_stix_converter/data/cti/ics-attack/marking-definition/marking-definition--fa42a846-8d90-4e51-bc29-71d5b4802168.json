@@ -1,0 +1,18 @@
+{
+    "type": "bundle",
+    "id": "bundle--e5f47e91-b7d9-4a16-9226-6df4e52ed70c",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "definition": {
+                "statement": "Copyright 2015-2022, The MITRE Corporation. MITRE ATT&CK and ATT&CK are registered trademarks of The MITRE Corporation."
+            },
+            "id": "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168",
+            "type": "marking-definition",
+            "created": "2017-06-01T00:00:00.000Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "definition_type": "statement",
+            "x_mitre_attack_spec_version": "2.1.0"
+        }
+    ]
+}

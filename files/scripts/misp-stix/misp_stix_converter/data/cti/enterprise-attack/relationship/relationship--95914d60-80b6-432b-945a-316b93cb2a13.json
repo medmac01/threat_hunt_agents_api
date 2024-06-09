@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--8d4a1e09-2c35-4883-9215-026511d09e95",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--95914d60-80b6-432b-945a-316b93cb2a13",
+            "type": "relationship",
+            "created": "2019-09-16T18:46:37.655Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "description": "Villadsen, O.. (2019, August 29). More_eggs, Anyone? Threat Actor ITG08 Strikes Again. Retrieved September 16, 2019.",
+                    "url": "https://securityintelligence.com/posts/more_eggs-anyone-threat-actor-itg08-strikes-again/",
+                    "source_name": "Security Intelligence More Eggs Aug 2019"
+                }
+            ],
+            "modified": "2019-09-16T18:46:37.655Z",
+            "description": "[FIN6](https://attack.mitre.org/groups/G0037) has used fake job advertisements sent via LinkedIn to spearphish targets.(Citation: Security Intelligence More Eggs Aug 2019)",
+            "relationship_type": "uses",
+            "source_ref": "intrusion-set--2a7914cf-dff3-428d-ab0f-1014d1c28aeb",
+            "target_ref": "attack-pattern--f6ad61ee-65f3-4bd0-a3f5-2f0accb36317",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

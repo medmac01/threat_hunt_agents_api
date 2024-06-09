@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--7b877d49-b3f0-47fe-9410-47f8eaf83b9a",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--5ef60fca-8b7c-40e4-a148-5f6d46e96781",
+            "type": "relationship",
+            "created": "2022-03-30T14:26:51.838Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2022-03-30T14:26:51.838Z",
+            "description": "Monitor presence and use of CHM files, especially if they are not typically used within an environment.",
+            "source_ref": "x-mitre-data-component--2b3bfe19-d59a-460d-93bb-2f546adc2d2c",
+            "target_ref": "attack-pattern--a6937325-9321-4e2e-bb2b-3ed2d40b2a9d",
+            "relationship_type": "detects",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

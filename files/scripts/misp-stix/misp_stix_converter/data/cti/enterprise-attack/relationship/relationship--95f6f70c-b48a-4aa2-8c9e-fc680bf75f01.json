@@ -1,0 +1,26 @@
+{
+    "type": "bundle",
+    "id": "bundle--9cab7550-9a4a-4a84-8fb2-aa2f70f7ad28",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "relationship",
+            "id": "relationship--95f6f70c-b48a-4aa2-8c9e-fc680bf75f01",
+            "created": "2022-03-30T14:26:51.872Z",
+            "x_mitre_version": "0.1",
+            "x_mitre_deprecated": false,
+            "revoked": false,
+            "description": "Monitor for executed processes (such as ipconfig/ifconfig and arp) with arguments that may look for details about the network configuration and settings, such as IP and/or MAC addresses.",
+            "modified": "2022-04-12T12:45:34.845Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "relationship_type": "detects",
+            "source_ref": "x-mitre-data-component--3d20385b-24ef-40e1-9f56-f39750379077",
+            "target_ref": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

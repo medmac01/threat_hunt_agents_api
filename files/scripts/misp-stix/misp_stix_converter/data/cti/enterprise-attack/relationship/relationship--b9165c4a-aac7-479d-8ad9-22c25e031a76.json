@@ -1,0 +1,30 @@
+{
+    "type": "bundle",
+    "id": "bundle--38767243-4a41-4e96-b262-2313ad547569",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--b9165c4a-aac7-479d-8ad9-22c25e031a76",
+            "type": "relationship",
+            "created": "2018-10-17T00:14:20.652Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "url": "https://research.nccgroup.com/2018/05/18/emissary-panda-a-potential-new-malicious-tool/",
+                    "description": "Pantazopoulos, N., Henry T. (2018, May 18). Emissary Panda \u2013 A potential new malicious tool. Retrieved June 25, 2018.",
+                    "source_name": "Nccgroup Emissary Panda May 2018"
+                }
+            ],
+            "modified": "2021-03-29T19:43:26.819Z",
+            "description": "A [Threat Group-3390](https://attack.mitre.org/groups/G0027) tool can use a public UAC bypass method to elevate privileges.(Citation: Nccgroup Emissary Panda May 2018)",
+            "relationship_type": "uses",
+            "source_ref": "intrusion-set--fb366179-766c-4a4a-afa1-52bff1fd601c",
+            "target_ref": "attack-pattern--120d5519-3098-4e1c-9191-2aa61232f073",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

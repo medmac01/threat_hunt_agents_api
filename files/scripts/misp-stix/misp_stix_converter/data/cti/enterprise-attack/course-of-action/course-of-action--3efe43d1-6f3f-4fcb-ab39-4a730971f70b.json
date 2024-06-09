@@ -1,0 +1,31 @@
+{
+    "type": "bundle",
+    "id": "bundle--049bb1a7-930f-40ba-9764-0f6ecbeddf5e",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "course-of-action--3efe43d1-6f3f-4fcb-ab39-4a730971f70b",
+            "type": "course-of-action",
+            "created": "2019-07-19T14:33:33.543Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "M1053",
+                    "url": "https://attack.mitre.org/mitigations/M1053"
+                }
+            ],
+            "modified": "2020-03-31T13:11:28.201Z",
+            "name": "Data Backup",
+            "description": "Take and store data backups from end user systems and critical servers. Ensure backup and storage systems are hardened and kept separate from the corporate network to prevent compromise.",
+            "x_mitre_version": "1.1",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}

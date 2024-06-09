@@ -1,0 +1,23 @@
+{
+    "type": "bundle",
+    "id": "bundle--e8419141-90f9-4e2c-b751-e23279e2c6e1",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "relationship--eb5ade8c-73e9-4b69-9dea-c8a8206dec25",
+            "type": "relationship",
+            "created": "2019-07-18T15:46:37.654Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "modified": "2021-06-09T18:51:50.597Z",
+            "description": "Use tools that restrict program execution via application control by attributes other than file name for common operating system utilities that are needed.",
+            "relationship_type": "mitigates",
+            "source_ref": "course-of-action--47e0e9fe-96ce-4f65-8bb1-8be1feacb5db",
+            "target_ref": "attack-pattern--42e8de7b-37b2-4258-905a-6897815e58e0",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+        }
+    ]
+}
