@@ -23,9 +23,11 @@ from .investigator import invoke as investigator_invoke
 
 load_dotenv(override=True)
 
-llm = Ollama(model="openhermes:7b-mistral-v2.5-q8_0", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=2048, num_ctx=8192)
+HERMES_SYSTEM = """You are an assistant agent, mainly focused on cybersecurity and threat hunting. You should provide accurate information in whatever text you are generating. Also your final answers should be human, long enough, and user-friendly, while keeping technicalities intact."""
+# llm = Cohere(model="c4ai-aya-23", cohere_api_key="xwQEiqU1kYFXZxECK7aquQPyXDx9uUTU4j44pHB2", temperature=0.1, user_agent="langchain", max_tokens=512)
+llm = Ollama(model="codestral", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=4096, num_ctx=8192, system=HERMES_SYSTEM)
 # llm = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.3, num_predict=-1)
-wrn = Ollama(model="wrn", base_url=os.getenv('OLLAMA_HOST'))
+# wrn = Ollama(model="wrn", base_url=os.getenv('OLLAMA_HOST'))
 
 # def get_json_agent(json_path: str):
 #     with open(json_path) as f:

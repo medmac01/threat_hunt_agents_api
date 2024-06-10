@@ -1,8 +1,9 @@
 from langchain_community.llms import Ollama
+from langchain_community.chat_models import ChatOllama
 
 from langchain import hub
 
-#from agentops.langchain_callback_handler import LangchainCallbackHandler as AgentOpsLangchainCallbackHandler
+from agentops.langchain_callback_handler import LangchainCallbackHandler as AgentOpsLangchainCallbackHandler
 
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 
@@ -10,24 +11,34 @@ from .tools.cve_avd_tool import CVESearchTool
 from .tools.misp_tool import MispTool
 from .tools.coder_tool import CoderTool
 from .tools.mitre_tool import MitreTool
+from .tools.virustotal_tool import VirusTotalTool
 
 from langchain.agents import initialize_agent, AgentType, load_tools
+from langchain.evaluation import load_evaluator
+
 
 from dotenv import load_dotenv
 import os
 import re
 
+from uuid import uuid4
+
 load_dotenv(override=True)
 
-llm = Ollama(model="openhermes:7b-mistral-v2.5-q8_0", base_url=os.getenv('OLLAMA_HOST'), temperature=0.5, num_predict=8192, num_ctx=16384, system="""You are designed to help with a variety of tasks, ranging from answering technical questions and providing detailed explanations to offering summaries and conducting thorough cybersecurity analyses. Your role also involves preserving crucial information, such as code blocks and links, and delivering answers in a structured format.""")
-# llm = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.3, num_predict=-1)
-# wrn = Ollama(model="wrn", base_url=os.getenv('OLLAMA_HOST'))
-# llama3 = Ollama(model="llama3", base_url=os.getenv('OLLAMA_HOST'), temperature=0.3)
+unique_id = uuid4().hex[0:8]
+
+os.environ["LANGCHAIN_TRACING_V2"]="true"
+os.environ["LANGCHAIN_ENDPOINT"]="https://api.smith.langchain.com"
+os.environ["LANGCHAIN_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
+os.environ["LANGCHAIN_PROJECT"]="inv_agent"
+# llm = Cohere(model="c4ai-aya-23", cohere_api_key="xwQEiqU1kYFXZxECK7aquQPyXDx9uUTU4j44pHB2", temperature=0.4, user_agent="langchain", max_tokens=512)
+llm = Ollama(model="codestral", base_url=os.getenv('OLLAMA_HOST'), temperature=0.5, num_predict=8192, num_ctx=16384, system="""You are designed to help with a variety of tasks, ranging from answering technical questions and providing detailed explanations to offering summaries and conducting thorough cybersecurity analyses. Your role also involves preserving crucial information, such as code blocks and links, and delivering answers in a structured format.""")
+
 
 
 cve_search_tool = CVESearchTool().cvesearch
 fetch_cve_tool = CVESearchTool().get_latest_cves
-misp_search_tool =  MispTool().search
+misp_search_tool = MispTool().search
 misp_search_by_date_tool = MispTool().search_by_date
 misp_search_by_event_id_tool = MispTool().search_by_event_id
 # coder_tool = CoderTool().code_generation_tool Disabled for now for more stability
@@ -37,8 +48,10 @@ get_technique_by_name = MitreTool().get_technique_by_name
 get_malware_by_name = MitreTool().get_malware_by_name
 get_tactic_by_keyword = MitreTool().get_tactic_by_keyword
 
+virus_total_tool = VirusTotalTool().scanner
+
 tools = [cve_search_tool, fetch_cve_tool, misp_search_tool, misp_search_by_date_tool, misp_search_by_event_id_tool, 
-         get_technique_by_id, get_technique_by_name, get_malware_by_name, get_tactic_by_keyword]
+         get_technique_by_id, get_technique_by_name, get_malware_by_name, get_tactic_by_keyword, virus_total_tool]
 
 # conversational agent memory
 memory = ConversationBufferWindowMemory(
@@ -47,6 +60,7 @@ memory = ConversationBufferWindowMemory(
     return_messages=True
 )
 
+agentops_handler = AgentOpsLangchainCallbackHandler(api_key=os.getenv("AGENTOPS_API_KEY"), tags=['Langchain Example'])
 
 #Error handling
 def _handle_error(error) -> str:
@@ -59,7 +73,6 @@ def _handle_error(error) -> str:
         return llm.invoke(f"""Try to summarize and explain the following error into 1 short and consice sentence and give a small indication to correct the error: {error} """)
 
 
-# prompt = hub.pull("hwchase17/react-chat-json")
 prompt = """
 Answer the following questions as best you can. You have access to the following tools:
 
@@ -94,6 +107,7 @@ Final Answer: the final answer to the original input question, using the informa
 
 Begin! Reminder to always use the exact characters `Final Answer` when responding."""
 
+# prompt = hub.pull("hwchase17/react-chat-json")
 # create our agent
 conversational_agent = initialize_agent(
     # agent="chat-conversational-react-description",
@@ -102,7 +116,7 @@ conversational_agent = initialize_agent(
     prompt=prompt,
     llm=llm,
     verbose=True,
-    max_iterations=5,
+    max_iterations=1,
     memory=memory,
     early_stopping_method='generate',
     # callbacks=[agentops_handler],
@@ -111,9 +125,16 @@ conversational_agent = initialize_agent(
     max_execution_time=40,
 )
 
+
+# conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template = """
+# 'Respond to the human as helpfully and accurately as possible. 
+# You should use the tools available to you to help answer the question.
+# Your final answer should be technical, well explained, and accurate.
+# You have access to the following tools:\n\n\n\nUse a json blob to specify a tool by providing an action key (tool name) and an action_input key (tool input).\n\nValid "action" values: "Final Answer" or \n\nProvide only ONE action per $JSON_BLOB, as shown:\n\n```\n{{\n  "action": $TOOL_NAME,\n  "action_input": $INPUT\n}}\n```\n\nFollow this format:\n\nQuestion: input question to answer\nThought: consider previous and subsequent steps\nAction:\n```\n$JSON_BLOB\n```\nObservation: action result\n... (repeat Thought/Action/Observation N times)\nThought: I know what to respond\nAction:\n```\n{{\n  "action": "Final Answer",\n  "action_input": "Final response to human"\n}}\n```\n\nBegin! Reminder to ALWAYS respond with a valid json blob of a single action. Use tools if necessary. Respond directly if appropriate. Format is Action:```$JSON_BLOB```then Observation:.\nThought:'
+# """
+
 template = conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template
 
-# conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cyber security analyst agent, you role is to respond to the human queries in a technical way while providing detailed explanations when providing final answer."""
 conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cyber security analyst, you role is to respond to the human queries in a technical way while providing detailed explanations when providing final answer. 
 You have access to tools that will help you answer the user queries (You will find the tools available below). You MUST pick the right tool precisely based on what the user asked you to search for.
 The tools are a little bit similar to each other, so you should be careful about which tool to use. Like for example when searching for CVEs, there is a tool that retrieves latest CVEs, and there is another one which searches for CVEs based on a keyword but not necessarly the latest. You should be careful about that.
@@ -122,4 +143,11 @@ YOU MUST FORWARD THE SAME RESULTS ,WORD BY WORD, DON'T MODIFY ANYTHING""" + temp
 
 def invoke(input_text):
     results = conversational_agent({"input":input_text})
+    # evaluation_result = evaluator.evaluate_agent_trajectory(
+    # prediction=results["output"],
+    # input=results["input"],
+    # agent_trajectory=results["intermediate_steps"],
+    # )
+
+    # print(evaluation_result)
     return results['output']

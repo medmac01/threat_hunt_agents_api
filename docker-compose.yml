@@ -1,69 +1,19 @@
-version: '3'
 services:
   sonic_ai:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:3333
     volumes:
       - .:/app
     ports:
-      - "8000:8000"
+      - "3333:3333"
     environment:
       - DEBUG=1
       - ALLOWED_HOSTS=localhost,127.0.0.1
       - DJANGO_SETTINGS_MODULE=api.settings
-      - OLLAMA_HOST=https://1276-197-230-122-195.ngrok-free.app
-      - MISP_URL=http://misp  # Pointing to the MISP service within the same network
+      - OLLAMA_HOST=https://395d-197-230-122-197.ngrok-free.app
+      - MISP_URL=https://d328-197-230-122-197.ngrok-free.app
       - MISP_KEY=DDL2X1VilJzgLvDSo58OMhVHYlnRRg9ShHaiadpA
+      # - MISP_KEY=VfmHZTrVA3QJdKuB1z4odhXnx935FPObRJ2zRdD6
       - AGENTOPS_API_KEY=874b2348-5d0b-4189-9c9f-0c4910f056a4
       - ENV=dev
-
-  mail:
-    image: namshi/smtp
-
-  redis:
-    image: redis:5.0.6
-
-  db:
-    image: mysql:8.0.19
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      - "MYSQL_USER=misp"
-      - "MYSQL_PASSWORD=example"
-      - "MYSQL_ROOT_PASSWORD=password"
-      - "MYSQL_DATABASE=misp"
-    volumes:
-      - mysql_data:/var/lib/mysql
-    cap_add:
-      - SYS_NICE  # CAP_SYS_NICE Prevent runaway mysql log
-
-  misp:
-    image: coolacid/misp-docker:core-latest
-    depends_on:
-      - redis
-      - db
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - "./server-configs/:/var/www/MISP/app/Config/"
-      - "./logs/:/var/www/MISP/app/tmp/logs/"
-      - "./files/:/var/www/MISP/app/files"
-      - "./ssl/:/etc/nginx/certs"
-    environment:
-      - "BASEURL=https://localhost"
-      - "REDIS_FQDN=redis"
-      - "INIT=true"             # Initialze MISP, things includes, attempting to import SQL and the Files DIR
-      - "CRON_USER_ID=1"        # The MISP user ID to run cron jobs as
-
-  misp-modules:
-    image: coolacid/misp-docker:modules-latest
-    environment:
-      - "REDIS_BACKEND=redis"
-    depends_on:
-      - redis
-      - db
-
-volumes:
-  mysql_data:
 
