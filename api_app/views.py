@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from .crew import HunterCrew
+# from .crew import HunterCrew
 from . import router
 
 @api_view(['POST'])
@@ -24,11 +24,10 @@ def answer(request):
         # For example, you can access the data and perform some calculations
         # Here, we'll just echo back the received data
 
-        results = HunterCrew(data).run()
 
         processed_data = {
             'input': data,
-            'output': results
+            'output': "This endpoint is deprecated, please use answer_v2 instead."
         }
         
         # Return the processed data as a JSON response
