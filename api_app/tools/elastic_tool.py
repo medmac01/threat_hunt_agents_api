@@ -1,57 +1,84 @@
 import requests
-from bs4 import BeautifulSoup
 from elasticsearch import Elasticsearch
 from langchain.tools import tool
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 es = Elasticsearch(
-      "https://localhost:9200",
-      basic_auth=("elastic","dVJI85*y60R3ZVbECj1w"),
-      ca_certs="/Volumes/macOS/Projects/PFE UM6P/elasticsearch-8.12.1/config/certs/http_ca.crt"
+      os.getenv("ES_URL"),
+      basic_auth=("elastic",os.getenv("ES_PASSWORD"))
     )
 
 
-class EventSearchTool():
-    @tool("Event search Tool")
-    def search(keyword: str):
-      """Useful tool to search for an indicator of compromise or an security event
+class InternalThreatSearch():
+    @tool("Alert search by IP address Tool", return_direct=True)
+    def search_by_ip(ip: str) -> str:
+      """Useful tool to search for an alert by its ip in an internal logs database, and return the full alert details if there is a match
       Parameters:
-      - keyword: The keyword to search for
+      - ip: The ip to search for
       Returns:
-      - A list of events that match the keyword
+      - The full details of the alert with the specified ip
       """
 
-      
-      # if not es.ping():
-      #   raise "ElasticNotReachable"
-      
-      query = {
-          "match": {"value": {
-              "query": keyword
-          }}
+      index_pattern = 'logstash-*-alert-*'
+
+      search_query = {
+          "query": {
+              "bool": {
+                  "should": [
+                      {"match": {"src_ip": ip}},
+                      {"match": {"dest_ip": ip}}
+                  ]
+              }
+          }
       }
 
       # Execute the search query
-      res = es.search(size=5, index="all_events_full", query=query, knn=None, _source=["event_id", "event_title", "event_date", "category", "attribute_tags", "type", "value"])
-      hits = res["hits"]["hits"]
-      events = [x['_source'] for x in hits]
+      res = es.search(index=index_pattern, body=search_query, error_trace=True, source_excludes=["event", "payload", "log", "@version", "type", "payload_printable", "http", "tcp", "packet", "metadata"])
+      if res['hits']['hits']:
+        hits = res["hits"]["hits"][:3]
+        alerts = [x['_source'] for x in hits]
 
-      return events
-    
+        return str(alerts)
 
-    @tool("Event search by event_id Tool")
-    def get_event_by_id(id:str):
-      """Useful tool to search for an event by its id, and return the full event details
+      else:
+        return f"No alerts found for the specified IP address {ip}"  
+
+    @tool("IP Address Lookup and Geolocation Tool")
+    def geolocate_ip(ip:str):
+      """Useful tool to get the geolocation of an IP address, and return the details if there is a match
       Parameters:
-      - id: The event id to search for
+      - ip: The ip to search for
       Returns:
-      - The full details of the event with the specified id
+      - The geolocation details of the IP address
       """
 
-      if not es.ping():
-        raise "ElasticNotReachable"
-      res = es.search(index="all_events_full", query={"match": {"event_id": id}}, _source=["event_id", "event_title", "event_date", "category", "attribute_tags", "type", "value"])
-      hits = res["hits"]["hits"]
-      events = [x['_source'] for x in hits]
+      index_pattern = 'logstash-*-alert-*'
 
-      return events
+      # Define the search query
+      search_query = {
+          "query": {
+              "bool": {
+                  "should": [
+                      {"match": {"src_ip": ip}},
+                      {"match": {"dest_ip": ip}}
+                  ]
+              }
+          }
+      }
+
+
+
+      # Perform the search
+
+      response = es.search(index=index_pattern, body=search_query, error_trace=True, source=["src_ip","dest_ip","ether","geoip"])
+      hits = response["hits"]["hits"]
+      alerts = [x['_source'] for x in hits]
+
+      return str(alerts)
+
+      
       
