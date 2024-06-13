@@ -1,3 +1,5 @@
+version: "3.3"
+
 services:
   sonic_ai:
     build: .
@@ -8,12 +10,12 @@ services:
       - "3333:3333"
     environment:
       - DEBUG=1
-      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - ALLOWED_HOSTS=localhost,127.0.0.1,ngrok-free.app,sonic-protect.network
       - DJANGO_SETTINGS_MODULE=api.settings
       - OLLAMA_HOST=https://395d-197-230-122-197.ngrok-free.app
       - MISP_URL=https://d328-197-230-122-197.ngrok-free.app
       - MISP_KEY=DDL2X1VilJzgLvDSo58OMhVHYlnRRg9ShHaiadpA
-      # - MISP_KEY=VfmHZTrVA3QJdKuB1z4odhXnx935FPObRJ2zRdD6
       - AGENTOPS_API_KEY=874b2348-5d0b-4189-9c9f-0c4910f056a4
       - ENV=dev
-
+      - VIRUSTOTAL_API_KEY=08c94f232e2dde41119539bd1aaa214d2828c4a49f13b860fe385dc84a4955ab
+      - LANGCHAIN_API_KEY=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
