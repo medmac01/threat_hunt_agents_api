@@ -27,7 +27,9 @@ load_dotenv(override=True)
 
 HERMES_SYSTEM = """You are an assistant agent, mainly focused on cybersecurity and threat hunting. You should provide accurate information in whatever text you are generating. Also your final answers should be human, long enough, and user-friendly, while keeping technicalities intact."""
 # llm = Cohere(model="c4ai-aya-23", cohere_api_key="xwQEiqU1kYFXZxECK7aquQPyXDx9uUTU4j44pHB2", temperature=0.1, user_agent="langchain", max_tokens=512)
-llm = Ollama(model="codestral", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=4096, num_ctx=8192, system=HERMES_SYSTEM)
+codestral = Ollama(model="codestral", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=4096, num_ctx=8192, system=HERMES_SYSTEM)
+llama3 = Ollama(model="llama3", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=4096, num_ctx=8192, system=HERMES_SYSTEM)
+openhermes = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=4096, num_ctx=8192, system=HERMES_SYSTEM)
 
 investigate_tool = Tool(name="Investigate Tool", 
                         description="This tool will help you execute a query to find information about a security event.(Can be a MISP event, CVE, MITRE attack or technique, malware...) Just provide the request and get the response.", 
@@ -55,7 +57,7 @@ agent = initialize_agent(
     agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
     tools=tools,
     # prompt=prompt,
-    llm=llm,
+    llm=codestral,
     verbose=True,
     max_iterations=5,
     memory=memory,
@@ -82,9 +84,32 @@ Remember, you should NEVER answer questions that are not related to cybersecurit
 
 
 def generate_title(input_text):
-    return llm.invoke(f"Generate a title for the following question: {input_text}, the title should be short and concise.")
+    return openhermes.invoke(f"Generate a title for the following question: {input_text}, the title should be short and concise.")
 
-def invoke(input_text, title=True):
+llm = codestral
+
+def invoke(input_text, title=True, llm="codestral"):
+    if llm == "codestral":
+        llm = codestral
+    elif llm == "llama3":
+        llm = llama3
+    elif llm == "openhermes":
+        llm = openhermes
+    else:
+        return {"output":"Invalid LLM model"}
+    
+    agent = initialize_agent(
+    agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
+    tools=tools,
+    llm=llm,
+    verbose=True,
+    max_iterations=5,
+    memory=memory,
+    early_stopping_method='generate',
+    handle_parsing_errors=True,
+    max_execution_time=40,
+    )
+
     return {"output":agent({"input":input_text}),
             "title":generate_title(input_text)} if title else {"output":agent({"input":input_text})}
 
@@ -94,3 +119,12 @@ def clear_chat():
     except Exception as e:
         return False
     return True
+
+def get_models():
+    models = {"models":[
+        {"openhermes" : "OpenHermes-7B (Fast)"},
+        {"codestral" : "Codestral-22B (Smart, slightly slower)"},
+        {"llama3" : "Llama3-8b (Beta)"},
+    ]}
+
+    return models

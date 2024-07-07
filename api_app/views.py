@@ -44,12 +44,12 @@ def answer_v2(request):
     if request.method == 'POST':
         # Get the data from the request body
         data = request.data
-        
+        llm = data.get('llm', 'codestral')
         # Perform your processing based on the received data
         # For example, you can access the data and perform some calculations
         # Here, we'll just echo back the received data
 
-        results = router.invoke(data["query"])
+        results = router.invoke(data["query"], llm=llm)
 
         processed_data = {
             'input': data,
@@ -70,7 +70,6 @@ def clear_chat(request):
     # Check if the request method is POST
     if request.method == 'POST':
         
-        
         op = router.clear_chat()
 
         result = {
@@ -83,6 +82,18 @@ def clear_chat(request):
     
     # If the request method is not POST, return a 405 Method Not Allowed response
     return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+@api_view(['GET'])
+def get_models(request):
+    # Check if the request method is GET
+    if request.method != 'GET':
+        return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    
+
+    # Get the list of available models
+    models = router.get_models()
+    
+    return Response(models, status=status.HTTP_200_OK)
 
 
 class ObtainAuthToken(APIView):

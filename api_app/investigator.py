@@ -16,6 +16,7 @@ from .tools.virustotal_tool import VirusTotalTool
 from langchain.agents import initialize_agent, AgentType, load_tools
 from langchain.evaluation import load_evaluator
 
+from .router import llm
 
 from dotenv import load_dotenv
 import os
@@ -32,8 +33,9 @@ os.environ["LANGCHAIN_ENDPOINT"]="https://api.smith.langchain.com"
 os.environ["LANGCHAIN_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
 os.environ["LANGCHAIN_PROJECT"]="inv_agent"
 # llm = Cohere(model="c4ai-aya-23", cohere_api_key="xwQEiqU1kYFXZxECK7aquQPyXDx9uUTU4j44pHB2", temperature=0.4, user_agent="langchain", max_tokens=512)
-llm = Ollama(model="codestral", base_url=os.getenv('OLLAMA_HOST'), temperature=0.5, num_predict=8192, num_ctx=16384, system="""You are designed to help with a variety of tasks, ranging from answering technical questions and providing detailed explanations to offering summaries and conducting thorough cybersecurity analyses. Your role also involves preserving crucial information, such as code blocks and links, and delivering answers in a structured format.""")
-
+# codestral = Ollama(model="codestral", base_url=os.getenv('OLLAMA_HOST'), temperature=0.5, num_predict=8192, num_ctx=16384, system="""You are designed to help with a variety of tasks, ranging from answering technical questions and providing detailed explanations to offering summaries and conducting thorough cybersecurity analyses. Your role also involves preserving crucial information, such as code blocks and links, and delivering answers in a structured format.""")
+# llama3 = Ollama(model="llama3", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=4096, num_ctx=8192, system="""You are designed to help with a variety of tasks, ranging from answering technical questions and providing detailed explanations to offering summaries and conducting thorough cybersecurity analyses. Your role also involves preserving crucial information, such as code blocks and links, and delivering answers in a structured format.""")
+# openhermes = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=4096, num_ctx=8192, system="""You are designed to help with a variety of tasks, ranging from answering technical questions and providing detailed explanations to offering summaries and conducting thorough cybersecurity analyses. Your role also involves preserving crucial information, such as code blocks and links, and delivering answers in a structured format.""")
 
 
 cve_search_tool = CVESearchTool().cvesearch
@@ -133,21 +135,40 @@ conversational_agent = initialize_agent(
 # You have access to the following tools:\n\n\n\nUse a json blob to specify a tool by providing an action key (tool name) and an action_input key (tool input).\n\nValid "action" values: "Final Answer" or \n\nProvide only ONE action per $JSON_BLOB, as shown:\n\n```\n{{\n  "action": $TOOL_NAME,\n  "action_input": $INPUT\n}}\n```\n\nFollow this format:\n\nQuestion: input question to answer\nThought: consider previous and subsequent steps\nAction:\n```\n$JSON_BLOB\n```\nObservation: action result\n... (repeat Thought/Action/Observation N times)\nThought: I know what to respond\nAction:\n```\n{{\n  "action": "Final Answer",\n  "action_input": "Final response to human"\n}}\n```\n\nBegin! Reminder to ALWAYS respond with a valid json blob of a single action. Use tools if necessary. Respond directly if appropriate. Format is Action:```$JSON_BLOB```then Observation:.\nThought:'
 # """
 
-template = conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template
-
-conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cyber security analyst, you role is to respond to the human queries in a technical way while providing detailed explanations when providing final answer. 
-You have access to tools that will help you answer the user queries (You will find the tools available below). You MUST pick the right tool precisely based on what the user asked you to search for.
-The tools are a little bit similar to each other, so you should be careful about which tool to use. Like for example when searching for CVEs, there is a tool that retrieves latest CVEs, and there is another one which searches for CVEs based on a keyword but not necessarly the latest. You should be careful about that.
-The tools observations will contain the results of the tools you used, and the final answer should be a technical, well explained, and should contains as much information as possible. DON'T SUMMARIZE PLEASE, SINCE THAT WILL LEAD TO INFORMATION LOSS.
-YOU MUST FORWARD THE SAME RESULTS ,WORD BY WORD, DON'T MODIFY ANYTHING""" + template
 
 def invoke(input_text):
-    results = conversational_agent({"input":input_text})
-    # evaluation_result = evaluator.evaluate_agent_trajectory(
-    # prediction=results["output"],
-    # input=results["input"],
-    # agent_trajectory=results["intermediate_steps"],
-    # )
+    # if llm == "codestral":
+    #     sel_llm = codestral
+    # elif llm == "llama3":
+    #     sel_llm = llama3
+    # elif llm == "openhermes":
+    #     sel_llm = openhermes
+    # else:
+    #     return {"error": "Invalid LLM"}
 
-    # print(evaluation_result)
+    conversational_agent = initialize_agent(
+        # agent="chat-conversational-react-description",
+        agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION,
+        tools=tools,
+        prompt=prompt,
+        llm=llm,
+        verbose=True,
+        max_iterations=1,
+        memory=memory,
+        early_stopping_method='generate',
+        # callbacks=[agentops_handler],
+        handle_parsing_errors=_handle_error,
+        return_intermediate_steps=False,
+        max_execution_time=40,
+    )
+
+    template = conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template
+
+    conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cyber security analyst, you role is to respond to the human queries in a technical way while providing detailed explanations when providing final answer. 
+    You have access to tools that will help you answer the user queries (You will find the tools available below). You MUST pick the right tool precisely based on what the user asked you to search for.
+    The tools are a little bit similar to each other, so you should be careful about which tool to use. Like for example when searching for CVEs, there is a tool that retrieves latest CVEs, and there is another one which searches for CVEs based on a keyword but not necessarly the latest. You should be careful about that.
+    The tools observations will contain the results of the tools you used, and the final answer should be a technical, well explained, and should contains as much information as possible. DON'T SUMMARIZE PLEASE, SINCE THAT WILL LEAD TO INFORMATION LOSS.
+    YOU MUST FORWARD THE SAME RESULTS ,WORD BY WORD, DON'T MODIFY ANYTHING""" + template
+
+    results = conversational_agent({"input":input_text})
     return results['output']
