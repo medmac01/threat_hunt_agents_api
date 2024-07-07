@@ -7,9 +7,11 @@ from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
+print(os.getenv('ES_URL'))
+
 es = Elasticsearch(
-      os.getenv("ES_URL"),
-      basic_auth=("elastic",os.getenv("ES_PASSWORD"))
+      "https://5dd7-197-230-122-199.ngrok-free.app",
+      basic_auth=("elastic","N78pa2CRqeJ1XnLZix0V")
     )
 
 
@@ -75,10 +77,14 @@ class InternalThreatSearch():
       # Perform the search
 
       response = es.search(index=index_pattern, body=search_query, error_trace=True, source=["src_ip","dest_ip","ether","geoip"])
-      hits = response["hits"]["hits"]
-      alerts = [x['_source'] for x in hits]
+      if response['hits']['hits']:
+      	hits = response["hits"]["hits"]
+      	alerts = [x['_source'] for x in hits]
 
-      return str(alerts)
+      	return str(alerts)
+
+      else:
+        return f"No geolocation found for the specified IP address {ip}, this can be due to the IP is not in the database, or it doesn't have a geolocation associated."  
 
       
       
