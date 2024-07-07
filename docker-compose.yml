@@ -19,3 +19,5 @@ services:
       - ENV=dev
       - VIRUSTOTAL_API_KEY=08c94f232e2dde41119539bd1aaa214d2828c4a49f13b860fe385dc84a4955ab
       - LANGCHAIN_API_KEY=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
+      - ES_URL="http://212.24.101.24:9200"
+      - ES_PASSWORD="N78pa2CRqeJ1XnLZix0V"

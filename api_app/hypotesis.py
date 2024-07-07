@@ -14,7 +14,7 @@ import re
 
 from uuid import uuid4
 
-from tools.elastic_tool import InternalThreatSearch
+from .tools.elastic_tool import InternalThreatSearch
 
 load_dotenv(override=True)
 

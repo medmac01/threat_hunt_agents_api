@@ -3,7 +3,7 @@ from langchain_community.chat_models import ChatOllama
 
 from langchain import hub
 
-from agentops.langchain_callback_handler import LangchainCallbackHandler as AgentOpsLangchainCallbackHandler
+#from agentops.langchain_callback_handler import LangchainCallbackHandler as AgentOpsLangchainCallbackHandler
 
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 
@@ -60,7 +60,7 @@ memory = ConversationBufferWindowMemory(
     return_messages=True
 )
 
-agentops_handler = AgentOpsLangchainCallbackHandler(api_key=os.getenv("AGENTOPS_API_KEY"), tags=['Langchain Example'])
+#agentops_handler = AgentOpsLangchainCallbackHandler(api_key=os.getenv("AGENTOPS_API_KEY"), tags=['Langchain Example'])
 
 #Error handling
 def _handle_error(error) -> str:
