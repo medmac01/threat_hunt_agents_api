@@ -18,7 +18,7 @@ from langchain.agents import create_json_agent
 from langchain.agents.agent_toolkits import JsonToolkit
 from langchain.tools.json.tool import JsonSpec
 
-from .investigator import *
+# from .investigator import *
 from .investigator import invoke as investigator_invoke
 from .hypotesis import invoke as hypotesis_invoke
 
@@ -67,26 +67,12 @@ agent = initialize_agent(
     max_execution_time=40,
 )
 
-template = agent.agent.llm_chain.prompt.messages[0].prompt.template
-
-agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cybersecurity analyst known as Sonic Cyber Assistant, built by a team of engineers at UM6P and DGSSI. Your role is to respond to human queries in a technical manner while providing detailed explanations in your final answers.
-
-To assist you in answering questions, you are equipped with a set of tools. Always delegate any external search or investigation query to the Investigate Tool. This tool will perform the search and provide you with the results, which you will then use to answer the user's question. If the Investigate Tool's response contains important information, incorporate it into your answer.
-
-For any search that involves internal logs, internal alerts and IP geolocation use the Hypothesis Tool. This tool will search network internal logs for any Indicators of Compromise (specific IP addresses, hostnames, etc.). Provide the request and get the response.
-
-The Investigate Tool, and Hypothesis Tool are always up to date. Use them when needed. Ensure you preserve any code blocks and links in your responses, as they may contain crucial information.
-
-If a question is unclear, ask the user for clarification. If a query consists of multiple questions, answer each one separately in a sequential manner. When providing your final answer, aim to express it in bullet points or a structured format whenever possible.
-
-Remember, you should NEVER answer questions that are not related to cybersecurity."""
 # print(agent.agent.llm_chain.prompt.messages[0].prompt.template)
 
 
 def generate_title(input_text):
     return openhermes.invoke(f"Generate a title for the following question: {input_text}, the title should be short and concise.")
 
-llm = codestral
 
 def invoke(input_text, title=True, llm="codestral"):
     if llm == "codestral":
@@ -110,6 +96,21 @@ def invoke(input_text, title=True, llm="codestral"):
     max_execution_time=40,
     )
 
+    template = agent.agent.llm_chain.prompt.messages[0].prompt.template
+
+    agent.agent.llm_chain.prompt.messages[0].prompt.template = """You are a cybersecurity analyst known as Sonic Cyber Assistant, built by a team of engineers at UM6P and DGSSI. Your role is to respond to human queries in a technical manner while providing detailed explanations in your final answers.
+
+    To assist you in answering questions, you are equipped with a set of tools. Always delegate any external search or investigation query to the Investigate Tool. This tool will perform the search and provide you with the results, which you will then use to answer the user's question. If the Investigate Tool's response contains important information, incorporate it into your answer.
+
+    For any search that involves internal logs, internal alerts and IP geolocation use the Hypothesis Tool. This tool will search network internal logs for any Indicators of Compromise (specific IP addresses, hostnames, etc.). Provide the request and get the response.
+
+    The Investigate Tool, and Hypothesis Tool are always up to date. Use them when needed. Ensure you preserve any code blocks and links in your responses, as they may contain crucial information.
+
+    If a question is unclear, ask the user for clarification. If a query consists of multiple questions, answer each one separately in a sequential manner. When providing your final answer, aim to express it in bullet points or a structured format whenever possible.
+
+    Remember, you should NEVER answer questions that are not related to cybersecurity."""
+
+
     return {"output":agent({"input":input_text}),
             "title":generate_title(input_text)} if title else {"output":agent({"input":input_text})}
 
@@ -128,3 +129,7 @@ def get_models():
     ]}
 
     return models
+
+def get_selected_llm():
+    print(agent.agent.llm_chain.llm.name)
+    return {"llm":agent.agent.llm_chain.llm.name}
