@@ -16,7 +16,6 @@ from .tools.virustotal_tool import VirusTotalTool
 from langchain.agents import initialize_agent, AgentType, load_tools
 from langchain.evaluation import load_evaluator
 
-from .router import get_selected_llm
 
 from dotenv import load_dotenv
 import os
@@ -37,7 +36,6 @@ codestral = Ollama(model="codestral", base_url=os.getenv('OLLAMA_HOST'), tempera
 llama3 = Ollama(model="llama3", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=4096, num_ctx=8192, system="""You are designed to help with a variety of tasks, ranging from answering technical questions and providing detailed explanations to offering summaries and conducting thorough cybersecurity analyses. Your role also involves preserving crucial information, such as code blocks and links, and delivering answers in a structured format.""")
 openhermes = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.2, num_predict=4096, num_ctx=8192, system="""You are designed to help with a variety of tasks, ranging from answering technical questions and providing detailed explanations to offering summaries and conducting thorough cybersecurity analyses. Your role also involves preserving crucial information, such as code blocks and links, and delivering answers in a structured format.""")
 
-llm = get_selected_llm()
 
 cve_search_tool = CVESearchTool().cvesearch
 fetch_cve_tool = CVESearchTool().get_latest_cves
@@ -64,6 +62,8 @@ memory = ConversationBufferWindowMemory(
 )
 
 #agentops_handler = AgentOpsLangchainCallbackHandler(api_key=os.getenv("AGENTOPS_API_KEY"), tags=['Langchain Example'])
+from .router import get_selected_llm
+llm = get_selected_llm()
 
 #Error handling
 def _handle_error(error) -> str:
