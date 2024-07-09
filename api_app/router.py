@@ -49,7 +49,7 @@ tools = [investigate_tool, hypothesis_tool]
 
 memory = ConversationBufferWindowMemory(
     memory_key='chat_history',
-    k=10,
+    k=5,
     return_messages=True
 )
 
@@ -120,6 +120,7 @@ def clear_chat():
     except Exception as e:
         return False
     return True
+
 
 def get_models():
     models = {"models":[
