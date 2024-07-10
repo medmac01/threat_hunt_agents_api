@@ -29,8 +29,9 @@ llm = Ollama(model="codestral", base_url=os.getenv('OLLAMA_HOST'), temperature=0
 
 alert_search_by_ip = InternalThreatSearch().search_by_ip
 geolocate_ip = InternalThreatSearch().geolocate_ip
+summary_alerts = InternalThreatSearch().get_summary
 
-tools = [alert_search_by_ip, geolocate_ip]
+tools = [alert_search_by_ip, geolocate_ip, summary_alerts]
 
 # conversational agent memory
 memory = ConversationBufferWindowMemory(
