@@ -56,7 +56,7 @@ def summarize_alerts(alerts):
     summary["top_src_ips"] = src_ip_counter.most_common(3)
     summary["top_dst_ips"] = dst_ip_counter.most_common(3)
     
-    return summary
+    return str(summary)
 
 class InternalThreatSearch():
     @tool("Alert search by IP address Tool", return_direct=True)

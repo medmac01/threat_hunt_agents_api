@@ -47,7 +47,7 @@ class MispTool():
       """
 
       events = misp.search(controller='attributes',date_from=date_from, date_to=date_to, limit=5)
-      return events
+      return str(events)
 
     @tool("MISP search Tool by event_id")
     def search_by_event_id(event_id: str | int):
@@ -59,5 +59,5 @@ class MispTool():
       """
 
       events = misp.search(controller='attributes', eventid=event_id, limit=1)
-      return events
+      return str(events)
     
