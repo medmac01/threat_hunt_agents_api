@@ -9,11 +9,9 @@ from collections import Counter
 
 load_dotenv(override=True)
 
-print(os.getenv('ES_URL'))
-
 es = Elasticsearch(
-      "https://d19b-196-115-70-195.ngrok-free.app",
-      basic_auth=("elastic","N78pa2CRqeJ1XnLZix0V")
+      os.getenv('ES_URL'),
+      basic_auth=("elastic",os.getenv("ES_PASSWORD"))
     )
 
 
