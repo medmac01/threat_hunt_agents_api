@@ -17,11 +17,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Install Dependencies
+    - name: Setup Environment
       run: |
+        rm -rf /opt/venv/*
         python -m venv /opt/venv
         source /opt/venv/bin/activate
-        python -m pip install --upgrade pip
+        python -m pip install --upgrade pip docker
+        
+    - name: Install Dependencies
+      run: |
+        source /opt/venv/bin/activate
         pip install --no-cache-dir -r requirements.txt
         cp -r . /app
         python /restart-threat-hunting-api-container.py
