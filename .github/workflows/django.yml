@@ -28,6 +28,7 @@ jobs:
       run: |
         source /opt/venv/bin/activate
         pip install --no-cache-dir -r requirements.txt
+        rm -rf /app/*
         cp -r . /app
         python /restart-threat-hunting-api-container.py
     # - name: Run Tests
