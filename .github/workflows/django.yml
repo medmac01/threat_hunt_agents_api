@@ -27,6 +27,7 @@ jobs:
     - name: Install Dependencies
       run: |
         source /opt/venv/bin/activate
+        rm -rf .git
         pip install --no-cache-dir -r requirements.txt
         rm -rf /app/*
         cp -r . /app
