@@ -22,3 +22,4 @@ stix2-elevator==4.1.7
 stix2-patterns==2.0.0
 stix2-validator==3.2.0
 taxii2-client==2.3.0
+gunicorn==22.0.0
