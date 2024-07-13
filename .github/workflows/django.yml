@@ -31,6 +31,7 @@ jobs:
         pip install --no-cache-dir -r requirements.txt
         rm -rf /app/*
         cp -r . /app
+        rm -rf /app/db.sqlite3
         python /restart-threat-hunting-api-container.py
     # - name: Run Tests
     #   run: |
