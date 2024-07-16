@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 from datetime import datetime, timedelta
 load_dotenv(override=True)
 
-llm = Ollama(model="wrn", base_url=os.getenv('OLLAMA_HOST'), temperature=0.3, num_predict=8192, num_ctx=8192)
+llm = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.3, num_predict=8192, num_ctx=8192)
 
 def get_current_formatted_date():
     # Get the current date and time
@@ -52,7 +52,7 @@ def format_cve(cve_response, mode="normal", keyword=""):
     now = datetime.now()
     day = now.day
 
-    formatted_prompts = f"CVE Search Results for {keyword}:\n\n Repeat THIS WORD BY WORD IN YOUR FINAL ANSWER\n " if mode == "normal" else f"""Latest CVEs for {now.strftime(f"%A, %B {day}{get_day_suffix(day)} %Y")} related to {keyword} :\n\n"""
+    formatted_prompts = f"CVE Search Results for {keyword}:\n\n \n " if mode == "normal" else f"""Latest CVEs for {now.strftime(f"%A, %B {day}{get_day_suffix(day)} %Y")} related to {keyword} :\n\n"""
     
     if len(cve_response['vulnerabilities']) == 0:
 
