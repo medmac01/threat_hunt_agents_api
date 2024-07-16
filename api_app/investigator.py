@@ -63,7 +63,7 @@ memory = ConversationBufferWindowMemory(
 
 #agentops_handler = AgentOpsLangchainCallbackHandler(api_key=os.getenv("AGENTOPS_API_KEY"), tags=['Langchain Example'])
 # from .router import get_selected_llm
-llm = codestral
+llm = openhermes
 
 #Error handling
 def _handle_error(error) -> str:
