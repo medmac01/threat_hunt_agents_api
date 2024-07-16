@@ -25,7 +25,7 @@ os.environ["LANGCHAIN_ENDPOINT"]="https://api.smith.langchain.com"
 os.environ["LANGCHAIN_API_KEY"]="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"
 os.environ["LANGCHAIN_PROJECT"]="hyp_agent"
 
-llm = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.5, num_predict=8192, num_ctx=16384, system="""You are designed to help with a variety of tasks, ranging from answering technical questions and providing detailed explanations to offering summaries and conducting thorough cybersecurity analyses. Your role also involves preserving crucial information, such as code blocks and links, and delivering answers in a structured format.""")
+llm = Ollama(model="codestral", base_url=os.getenv('OLLAMA_HOST'), temperature=0.5, num_predict=8192, num_ctx=16384, system="""You are designed to help with a variety of tasks, ranging from answering technical questions and providing detailed explanations to offering summaries and conducting thorough cybersecurity analyses. Your role also involves preserving crucial information, such as code blocks and links, and delivering answers in a structured format.""")
 
 alert_search_by_ip = InternalThreatSearch().search_by_ip
 geolocate_ip = InternalThreatSearch().geolocate_ip
