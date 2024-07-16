@@ -57,7 +57,7 @@ agent = initialize_agent(
     agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
     tools=tools,
     # prompt=prompt,
-    llm=codestral,
+    llm=openhermes,
     verbose=True,
     max_iterations=5,
     memory=memory,
@@ -74,7 +74,7 @@ def generate_title(input_text):
     return openhermes.invoke(f"Generate a title for the following question: {input_text}, the title should be short and concise.")
 
 
-def invoke(input_text, title=True, llm="codestral"):
+def invoke(input_text, title=True, llm="openhermes"):
     if llm == "codestral":
         llm = codestral
     elif llm == "llama3":
