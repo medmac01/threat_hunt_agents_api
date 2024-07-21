@@ -1,23 +1,16 @@
 from langchain.tools import tool
-# import pymisp
-
 
 from pymisp import PyMISP
-from dotenv import load_dotenv
 import os
-
-load_dotenv(override=True)
 
 URL = os.getenv('MISP_URL')
 KEY = os.getenv('MISP_KEY')
 verify_cert = False
 
-print(URL, KEY)
-
 misp = PyMISP(url=URL, key=KEY, ssl=verify_cert)
 
 class MispTool():
-    @tool("MISP search Tool by keyword")
+    @tool("MISP search Tool by keyword", return_direct=True)
     def search(keyword: str):
       """Useful tool to search for an indicator of compromise or an security event by keyword
       Parameters:
@@ -31,10 +24,10 @@ class MispTool():
       if len(events['Attribute']) == 0:
         return "No events found matching the search criteria."
       
-      results = """Answer user question using these search results:\n\n"""
+      results = f"""Search results for {keyword} Answer user question using these search results:\n\n"""
       return results + str(events)
     
-    @tool("MISP search Tool by date")
+    @tool("MISP search Tool by date", return_direct=True)
     def search_by_date(date_from: str = None, date_to: str = None):
       """Useful tool to retrieve events that match a specific date or date range, use this if you know the date of the event
       Parameters:
@@ -49,7 +42,7 @@ class MispTool():
       events = misp.search(controller='attributes',date_from=date_from, date_to=date_to, limit=5)
       return str(events)
 
-    @tool("MISP search Tool by event_id")
+    @tool("MISP search Tool by event_id", return_direct=True)
     def search_by_event_id(event_id: str | int):
       """Useful tool to retrieve events by their ID, use this if you know the ID of the event.
       Parameters:

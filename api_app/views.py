@@ -7,49 +7,33 @@ from django.contrib.auth import authenticate
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+import time
+from .agents import router
 
-# from .crew import HunterCrew
-from . import router
+from django.http import StreamingHttpResponse
 
-@api_view(['POST'])
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def answer(request):
-    # Check if the request method is POST
-    if request.method == 'POST':
-        # Get the data from the request body
-        data = request.data
-        
-        # Perform your processing based on the received data
-        # For example, you can access the data and perform some calculations
-        # Here, we'll just echo back the received data
+def stream_response(data):
+    streamer_agent = router.stream()
+    print(type(streamer_agent))
+    for token in streamer_agent.run(data):
+        time.sleep(0.02)
+        yield token
 
-
-        processed_data = {
-            'input': data,
-            'output': "This endpoint is deprecated, please use answer_v2 instead."
-        }
-        
-        # Return the processed data as a JSON response
-        return Response(processed_data, status=status.HTTP_200_OK)
-    
-    # If the request method is not POST, return a 405 Method Not Allowed response
-    return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def answer_v2(request):
+
     # Check if the request method is POST
     if request.method == 'POST':
         # Get the data from the request body
         data = request.data
         llm = data.get('llm', 'codestral')
-        # Perform your processing based on the received data
-        # For example, you can access the data and perform some calculations
-        # Here, we'll just echo back the received data
+        new_chat = data.get('new_chat', False)
 
-        results = router.invoke(data["query"], llm=llm)
+        # Perform the processing based on the received data
+        results = router.invoke(data["query"], llm=llm, new_chat=new_chat)
 
         processed_data = {
             'input': data,
@@ -62,6 +46,23 @@ def answer_v2(request):
     
     # If the request method is not POST, return a 405 Method Not Allowed response
     return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+@api_view(['POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def answer_v2_stream(request):
+
+    # Check if the request method is POST
+    if request.method == 'POST':
+        # Get the data from the request body
+        data = request.data
+
+        return StreamingHttpResponse(stream_response(data["query"]), content_type='text/event-stream')
+    
+    # If the request method is not POST, return a 405 Method Not Allowed response
+    return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
 
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
@@ -89,7 +90,6 @@ def get_models(request):
     if request.method != 'GET':
         return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
     
-
     # Get the list of available models
     models = router.get_models()
     

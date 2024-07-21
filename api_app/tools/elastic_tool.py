@@ -1,13 +1,7 @@
-import requests
 from elasticsearch import Elasticsearch
 from langchain.tools import tool
 import os
-
-from dotenv import load_dotenv
-
 from collections import Counter
-
-load_dotenv(override=True)
 
 es = Elasticsearch(
       os.getenv('ES_URL'),

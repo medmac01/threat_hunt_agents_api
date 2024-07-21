@@ -1,17 +1,11 @@
 import requests
 from langchain.tools import tool
 from langchain_community.llms import Ollama
-import json
-
-import sys
 import os
 
-from dotenv import load_dotenv
-
 from datetime import datetime, timedelta
-load_dotenv(override=True)
 
-llm = Ollama(model="openhermes", base_url=os.getenv('OLLAMA_HOST'), temperature=0.3, num_predict=8192, num_ctx=8192)
+llm = Ollama(model="openhermes", base_url=os.getenv("OLLAMA_HOST"), temperature=0.3, num_predict=8192, num_ctx=8192)
 
 def get_current_formatted_date():
     # Get the current date and time
@@ -62,7 +56,6 @@ def format_cve(cve_response, mode="normal", keyword=""):
     
     for vulnerability in cve_response['vulnerabilities']:
         cve = vulnerability.get('cve', {})
-        # prompt = f"Explain {cve.get('id', 'N/A')} in simple terms:\n\n"
         prompt = f"- CVE ID: {cve.get('id', 'N/A')}\n"
         prompt += f"- Status: {cve.get('vulnStatus', 'Unknown')}\n"
         
@@ -77,7 +70,6 @@ def format_cve(cve_response, mode="normal", keyword=""):
         else:
             prompt += "- CVSS Score: Not available\n"
         
-        # if mode == "normal":
         configurations = cve.get('configurations', {})
         for conf in configurations:
             nodes = conf.get('nodes', [])
@@ -95,13 +87,11 @@ def format_cve(cve_response, mode="normal", keyword=""):
             
         
         formatted_prompts += prompt+"\n\n"
-
-    # formatted_prompts += "\nSummarize the vulnerability, its impact, and any known mitigation strategies."
     
     return formatted_prompts
 
 class CVESearchTool():
-  @tool("CVE search Tool")
+  @tool("CVE search Tool", return_direct=True)
   def cvesearch(keyword: str, date: str = None):
     """
     Searches for CVEs based on a keyword or phrase and returns the results in JSON format.
@@ -119,7 +109,6 @@ class CVESearchTool():
         keyword = f"{keyword} {date}"
     # Encode the spaces in the keyword(s) as "%20" for the URL
     keyword_encoded = keyword.replace(" ", "%20")
-    # keyword_encoded = keyword_encoded.join(" 2023")
     
     # Construct the URL for the API request
     url = f"https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch={keyword_encoded}&resultsPerPage=3"
@@ -139,7 +128,7 @@ class CVESearchTool():
     except Exception as e:
         return {"error": str(e)}
 
-  @tool("Get latest CVEs, today's CVEs Tool")
+  @tool("Get latest CVEs, today's CVEs Tool", return_direct=True)
   def get_latest_cves(keyword: str = ""):
         """
         Fetches today's latest CVEs based on a keyword or phrase and returns the results in JSON format.
@@ -151,7 +140,6 @@ class CVESearchTool():
         """
         # Encode the spaces in the keyword(s) as "%20" for the URL
         keyword_encoded = keyword.replace(" ", "%20")
-        # keyword_encoded = keyword_encoded.join(" 2023")
         
         # Construct the URL for the API request
         url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={get_yesterday_formatted_date()}&pubEndDate={get_current_formatted_date()}&keywordSearch={keyword_encoded}&cvssV3Severity=HIGH&resultsPerPage=3" if keyword != "" else f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={get_yesterday_formatted_date()}&pubEndDate={get_current_formatted_date()}&cvssV3Severity=HIGH&resultsPerPage=3"

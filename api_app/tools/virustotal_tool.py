@@ -1,10 +1,6 @@
 from langchain.tools import tool
 from langchain_community.llms import Ollama
-import os
-from dotenv import load_dotenv
-import requests
-
-load_dotenv(override=True)
+import os, requests
 
 def format_virustotal_results(results):
     """
