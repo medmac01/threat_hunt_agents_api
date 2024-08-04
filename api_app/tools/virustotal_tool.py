@@ -1,55 +1,6 @@
 from langchain.tools import tool
-from langchain_community.llms import Ollama
 import os, requests
-
-def format_virustotal_results(results):
-    """
-    This function takes the raw results from a VirusTotal scan and returns a human-readable string.
-
-    Parameters:
-    results (dict): The raw results from a VirusTotal scan.
-
-    Returns:
-    str: A formatted string summarizing the scan results.
-    """
-    md5 = results.get('md5', 'N/A')
-    sha1 = results.get('sha1', 'N/A')
-    sha256 = results.get('sha256', 'N/A')
-    scan_date = results.get('scan_date', 'N/A')
-    positives = results.get('positives', 'N/A')
-    total = results.get('total', 'N/A')
-    permalink = results.get('permalink', 'N/A')
-
-    formatted_results = [
-        f"VirusTotal Scan Results:",
-        f"========================",
-        f"MD5: {md5}",
-        f"SHA-1: {sha1}",
-        f"SHA-256: {sha256}",
-        f"Scan Date: {scan_date}",
-        f"Detections: {positives}/{total}",
-        f"Detailed Report: {permalink}",
-        "",
-        "Detailed Scan Results:",
-        "======================"
-    ]
-
-    scans = results.get('scans', {})
-    for scanner, scan_data in scans.items():
-        detected = scan_data.get('detected', False)
-        result = scan_data.get('result', 'N/A')
-        version = scan_data.get('version', 'N/A')
-        update = scan_data.get('update', 'N/A')
-
-        formatted_results.append(
-            f"Scanner: {scanner}\n"
-            f"  Detected: {'Yes' if detected else 'No'}\n"
-            f"  Result: {result}\n"
-            f"  Version: {version}\n"
-            f"  Last Update: {update}\n"
-        )
-
-    return "\n".join(formatted_results)
+from .utils import format_virustotal_results
 
 
 class VirusTotalTool:

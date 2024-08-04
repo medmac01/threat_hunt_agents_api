@@ -1,15 +1,10 @@
 from langchain.tools import tool
-
-from pymisp import PyMISP
 import os
-
-URL = os.getenv('MISP_URL')
-KEY = os.getenv('MISP_KEY')
-verify_cert = False
-
-misp = PyMISP(url=URL, key=KEY, ssl=verify_cert)
+from .utils import misp_client
 
 class MispTool():
+
+
     @tool("MISP search Tool by keyword", return_direct=True)
     def search(keyword: str):
       """Useful tool to search for an indicator of compromise or an security event by keyword
@@ -19,7 +14,7 @@ class MispTool():
       - A list of events that match the keyword
       """
 
-      events = misp.search(controller='attributes', value=keyword, limit=5, metadata=True, include_event_tags=False, include_context=False, return_format='json', sg_reference_only=True)
+      events = misp_client().search(controller='attributes', value=keyword, limit=5, metadata=True, include_event_tags=False, include_context=False, return_format='json', sg_reference_only=True)
       
       if len(events['Attribute']) == 0:
         return "No events found matching the search criteria."
@@ -39,7 +34,7 @@ class MispTool():
       - A list of events that match the date or date range
       """
 
-      events = misp.search(controller='attributes',date_from=date_from, date_to=date_to, limit=5)
+      events = misp_client().search(controller='attributes',date_from=date_from, date_to=date_to, limit=5)
       return str(events)
 
     @tool("MISP search Tool by event_id", return_direct=True)
@@ -51,6 +46,6 @@ class MispTool():
       - A list of events that match the event ID
       """
 
-      events = misp.search(controller='attributes', eventid=event_id, limit=1)
+      events = misp_client().search(controller='attributes', eventid=event_id, limit=1)
       return str(events)
     

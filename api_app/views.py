@@ -8,11 +8,16 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 import time
-from .agents import router
+from .agents import router, utils
 
 from django.http import StreamingHttpResponse
 
 def stream_response(data):
+    """
+    Streams the response of the agent.
+    Parameters:
+    data: (str) The input text to be processed by the agent.
+    """
     streamer_agent = router.stream()
     print(type(streamer_agent))
     for token in streamer_agent.run(data):
@@ -71,11 +76,9 @@ def clear_chat(request):
     # Check if the request method is POST
     if request.method == 'POST':
         
-        op = router.clear_chat()
-
         result = {
             "operation": "clear_chat",
-            "status": "success" if op else "failed"
+            "status": "success" if router.clear() else "failed"
         }
         
         # Return the processed data as a JSON response
@@ -91,7 +94,7 @@ def get_models(request):
         return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
     
     # Get the list of available models
-    models = router.get_models()
+    models = utils.get_models()
     
     return Response(models, status=status.HTTP_200_OK)
 

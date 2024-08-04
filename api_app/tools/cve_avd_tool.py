@@ -1,94 +1,7 @@
 import requests
 from langchain.tools import tool
-from langchain_community.llms import Ollama
-import os
 
-from datetime import datetime, timedelta
-
-llm = Ollama(model="openhermes", base_url=os.getenv("OLLAMA_HOST"), temperature=0.3, num_predict=8192, num_ctx=8192)
-
-def get_current_formatted_date():
-    # Get the current date and time
-    now = datetime.now()
-
-    # Format the date and time in the desired format
-    formatted_date = now.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3]
-    return formatted_date
-
-def get_yesterday_formatted_date():
-    # Get the current date and time
-    now = datetime.now()
-    # Calculate yesterday's date and time
-    yesterday = now - timedelta(days=2)
-    # Format the date and time in the desired format
-    formatted_date = yesterday.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3]
-    return formatted_date
-
-def get_day_suffix(day):
-    if 4 <= day <= 20 or 24 <= day <= 30:
-        return "th"
-    else:
-        return ["st", "nd", "rd"][day % 10 - 1]
-
-
-def format_cve(cve_response, mode="normal", keyword=""):
-    """
-    Takes a dictionary representing the API response and formats each CVE entry into a structured prompt for LLM.
-    
-    Parameters:
-    - cve_response: A dictionary representing the API response containing CVE information.
-    
-    Returns:
-    - A list of strings, each a formatted prompt for LLM based on the CVE entries in the response.
-    """
-
-    # Get the current date and time
-    now = datetime.now()
-    day = now.day
-
-    formatted_prompts = f"CVE Search Results for {keyword}:\n\n \n " if mode == "normal" else f"""Latest CVEs for {now.strftime(f"%A, %B {day}{get_day_suffix(day)} %Y")} related to {keyword} :\n\n"""
-    
-    if len(cve_response['vulnerabilities']) == 0:
-
-        formatted_prompts = "No CVEs found matching the search criteria."
-        return formatted_prompts
-    
-    
-    for vulnerability in cve_response['vulnerabilities']:
-        cve = vulnerability.get('cve', {})
-        prompt = f"- CVE ID: {cve.get('id', 'N/A')}\n"
-        prompt += f"- Status: {cve.get('vulnStatus', 'Unknown')}\n"
-        
-        if mode == "normal":
-            descriptions = cve.get('descriptions', [])
-            description_text = descriptions[0].get('value', 'No description available.') if descriptions else "No description available."
-            prompt += f"- Description: {description_text}\n"
-            
-        if 'metrics' in cve and 'cvssMetricV2' in cve['metrics']:
-            cvss_metrics = cve['metrics']['cvssMetricV2'][0]
-            prompt += f"- CVSS Score: {cvss_metrics.get('cvssData', {}).get('baseScore', 'Not available')} ({cvss_metrics.get('baseSeverity', 'Unknown')})\n"
-        else:
-            prompt += "- CVSS Score: Not available\n"
-        
-        configurations = cve.get('configurations', {})
-        for conf in configurations:
-            nodes = conf.get('nodes', [])
-            affected_configs = []
-            for node in nodes:
-                for cpe_match in node.get('cpeMatch', []):
-                    if cpe_match.get('vulnerable', False):
-                        affected_configs.append(cpe_match.get('criteria', 'Not specified'))
-            prompt += f"- Affected Configurations: {', '.join(affected_configs) if affected_configs else 'Not specified'}\n"
-        
-        if mode == "normal":
-            references = cve.get('references', [])
-            ref_urls = ', '.join([ref.get('url', 'No URL') for ref in references])
-            prompt += f"- References: {ref_urls if references else 'No references available.'}\n"
-            
-        
-        formatted_prompts += prompt+"\n\n"
-    
-    return formatted_prompts
+from .utils import format_cve, get_current_formatted_date, get_yesterday_formatted_date, get_day_suffix, llm_invoke
 
 class CVESearchTool():
   @tool("CVE search Tool", return_direct=True)
@@ -119,9 +32,7 @@ class CVESearchTool():
         # Check if the request was successful
         if response.status_code == 200:
             # Return the JSON response
-            # return format_cve(response.json(), mode="normal")
             formatted = format_cve(response.json(), mode="normal", keyword=keyword)
-            # return llm.invoke("Explain the following CVE(s) in detailed paragraph, while providing a good technical analysis about each one of them. Always keep technical details intact:\n\n"+formatted)
             return formatted
         else:
             return {"error": "Failed to fetch data from the NVD API.", "status_code": response.status_code}
@@ -151,7 +62,7 @@ class CVESearchTool():
             if response.status_code == 200:
                 # Return the JSON response
                 formatted = format_cve(response.json(), mode="latest", keyword=keyword)
-                return llm.invoke("Summarize the following CVEs in bullet points while keeping technical details:\n\n"+formatted)
+                return llm_invoke("Summarize the following CVEs in bullet points while keeping technical details:\n\n"+formatted)
             else:
                 return {"error": "Failed to fetch data from the NVD API.", "status_code": response.status_code}
         except Exception as e:
