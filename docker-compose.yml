@@ -13,7 +13,7 @@ services:
       - ALLOWED_HOSTS=localhost,127.0.0.1,ngrok-free.app,sonic-protect.network,0.0.0.0
       - DJANGO_SETTINGS_MODULE=api.settings
       - OLLAMA_HOST=https://ollama-cluster1.oualil.me
-      - MISP_URL=https://d328-197-230-122-197.ngrok-free.app
+      - MISP_URL=https://e71d-197-230-122-195.ngrok-free.app
       - MISP_KEY=DDL2X1VilJzgLvDSo58OMhVHYlnRRg9ShHaiadpA
       - AGENTOPS_API_KEY=874b2348-5d0b-4189-9c9f-0c4910f056a4
       - ENV=dev
@@ -24,3 +24,4 @@ services:
       - LANGFUSE_PUBLIC_KEY=pk-lf-0da9fe8d-2606-42a2-9c05-32046d1a3caa
       - LANGFUSE_SECRET_KEY=sk-lf-2530fc29-3217-4aab-a103-ef6a3cafd36e
       - LANGFUSE_API_URL=https://langfuse-cluster1.oualil.me
+      - LANGFUSE_ENABLE_TRACING=False # Set to True to enable tracing
