@@ -1,7 +1,6 @@
 from langchain.tools import tool
 import os
-from .utils import elastic_client, summarize_alerts
-
+from .utils import elastic_client, summarize_alerts, get_current_formatted_date
 
 
 class InternalThreatSearch():
@@ -102,7 +101,7 @@ class InternalThreatSearch():
                 "range": {
                     "@timestamp": {
                         "gte": date if date else "2024-03-01",
-                        "lt": "2024-07-10"  # one day after the specific date
+                        "lt": get_current_formatted_date()  # one day after the specific date
                     }
                 }
             }

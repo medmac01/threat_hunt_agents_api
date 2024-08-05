@@ -2,7 +2,7 @@ from langchain.tools import tool
 import os
 from .utils import misp_client
 
-class MispTool():
+class MISPTool():
 
 
     @tool("MISP search Tool by keyword", return_direct=True)
