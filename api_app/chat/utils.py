@@ -33,7 +33,7 @@ def clear_chat(agent= None):
     """
     Clears the memory of the agent.
     Parameters:
-    agent: (RouterAgent | InvestigatorAgent | HypotesisAgent) The agent to clear the memory of.
+    agent: (RouterAgent | InvestigatorAgent | HypothesisAgent) The agent to clear the memory of.
     """
 
     try:
@@ -55,4 +55,3 @@ def get_models():
     ]}
 
     return models
-

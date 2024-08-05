@@ -8,7 +8,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 import time
-from .agents import router, utils
+
+from .chat import utils
+from .executor import invoke, stream, clear
 
 from django.http import StreamingHttpResponse
 
@@ -18,8 +20,7 @@ def stream_response(data):
     Parameters:
     data: (str) The input text to be processed by the agent.
     """
-    streamer_agent = router.stream()
-    print(type(streamer_agent))
+    streamer_agent = stream()
     for token in streamer_agent.run(data):
         time.sleep(0.02)
         yield token
@@ -34,11 +35,11 @@ def answer_v2(request):
     if request.method == 'POST':
         # Get the data from the request body
         data = request.data
-        llm = data.get('llm', 'codestral')
+        # llm = data.get('llm', 'codestral')
         new_chat = data.get('new_chat', False)
 
         # Perform the processing based on the received data
-        results = router.invoke(data["query"], llm=llm, new_chat=new_chat)
+        results = invoke(data["query"], new_chat=new_chat)
 
         processed_data = {
             'input': data,
@@ -78,7 +79,7 @@ def clear_chat(request):
         
         result = {
             "operation": "clear_chat",
-            "status": "success" if router.clear() else "failed"
+            "status": "success" if clear() else "failed"
         }
         
         # Return the processed data as a JSON response

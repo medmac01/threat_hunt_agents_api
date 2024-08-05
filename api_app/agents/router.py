@@ -1,63 +1,100 @@
+from .agent import Agent, LLM
 from langchain.agents import AgentType
-from langchain.tools import Tool
-from langfuse.decorators import observe
+from ..chat.prompts import ROUTER_PROMPT_TEMPLATE, HERMES_SYSTEM
+from ..chat.utils import get_chat_id
+from langchain.agents import initialize_agent, AgentType
 
-from .investigator import invoke as investigator_invoke
-from .hypotesis import invoke as hypotesis_invoke
- 
-from .prompts import ROUTER_PROMPT_TEMPLATE
-from .utils import generate_title
-
-from .agent import RouterAgent
-
-
-router_agent = RouterAgent(agent_type=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
-    mem_key='chat_history',
-    mem_k=5,
-    agent_prompt=ROUTER_PROMPT_TEMPLATE,
-    agent_verbose=True
-)
-
-router_agent.tools = [Tool(name="Investigate Tool", 
-                        description="This tool will help you execute a query to find information about a security event.(Can be a MISP event, CVE, MITRE attack or technique, malware...) Just provide the request and get the response.", 
-                        func=investigator_invoke,
-                        return_direct=False),
-
-                    Tool(name="Hypothesis Tool",
-                        description="This tool will help you search network internal logs for any Indicators of compromise (specific ip address, hostname). Just provide the request and get the response.",
-                        func=hypotesis_invoke,
-                        return_direct=False)]
-
-agent = router_agent.cnv_agent
-
-@observe()
-def invoke(input_text, title=True, llm="openhermes", new_chat=False):
-    """
-    Invokes the router agent.
-    Parameters:
-    input_text: (str) The input text to be processed by the agent.
-    title: (bool) Whether to generate a title for the response.
-    llm: (str) The language model to be used.
-    new_chat: (bool) Whether to start a new chat.
-    """
-   
-    return {"output":agent({"input":input_text}),
-            "title":generate_title(input_text)} if title else {"output":agent({"input":input_text})}
-
+class RouterAgent(Agent):
     
-def stream(llm="codestral"):
-    """
-    Streams the output of the agent.
-    """
+    def __init__(
+            self,
+            mem_key = 'chat_history',
+            mem_k = 5,
+            mem_return_messages = True,
+            langfuse_secret_key = None,
+            langfuse_public_key = None,
+            langfuse_host = None,
+            langfuse_debug = False,
+            langfuse_session_id = None,
+            agent_type = None,
+            agent_prompt = None,
+            agent_verbose = False,
+            agent_max_iterations = 5,
+            agent_early_stopping_method = 'generate',
+            agent_intermediate_steps = False,
+            agent_max_execution_time = 40,
+        ):
 
-    return agent
+        self._tools = []
 
-def clear():
-    """
-    Clears the memory of the agent.
-    """
+        if langfuse_session_id is None:
+            langfuse_session_id = f"conv_router_{get_chat_id()}"
+
+
+        super().__init__(
+            mem_key = mem_key,
+            mem_k = mem_k,
+            mem_return_messages = mem_return_messages,
+            langfuse_secret_key = langfuse_secret_key,
+            langfuse_public_key = langfuse_public_key,
+            langfuse_host = langfuse_host,
+            langfuse_debug = langfuse_debug,
+            langfuse_session_id = langfuse_session_id,
+            agent_type = agent_type,
+            agent_prompt = agent_prompt,
+            agent_verbose = agent_verbose,
+            agent_max_iterations = agent_max_iterations,
+            agent_early_stopping_method = agent_early_stopping_method,
+            agent_intermediate_steps = agent_intermediate_steps,
+            agent_max_execution_time = agent_max_execution_time,
+        )
+
+    def _handle_agent_error(self, error) -> str:
+            pass
     
-    return router_agent.clear_memory() 
+    @property
+    def tools(self):
+        return self._tools
+    
+    @tools.setter
+    def tools(self, value):
+        self._tools = value
+
+    @property
+    def llm(self):
+        selected_llm = self.llms[LLM.CODESTRAL]
+        selected_llm.temperature = 0.2
+        selected_llm.num_predict = 4096
+        selected_llm.system = HERMES_SYSTEM
+        # llm.callbacks = [FinalStreamingStdOutCallbackHandler(answer_prefix_tokens=["Final", "Answer", '",', "\n" , ' "', "action", "_", "input", '":', ' "'])]
+        return selected_llm
+    
+    
+    @property
+    def agent_type(self):
+        return AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION
+    
+    @property
+    def cnv_agent(self):
+
+        conversational_agent = initialize_agent(
+            agent=self._agent_type,
+            tools=self._tools,
+            prompt=self._agent_prompt,
+            llm=self.llm,
+            verbose=self._agent_verbose,
+            max_iterations=self._agent_max_iterations,
+            memory=self._memory,
+            early_stopping_method=self._agent_early_stopping_method,
+            callbacks=[self._langfuse_handler],
+            handle_parsing_errors=self._handle_agent_error,
+            return_intermediate_steps=self._agent_intermediate_steps,
+            max_execution_time=self._agent_max_execution_time
+        )
+
+        conversational_agent.agent.llm_chain.prompt.messages[0].prompt.template = ROUTER_PROMPT_TEMPLATE
 
 
-
+        return conversational_agent
+    
+    
