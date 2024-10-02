@@ -1,7 +1,7 @@
 from typing import List
 from .agent import Agent, LLM
 from ..chat.utils import get_chat_id
-from ..tools.elastic_tool import InternalThreatSearch
+from ..tools.elastic import InternalThreatSearch
 from ..chat.prompts import HYPOTHESIS_PROMPT_TEMPLATE
 from langchain.agents import initialize_agent, AgentType
 from langchain_community.llms.ollama import Ollama

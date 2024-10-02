@@ -1,10 +1,10 @@
 import re
 from .agent import Agent, LLM
 from ..chat.utils import get_chat_id
-from ..tools.cve_avd_tool import CVESearchTool
-from ..tools.misp_tool import MISPTool
-from ..tools.mitre_tool import MitreTool
-from ..tools.virustotal_tool import VirusTotalTool
+from ..tools.cve import CVESearchTool
+from ..tools.misp import MISPTool
+from ..tools.mitre import MitreTool
+from ..tools.virustotal import VirusTotalTool
 
 from ..chat.prompts import INVESTIGATOR_PROMPT_TEMPLATE, INVESTIGATOR_SYSTEM_PROMPT
 from langchain.agents import initialize_agent, AgentType
