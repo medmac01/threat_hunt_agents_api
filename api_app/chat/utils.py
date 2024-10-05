@@ -43,7 +43,7 @@ def clear_chat(agent= None):
     return True
 
 
-def get_models():
+def get_available_models():
     """
     Returns the available models.
     """

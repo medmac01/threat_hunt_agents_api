@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from rest_framework import status
 import time
 
-from .chat import utils
+from .chat.utils import get_available_models
 from .executor import invoke, stream, clear
 
 from django.http import StreamingHttpResponse
@@ -95,7 +95,7 @@ def get_models(request):
         return Response({'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
     
     # Get the list of available models
-    models = utils.get_models()
+    models = get_available_models()
     
     return Response(models, status=status.HTTP_200_OK)
 
