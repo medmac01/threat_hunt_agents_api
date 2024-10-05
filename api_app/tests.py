@@ -25,6 +25,9 @@ from langchain.tools import Tool
 import os
 
 class AppEndpointTests(APITestCase):
+    """
+    Test cases for the API endpoints
+    """
 
     def setUp(self):
         # Create a test user
@@ -35,64 +38,139 @@ class AppEndpointTests(APITestCase):
         # Authenticate the client
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
 
-    # def test_answer_v2_post(self):
-    #     url = reverse('answer_v2')
-    #     data = {
-    #         'query': 'Hello!',
-    #         'new_chat': True
-    #     }
+    @patch('api_app.views.invoke')
+    def test_answer_v2_success(self, mock_invoke):
+        """
+        Test the answer_v2 endpoint with a POST request
+        Mocks the invoke function to return a response
 
-    #     # Test POST request with valid data
-    #     response = self.client.post(url, data, format='json')
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertIn('input', response.data)
-    #     self.assertIn('output', response.data)
+        Asserts that the response is correct, and that the invoke function was called with the correct parameters
+        """
+        url = reverse('answer_v2')
+        data = {
+            'query': 'Hello!',
+            'new_chat': True
+        }
 
-    # def test_answer_v2_invalid_method(self):
-    #     url = reverse('answer_v2')
-        
-    #     # Test GET request to a POST-only endpoint
-    #     response = self.client.get(url)
-    #     self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+        # Create a mock response for the invoke function
+        mock_response = {
+            'output': 'Hi, how can I help you today?',
+            'title': 'New Chat'
+        }
 
+        # Mock the response of the invoke function
+        mock_invoke.return_value = mock_response
 
-    def test_clear_chat_post(self):
-        url = reverse('clear_chat')
+        # Test POST request with valid data
+        response = self.client.post(url, data, format='json')
 
-        # Test POST request to clear chat
-        response = self.client.post(url, format='json')
+        # Assert that the mock was called with expected parameters
+        mock_invoke.assert_called_once_with(data['query'], new_chat=data['new_chat'])
+
+        # Assertions to verify the response is correct
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn('operation', response.data)
-        self.assertEqual(response.data['operation'], 'clear_chat')
+        self.assertIn('input', response.data)
+        self.assertIn('output', response.data)
+        self.assertEqual(response.data['input'], data)
+        self.assertEqual(response.data['output'], mock_response['output'])
 
-    def test_clear_chat_invalid_method(self):
-        url = reverse('clear_chat')
+    def test_answer_v2_invalid_method(self):
+        """
+        Test the answer_v2 endpoint with a GET request
+        Asserts that the response is a 405 Method Not Allowed
+        """
+        url = reverse('answer_v2')
 
         # Test GET request to a POST-only endpoint
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
-    def test_get_models_get(self):
+    @patch('api_app.views.get_available_models')
+    def test_get_models_success(self, mock_get):
+        """
+        Test the get_models endpoint with a GET request
+        Mocks the get_models function to return a response
+        """
         url = reverse('get_models')
+
+        # Create a mock response for the GET request
+        mock_response = {
+            'models': ['llama-3', 'openhermes', 'codestral']
+        }
+
+        # Mock the response of the GET request
+        mock_get.return_value = mock_response
 
         # Test GET request to retrieve models
         response = self.client.get(url)
+
+
+        # Assertions to verify the response is correct
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIsInstance(response.data, dict)  # Assuming models is a list of models
+        self.assertIn('models', response.data)
+        self.assertEqual(response.data['models'], ['llama-3', 'openhermes', 'codestral'])
+
+        # Assert that the mock was called
+        mock_get.assert_called_once()
 
     def test_get_models_invalid_method(self):
+        """
+        Test the get_models endpoint with a POST request
+        Asserts that the response is a 405 Method Not Allowed
+        """
         url = reverse('get_models')
 
         # Test POST request to a GET-only endpoint
         response = self.client.post(url)
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
+    @patch('api_app.views.clear')
+    def test_clear_chat_success(self, mock_clear):
+        """
+        Test the clear_chat endpoint with a POST request
+        Mocks the clear function to return a response
+        """
+        url = reverse('clear_chat')
+
+        # Mock the response of the clear function
+        mock_clear.return_value = True  # Simulating successful chat clear
+
+        # Test POST request to clear chat
+        response = self.client.post(url, format='json')
+
+        # Assertions to verify the response is correct
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn('operation', response.data)
+        self.assertEqual(response.data['operation'], 'clear_chat')
+        self.assertEqual(response.data['status'], 'success')  # Check if status reflects success
+
+        # Assert that the mock was called once
+        mock_clear.assert_called_once()
+
+    def test_clear_chat_invalid_method(self):
+        """
+        Test the clear_chat endpoint with a GET request
+        Asserts that the response is a 405 Method Not Allowed
+        """
+        url = reverse('clear_chat')
+
+        # Test GET request to a POST-only endpoint
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
 
 class TestInternalThreatSearch(TestCase):
-
+    """
+    Test cases for the InternalThreatSearch tool
+    """
 
     @patch('api_app.tools.elastic.elastic_client')
     def test_search_by_ip_found(self, mock_elastic_client):
+        """
+        Test the search_by_ip method of the InternalThreatSearch tool
+        Mocks the elasticsearch client to return a response with alerts
+        Asserts that the method returns the correct alerts
+        """
         # Mocking the elasticsearch response
         mock_response = {
             'hits': {
@@ -114,6 +192,12 @@ class TestInternalThreatSearch(TestCase):
 
     @patch('api_app.tools.elastic.elastic_client')
     def test_search_by_ip_not_found(self, mock_elastic_client):
+        """
+        Test the search_by_ip method of the InternalThreatSearch tool
+        Mocks the elasticsearch client to return no results
+        Asserts that the method returns the correct message "No alerts found for the specified IP address"
+        """
+
         # Mocking the elasticsearch response for no results
         mock_response = {
             'hits': {
@@ -132,6 +216,12 @@ class TestInternalThreatSearch(TestCase):
 
     @patch('api_app.tools.elastic.elastic_client')
     def test_geolocate_ip_found(self, mock_elastic_client):
+        """
+        Test the geolocate_ip method of the InternalThreatSearch tool
+        Mocks the elasticsearch client to return geolocation data
+        Asserts that the method returns the correct geolocation data
+        """
+
         # Mocking the elasticsearch response for geolocation data
         mock_response = {
             'hits': {
@@ -153,6 +243,11 @@ class TestInternalThreatSearch(TestCase):
 
     @patch('api_app.tools.elastic.elastic_client')
     def test_geolocate_ip_not_found(self, mock_elastic_client):
+        """
+        Test the geolocate_ip method of the InternalThreatSearch tool
+        Mocks the elasticsearch client to return no results
+        Asserts that the method returns the correct message "No geolocation found for the specified IP address..."
+        """
         # Mocking the elasticsearch response for no results
         mock_response = {
             'hits': {
@@ -173,6 +268,13 @@ class TestInternalThreatSearch(TestCase):
     @patch('api_app.tools.elastic.get_current_formatted_date')
     @patch('api_app.tools.elastic.summarize_alerts')
     def test_get_summary(self, mock_summarize_alerts, mock_get_current_formatted_date, mock_elastic_client):
+        """
+        Test the get_summary method of the InternalThreatSearch tool
+        Mocks the elasticsearch client to return alerts
+        Mocks the summarize_alerts function to return a summary
+        Asserts that the method returns the correct summary
+        """
+
         # Mocking the formatted date function
         mock_get_current_formatted_date.return_value = "2024-04-01"
 
@@ -199,6 +301,11 @@ class TestInternalThreatSearch(TestCase):
     @patch('api_app.tools.elastic.elastic_client')
     @patch('api_app.tools.elastic.get_current_formatted_date')
     def test_get_summary_no_alerts(self, mock_get_current_formatted_date, mock_elastic_client):
+        """
+        Test the get_summary method of the InternalThreatSearch tool
+        Mocks the elasticsearch client to return no alerts
+        Asserts that the method returns the correct message "No alerts found for the specified date..."
+        """
         # Mocking the formatted date function
         mock_get_current_formatted_date.return_value = "2024-04-01"
 
@@ -221,46 +328,76 @@ class TestInternalThreatSearch(TestCase):
 
 class TestCVESearchTool(TestCase):
 
-    # @patch('api_app.tools.cve.requests.get')  
-    # @patch('api_app.tools.utils.format_cve')   
-    # def test_cvesearch_success(self, mock_format_cve, mock_get):
-    #     # Mock successful response
-    #     mock_response = MagicMock()
-    #     mock_response.status_code = 200
-    #     mock_response.json.return_value = {"cves": [{"id": "CVE-XXXX-XXXXX", "description": "Sample CVE"}]}
-    #     mock_get.return_value = mock_response
+    @patch('api_app.tools.cve.requests.get')  
+    @patch('api_app.tools.cve.format_cve')   
+    def test_cvesearch_success(self, mock_format_cve, mock_get):
+        """
+        Test the cvesearch method of the CVESearchTool
+        Mocks the requests.get function to return a successful response
+        Mocks the format_cve function to return a formatted output
+        Asserts that the method returns the correct formatted output
+        """
 
-    #     # Mock formatting function
-    #     mock_format_cve.return_value = "Formatted CVE output"
+        # Mock successful response
+        mock_response = MagicMock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {"cves": [{"id": "CVE-XXXX-XXXXX", "description": "Sample CVE"}]}
+        mock_get.return_value = mock_response
 
-    #     client = CVESearchTool()
-    #     result = client.cvesearch.run(tool_input={"keyword":"CVE-XXXX-XXXXX", "date":"2024-10-01"})
+        # Mock formatting function
+        mock_format_cve.return_value = """Formatted CVE output
+        CVE-ID: CVE-XXXX-XXXXX
+        Description: Sample CVE
+        CVSS Score: 0.0
+        Published Date: 2024-10-01
+        """
 
-    #     # Verify the expected URL was used in the request
-    #     mock_get.assert_called_once_with('https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=CVE-XXXX-XXXXX%202024-10-01&resultsPerPage=3')
-    #     # Verify the response was formatted
-    #     # mock_format_cve.assert_called_once_with(mock_response.json(), mode="normal", keyword="CVE-XXXX-XXXXX 2024-10-01")
-    #     # Check the result
-    #     self.assertEqual(result, "Formatted CVE output")
+
+        client = CVESearchTool()
+        result = client.cvesearch.run(tool_input={"keyword":"CVE-XXXX-XXXXX", "date":"2024-10-01"})
+
+        # Verify the expected URL was used in the request
+        mock_get.assert_called_once_with('https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=CVE-XXXX-XXXXX%202024-10-01&resultsPerPage=3')
+        # Verify the response was formatted
+        mock_format_cve.assert_called_once_with(mock_response.json(), mode="normal", keyword="CVE-XXXX-XXXXX 2024-10-01")
+        # Check the result
+        self.assertEqual(result, """Formatted CVE output
+        CVE-ID: CVE-XXXX-XXXXX
+        Description: Sample CVE
+        CVSS Score: 0.0
+        Published Date: 2024-10-01
+        """)
 
     @patch('api_app.tools.cve.requests.get')
     def test_cvesearch_failed_request(self, mock_get):
+        """
+        Test the cvesearch method of the CVESearchTool
+        Mocks the requests.get function to return a failed response
+        Asserts that the method returns the correct error message
+        """
+
         # Mock a failed response
         mock_response = MagicMock()
         mock_response.status_code = 500
         mock_get.return_value = mock_response
 
-        result = CVESearchTool.cvesearch("CVE-XXXX-XXXXX")
+        result = CVESearchTool.cvesearch.run(tool_input={"keyword":"CVE-XXXX-XXXXX"})
 
         # Verify the error handling
         self.assertEqual(result, {"error": "Failed to fetch data from the NVD API.", "status_code": 500})
 
     @patch('api_app.tools.cve.requests.get')
     def test_cvesearch_exception(self, mock_get):
+        """
+        Test the cvesearch method of the CVESearchTool
+        Mocks the requests.get function to raise an exception
+        Asserts that the method returns the correct error message
+        """
+
         # Mock an exception being raised
         mock_get.side_effect = RequestException("Connection error")
 
-        result = CVESearchTool.cvesearch("CVE-XXXX-XXXXX")
+        result = CVESearchTool.cvesearch.run(tool_input={"keyword":"CVE-XXXX-XXXXX"})
 
         # Verify the exception handling
         self.assertEqual(result, {"error": "Connection error"})
@@ -269,6 +406,14 @@ class TestCVESearchTool(TestCase):
     @patch('api_app.tools.cve.format_cve')
     @patch('api_app.tools.cve.llm_invoke')  # Mock the LLM invocation
     def test_get_latest_cves_success(self, mock_llm_invoke, mock_format_cve, mock_get):
+        """
+        Test the get_latest_cves method of the CVESearchTool
+        Mocks the requests.get function to return a successful response
+        Mocks the format_cve function to return a formatted output
+        Mocks the LLM invocation to return a summarized output
+        Asserts that the method returns the correct summarized output
+        """
+
         # Mock successful response
         mock_response = MagicMock()
         mock_response.status_code = 200
@@ -280,7 +425,7 @@ class TestCVESearchTool(TestCase):
         # Mock LLM invocation
         mock_llm_invoke.return_value = "Summarized CVEs in bullet points"
 
-        result = CVESearchTool.get_latest_cves("latest keyword")
+        result = CVESearchTool.get_latest_cves.run(tool_input={"keyword": "latest keyword"})
 
         # Verify the expected URL was used in the request
         mock_get.assert_called_once()
@@ -293,30 +438,49 @@ class TestCVESearchTool(TestCase):
 
     @patch('api_app.tools.cve.requests.get')
     def test_get_latest_cves_failed_request(self, mock_get):
+        """
+        Test the get_latest_cves method of the CVESearchTool
+        Mocks the requests.get function to return a failed response
+        Asserts that the method returns the correct error message
+        """
         # Mock a failed response
         mock_response = MagicMock()
         mock_response.status_code = 404
         mock_get.return_value = mock_response
 
-        result = CVESearchTool.get_latest_cves("")
+        result = CVESearchTool.get_latest_cves.run(tool_input={"keyword": ""})
 
         # Verify the error handling
         self.assertEqual(result, {"error": "Failed to fetch data from the NVD API.", "status_code": 404})
 
     @patch('api_app.tools.cve.requests.get')
     def test_get_latest_cves_exception(self, mock_get):
+        """
+        Test the get_latest_cves method of the CVESearchTool
+        Mocks the requests.get function to raise an exception
+        Asserts that the method returns the correct error message
+        """
+
         # Mock an exception being raised
         mock_get.side_effect = RequestException("Service unavailable")
 
-        result = CVESearchTool.get_latest_cves("")
+        result = CVESearchTool.get_latest_cves.run(tool_input={"keyword": ""})
 
         # Verify the exception handling
         self.assertEqual(result, {"error": "Service unavailable"})
 
 class TestMISPTool(TestCase):
+    """ 
+    Test cases for the MISPTool
+    """
 
     @patch('api_app.tools.misp.misp_client')  # Mocking the misp_client function
     def test_search_success(self, mock_misp_client):
+        """
+        Test the search method of the MISPTool
+        Mocks the misp_client to return a successful response
+        Asserts that the method returns the correct search results
+        """
         # Mock the MISP search response
         mock_events = {
             'Attribute': [{'id': 1, 'value': 'malicious.com'}, {'id': 2, 'value': 'suspicious.com'}]
@@ -336,6 +500,11 @@ class TestMISPTool(TestCase):
 
     @patch('api_app.tools.misp.misp_client')
     def test_search_no_events(self, mock_misp_client):
+        """
+        Test the search method of the MISPTool
+        Mocks the misp_client to return no events
+        Asserts that the method returns the correct message "No events found matching the search criteria."
+        """
         # Mock the MISP search response with no events
         mock_events = {'Attribute': []}
         mock_misp_client.return_value.search.return_value = mock_events
@@ -349,6 +518,11 @@ class TestMISPTool(TestCase):
 
     @patch('api_app.tools.misp.misp_client')
     def test_search_by_date(self, mock_misp_client):
+        """
+        Test the search_by_date method of the MISPTool
+        Mocks the misp_client to return events matching the date
+        Asserts that the method returns the correct search results
+        """
         # Mock the MISP search response
         mock_events = {'Attribute': [{'id': 3, 'date': '2024-10-01'}]}
         mock_misp_client.return_value.search.return_value = mock_events
@@ -362,6 +536,10 @@ class TestMISPTool(TestCase):
 
     @patch('api_app.tools.misp.misp_client')
     def test_search_by_event_id(self, mock_misp_client):
+        """
+        Test the search_by_event_id method of the MISPTool
+        Mocks the misp_client to return events matching the event ID
+        Asserts that the method returns the correct search results"""
         # Mock the MISP search response
         mock_events = {'Attribute': [{'id': 1, 'event_id': 123, 'value': 'malicious.com'}]}
         mock_misp_client.return_value.search.return_value = mock_events
@@ -377,11 +555,20 @@ class TestMISPTool(TestCase):
 
 
 class TestVirusTotalTool(TestCase):
+    """
+    Test cases for the VirusTotalTool
+    """
 
     @patch('api_app.tools.virustotal.requests.get')  # Mocking the requests.get function
     @patch('api_app.tools.virustotal.requests.post')  # Mocking the requests.post function
     @patch.dict(os.environ, {'VIRUSTOTAL_API_KEY': 'test_api_key'})  # Mocking environment variable
     def test_scanner_hash_success(self, mock_post, mock_get):
+        """
+        Test the scanner method of the VirusTotalTool with a hash
+        Mocks the requests.post and requests.get functions to return successful responses
+        Asserts that the method returns the correct scan results
+        """
+
         # Mock the get response for hash scanning
         mock_get_response = MagicMock()
         mock_get_response.json.return_value = {'response_code': 1, 'scan_results': 'Hash scan results'}
@@ -404,6 +591,11 @@ class TestVirusTotalTool(TestCase):
     @patch('api_app.tools.virustotal.requests.post')
     @patch.dict(os.environ, {'VIRUSTOTAL_API_KEY': 'test_api_key'})
     def test_scanner_url_success(self, mock_post, mock_get):
+        """
+        Test the scanner method of the VirusTotalTool with a URL
+        Mocks the requests.post and requests.get functions to return successful responses
+        Asserts that the method returns the correct scan results
+        """
         # Mock the post response for URL scanning
         mock_post_response = MagicMock()
         mock_post_response.json.return_value = {'response_code': 1, 'scan_results': 'URL scan queued'}
@@ -435,6 +627,11 @@ class TestVirusTotalTool(TestCase):
     @patch('api_app.tools.virustotal.requests.post')
     @patch.dict(os.environ, {'VIRUSTOTAL_API_KEY': 'test_api_key'})
     def test_scanner_ip_success(self, mock_post, mock_get):
+        """
+        Test the scanner method of the VirusTotalTool with an IP
+        Mocks the requests.get function to return successful responses
+        Asserts that the method returns the correct scan results
+        """
         # Mock the get response for IP scanning
         mock_get_response = MagicMock()
         mock_get_response.json.return_value = {'response_code': 1, 'scan_results': 'IP scan results'}
@@ -457,6 +654,12 @@ class TestVirusTotalTool(TestCase):
     @patch('api_app.tools.virustotal.requests.post')
     @patch.dict(os.environ, {'VIRUSTOTAL_API_KEY': 'test_api_key'})
     def test_scanner_invalid_resource(self, mock_post, mock_get):
+        """
+        Test the scanner method of the VirusTotalTool with an invalid resource type
+        Mocks the requests.get function to return an error response
+        Mocks the requests.post function to return an error response
+        Asserts that the method returns the correct error message
+        """
         # Mock the get response for an invalid resource type
         mock_get_response = MagicMock()
         mock_get_response.json.return_value = {'response_code': 0, 'error': 'Invalid resource'}
@@ -567,28 +770,36 @@ class TestMitreTool(TestCase):
         mock_store.query.assert_called_once()
 
 class TestAgentSetup(TestCase):
-
+    """
+    Test cases for the setup_agents function
+    This mainly tests the initialization of the agents
+    """
     @patch('api_app.agents.hypotesis.HypothesisAgent')
     @patch('api_app.agents.investigator.InvestigationAgent')
     @patch('api_app.agents.router.RouterAgent')
     def test_setup_agents_initialization(self, MockRouterAgent, MockInvestigationAgent, MockHypothesisAgent):
-            # Mock the agents
-            mock_hyp_agent = MockHypothesisAgent.return_value
-            mock_inv_agent = MockInvestigationAgent.return_value
-            mock_router_agent = MockRouterAgent.return_value
+        """
+        Test the setup_agents function
+        Mocks the agents to return instances
+        Asserts that the agents are initialized correctly
+        """
+        # Mock the agents
+        mock_hyp_agent = MockHypothesisAgent.return_value
+        mock_inv_agent = MockInvestigationAgent.return_value
+        mock_router_agent = MockRouterAgent.return_value
 
-            # Run setup_agents
-            router_agent, hyp_agent, inv_agent = setup_agents()
+        # Run setup_agents
+        router_agent, hyp_agent, inv_agent = setup_agents()
 
 
-            # Check that the router agent has the correct tools
-            self.assertEqual(len(router_agent.tools), 2)
-            self.assertIsInstance(router_agent.tools[0], Tool)
-            self.assertIsInstance(router_agent.tools[1], Tool)
+        # Check that the router agent has the correct tools
+        self.assertEqual(len(router_agent.tools), 2)
+        self.assertIsInstance(router_agent.tools[0], Tool)
+        self.assertIsInstance(router_agent.tools[1], Tool)
 
-            # Check the names of the tools
-            self.assertEqual(router_agent.tools[0].name, "Investigate Tool")
-            self.assertEqual(router_agent.tools[1].name, "Hypothesis Tool")
+        # Check the names of the tools
+        self.assertEqual(router_agent.tools[0].name, "Investigate Tool")
+        self.assertEqual(router_agent.tools[1].name, "Hypothesis Tool")
 
 
 
