@@ -7,18 +7,27 @@ on:
     branches: [ "dev" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag sonic_ai:$(date +%s)
 
+    # Install Docker Compose
+    - name: Install Docker Compose
+      run: |
+        sudo apt-get update
+        sudo apt-get install docker-compose -y
+
+    # Build the Docker image using docker-compose
+    - name: Build the Docker image
+      run: docker-compose build sonic_ai
+
+    # Run unit tests using Docker Compose
     - name: Unit Tests
       run: docker-compose run sonic_ai python manage.py test
 
+    # Deploy the application (Optional, runs only if tests pass)
     - name: Deployment
+      if: success() # Ensure this step only runs if unit tests pass
       run: docker-compose up -d
